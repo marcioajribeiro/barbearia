@@ -43,5 +43,20 @@ public class Cliente extends Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return 
+                "ID: " + idCliente + 
+                ", Nome: " + getNome() +
+                ", CPF: " + cpf + 
+                ", Telefone:  " + getTelefone() +
+                ", Endereço: " + getEndereco() +
+                ", Email: " + email ;
+    }
+
+    
+    
+    
 }
 

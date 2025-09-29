@@ -37,7 +37,6 @@ public class GerenciadorGenerico {
     public static <T> void salvarLista(String caminho, List<T> lista){
         try(FileWriter writer = new FileWriter(caminho)){
             gson.toJson(lista, writer);
-            System.out.println("Clientes salvos com sucesso!");
         }catch (IOException e){
             System.err.println("Erro ao salvar clientes: " + e.getMessage());
         }
