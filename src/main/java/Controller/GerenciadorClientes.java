@@ -37,6 +37,10 @@ public class GerenciadorClientes extends GerenciadorGenerico {
             }
         }
     }
+    
+    public Cliente buscarClienteCPF(int cpf){
+        
+    }
 
 
     

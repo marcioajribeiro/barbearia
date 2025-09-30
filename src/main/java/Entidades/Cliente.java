@@ -3,19 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Entidades;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
  * @author MARCIO JUNIOR
  */
 public class Cliente extends Pessoa {
+    private static AtomicInteger geradorId = new AtomicInteger(0);
+    
     private int idCliente;
     private int cpf;
     private String email;
 
-    public Cliente(String nome, String endereco, String telefone, int idCliente, int cpf, String email) {
+    public Cliente(String nome, String endereco, String telefone, int cpf, String email) {
         super(nome, endereco, telefone);
-        this.idCliente = idCliente;
+        this.idCliente = geradorId.incrementAndGet();
         this.cpf = cpf;
         this.email = email;
     }
