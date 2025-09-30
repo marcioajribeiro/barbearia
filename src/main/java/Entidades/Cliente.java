@@ -13,15 +13,15 @@ public class Cliente extends Pessoa {
     private static AtomicInteger geradorId = new AtomicInteger(0);
     
     private int idCliente;
-    private String cpf;
     private String email;
 
-    public Cliente(String nome, String endereco, String telefone, String cpf, String email) {
-        super(nome, endereco, telefone);
-        this.idCliente = geradorId.incrementAndGet();
-        this.cpf = cpf;
+    public Cliente(int idCliente, String email, String nome, String endereco, String telefone, String cpf) {
+        super(nome, endereco, telefone, cpf);
+        this.idCliente = idCliente;
         this.email = email;
     }
+    
+ 
 
     public int getIdCliente() {
         return idCliente;
@@ -31,13 +31,6 @@ public class Cliente extends Pessoa {
         this.idCliente = idCliente;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
     public String getEmail() {
         return email;
@@ -46,13 +39,15 @@ public class Cliente extends Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    
 
     @Override
     public String toString() {
         return 
                 "ID: " + idCliente + 
                 ", Nome: " + getNome() +
-                ", CPF: " + cpf + 
+                ", CPF: " + cpfPseudoAnonimizado() + 
                 ", Telefone:  " + getTelefone() +
                 ", Endereço: " + getEndereco() +
                 ", Email: " + email ;

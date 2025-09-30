@@ -13,13 +13,14 @@ public class Funcionário extends Pessoa {
     private String cargo;
     private String senha;
 
-    public Funcionário(int idFuncionario, String cargo, String senha, String nome, String endereco, String telefone) {
-        super(nome, endereco, telefone);
+    public Funcionário(int idFuncionario, String cargo, String senha, String nome, String endereco, String telefone, String cpf) {
+        super(nome, endereco, telefone, cpf);
         this.idFuncionario = idFuncionario;
         this.cargo = cargo;
         this.senha = senha;
     }
 
+   
     public int getIdFuncionario() {
         return idFuncionario;
     }
@@ -42,6 +43,18 @@ public class Funcionário extends Pessoa {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    @Override
+    public String toString() {
+        return 
+                "ID: " + idFuncionario + 
+                ", Nome: " + getNome() +
+                ", Cargo: " + cargo +
+                ", CPF: " + cpfPseudoAnonimizado() + 
+                ", Telefone:  " + getTelefone() +
+                ", Endereço: " + getEndereco() +
+   
     }
 
    

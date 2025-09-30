@@ -12,12 +12,15 @@ public abstract class Pessoa {
     private String nome;
     private String endereco;
     private String telefone;
+    private String cpf;
 
-    public Pessoa(String nome, String endereco, String telefone) {
+    public Pessoa(String nome, String endereco, String telefone, String cpf) {
         this.nome = nome;
-        this.endereco = endereco;
+        this.cpf = cpf;
         this.telefone = telefone;
+        this.endereco = endereco;
     }
+  
 
     public String getNome() {
         return nome;
@@ -41,6 +44,22 @@ public abstract class Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
+    
+    public String cpfPseudoAnonimizado() {
+        if (cpf == null || cpf.length() != 11) {
+            return "CPF inválido";
+        }
+        return cpf.substring(0, 3) + "..-" + cpf.substring(9, 11);
     }
 
     @Override

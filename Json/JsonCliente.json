@@ -1,34 +1,34 @@
 [
   {
     "idCliente": 1,
-    "cpf": "111111111",
-    "email": "joao@email.com",
+    "email": "joao@gmail.com",
     "nome": "João Silva",
     "endereco": "Rua A, 123",
-    "telefone": "99999-1111"
+    "telefone": "11999999999",
+    "cpf": "11111111111"
   },
   {
     "idCliente": 2,
-    "cpf": "222222222",
-    "email": "maria@email.com",
+    "email": "maria@gmail.com",
     "nome": "Maria Souza",
-    "endereco": "Av. Central, 456",
-    "telefone": "99999-2222"
+    "endereco": "Av. B, 456",
+    "telefone": "21988888888",
+    "cpf": "22222222222"
   },
   {
     "idCliente": 4,
-    "cpf": "444444444",
-    "email": "ana@email.com",
+    "email": "ana@gmail.com",
     "nome": "Ana Oliveira",
-    "endereco": "Rua B, 321",
-    "telefone": "99999-4444"
+    "endereco": "Alameda D, 101",
+    "telefone": "41966666666",
+    "cpf": "44444444444"
   },
   {
     "idCliente": 5,
-    "cpf": "555555555",
-    "email": "fernanda@email.com",
-    "nome": "Fernanda Costa",
-    "endereco": "Av. Paulista, 654",
-    "telefone": "99999-5555"
+    "email": "lucas@gmail.com",
+    "nome": "Lucas Santos",
+    "endereco": "Travessa E, 202",
+    "telefone": "51955555555",
+    "cpf": "55555555555"
   }
 ]
