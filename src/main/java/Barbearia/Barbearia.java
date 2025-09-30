@@ -24,9 +24,11 @@ public class Barbearia {
         gerenciador.addCliente(c3);
         gerenciador.addCliente(c4);
         gerenciador.addCliente(c5);
+        System.out.println(gerenciador.buscarClienteId(3));
+        gerenciador.removerClienteId(3);
         
         
-        gerenciador.listarClientes();
+     
         
     }
 }

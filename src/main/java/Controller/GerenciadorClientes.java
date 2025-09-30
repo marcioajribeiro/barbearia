@@ -40,15 +40,24 @@ public class GerenciadorClientes extends GerenciadorGenerico {
     
     public Cliente buscarClienteId(int id){
         for(Cliente cliente : clientes){
-            if(cliente.getIdCliente()==id){
+            if(cliente.getIdCliente()== id){
                 return cliente;
             }
         }
         
         System.out.println("ID: " + id + "não encontrado");
-        return null;
-        
-        
+        return null;   
+    }
+    
+    public void removerClienteId(int id){
+        Cliente cliente = buscarClienteId(id);
+        if(cliente !=null){
+            clientes.remove(cliente);
+            System.out.println("Cliente removido");
+            GerenciadorClientes.salvarLista(caminho, clientes);
+        }else {
+            System.out.println("Cliente não encontrado");
+        }
     }
 
 
