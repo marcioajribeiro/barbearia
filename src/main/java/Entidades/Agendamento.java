@@ -19,7 +19,7 @@ public class Agendamento {
     private String Funcionario;
     private Date data;
     private String tipoAgendamento;
-    private Servico servido;
+    private Servico servico;
 
     public Agendamento(Cliente cliente, String Funcionario, String data, String tipoAgendamento, Servico servido) {
         this.cliente = cliente;
@@ -30,7 +30,8 @@ public class Agendamento {
         Logger.getLogger (Agendamento.class.getName()).log(Level.SEVERE, null, ex);
             }
         this.tipoAgendamento = tipoAgendamento;
-        this.servido = servido;
+        this.servico = servico;
     }
+    
     
 }

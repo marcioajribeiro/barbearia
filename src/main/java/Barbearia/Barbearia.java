@@ -27,6 +27,6 @@ public class Barbearia {
         
         
         gerenciador.listarClientes();
-
+        
     }
 }
