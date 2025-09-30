@@ -38,7 +38,16 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         }
     }
     
-    public Cliente buscarClienteCPF(int cpf){
+    public Cliente buscarClienteId(int id){
+        for(Cliente cliente : clientes){
+            if(cliente.getIdCliente()==id){
+                return cliente;
+            }
+        }
+        
+        System.out.println("ID: " + id + "não encontrado");
+        return null;
+        
         
     }
 
