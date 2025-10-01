@@ -53,7 +53,7 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         Cliente cliente = buscarClienteId(id);
         if(cliente !=null){
             clientes.remove(cliente);
-            System.out.println("Cliente removido");
+            System.out.println("Cliente removido com sucesso");
             super.salvarLista(caminho, clientes);
         }else {
             System.out.println("Cliente não encontrado");
@@ -61,7 +61,7 @@ public class GerenciadorClientes extends GerenciadorGenerico {
     }
     
     
-    public Cliente buscarClienteCPF(String cpf){
+    public Cliente buscarClienteCpf(String cpf){
         for(Cliente cliente : clientes){
             if(cliente.getCpf().equals(cpf)){
                 return cliente;
@@ -72,8 +72,8 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         return null;   
     }
     
-      public void removerClienteCPF(String cpf){
-        Cliente cliente = buscarClienteCPF(cpf);
+      public void removerClienteCpf(String cpf){
+        Cliente cliente = buscarClienteCpf(cpf);
         if(cliente !=null){
             clientes.remove(cliente);
             System.out.println("Cliente removido");

@@ -14,13 +14,5 @@
     "endereco": "Rua B, 456",
     "telefone": "99999-2222",
     "cpf": "222.222.222-22"
-  },
-  {
-    "idCliente": 3,
-    "email": "carla@email.com",
-    "nome": "Carla Mendes",
-    "endereco": "Rua C, 789",
-    "telefone": "99999-3333",
-    "cpf": "333.333.333-33"
   }
 ]
