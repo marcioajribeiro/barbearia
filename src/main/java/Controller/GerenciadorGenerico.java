@@ -18,27 +18,27 @@ import java.lang.reflect.Type;
  *
  * @author MARCIO JUNIOR
  */
-public class GerenciadorGenerico {
+public abstract class GerenciadorGenerico {
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     
-    public static <T> List<T> carregarListas(String caminho, Class<T> type){
+    public <T> List<T> carregarListas(String caminho, Class<T> type){
         try (FileReader reader = new FileReader(caminho)){
         Type tipoLista = TypeToken.getParameterized(List.class, type).getType();
         List<T> objetos = gson.fromJson(reader, tipoLista);
         
         return (objetos!=null)? objetos : new ArrayList<>();        
     }   catch (IOException e){
-        System.err.println("️ Erro ao carregar objetos: " + e.getMessage());
+        System.err.println("️ Erro ao carregar lista: " + e.getMessage());
         return new ArrayList<>();
         
     }
     }
     
-    public static <T> void salvarLista(String caminho, List<T> lista){
+    public  <T> void salvarLista(String caminho, List<T> lista){
         try(FileWriter writer = new FileWriter(caminho)){
             gson.toJson(lista, writer);
         }catch (IOException e){
-            System.err.println("Erro ao salvar clientes: " + e.getMessage());
+            System.err.println("Erro ao salvar: " + e.getMessage());
         }
     }
     

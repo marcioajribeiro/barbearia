@@ -15,9 +15,9 @@ public class Cliente extends Pessoa {
     private int idCliente;
     private String email;
 
-    public Cliente(int idCliente, String email, String nome, String endereco, String telefone, String cpf) {
+    public Cliente(String nome,String cpf,String email, String endereco, String telefone) {
         super(nome, endereco, telefone, cpf);
-        this.idCliente = idCliente;
+        this.idCliente = geradorId.incrementAndGet();
         this.email = email;
     }
     

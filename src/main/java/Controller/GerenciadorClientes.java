@@ -18,20 +18,20 @@ public class GerenciadorClientes extends GerenciadorGenerico {
     
     
     public GerenciadorClientes() {
-        this.clientes = GerenciadorGenerico.carregarListas(caminho, Cliente.class);
+        this.clientes = super.carregarListas(caminho, Cliente.class);
     }
     
     public void addCliente(Cliente c){
         this.clientes.add(c);
         System.out.println("Cliente Salvo");
-        GerenciadorGenerico.salvarLista(caminho, clientes);
+        super.salvarLista(caminho, clientes);
     }
     
     public void listarClientes(){
         if (clientes.isEmpty()){
             System.out.println("Não há clientes cadastrados");
         }else{
-            System.err.println("-----Lista de Clientes-----");
+            System.out.println("-----Lista de Clientes-----");
             for(Cliente cliente : clientes){
                 System.out.println(cliente);
             }
@@ -54,12 +54,36 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         if(cliente !=null){
             clientes.remove(cliente);
             System.out.println("Cliente removido");
-            GerenciadorClientes.salvarLista(caminho, clientes);
+            super.salvarLista(caminho, clientes);
         }else {
             System.out.println("Cliente não encontrado");
         }
     }
-
+    
+    
+    public Cliente buscarClienteCPF(String cpf){
+        for(Cliente cliente : clientes){
+            if(cliente.getCpf().equals(cpf)){
+                return cliente;
+            }
+        }
+        
+        System.out.println("CPF: " + cpf + "não encontrado");
+        return null;   
+    }
+    
+      public void removerClienteCPF(String cpf){
+        Cliente cliente = buscarClienteCPF(cpf);
+        if(cliente !=null){
+            clientes.remove(cliente);
+            System.out.println("Cliente removido");
+            super.salvarLista(caminho, clientes);
+        }else {
+            System.out.println("Cliente não encontrado");
+        }
+    }
+    
+    
 
     
     
