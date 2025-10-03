@@ -29,18 +29,14 @@ public class Barbearia {
         clientes.addCliente(c2);
         clientes.addCliente(c3);
         clientes.removerClienteCpf("333.333.333-33");
-        
+ 
         func.addFuncionario(f1);
         func.addFuncionario(f2);
         func.addFuncionario(f3);
-        func.removerFuncionarioCpf("45678912300");
+        clientes.alterarCliente("Márcio", "marcio@gmail.com", "Barão do Rio branco", "99184025");
+  
 
 
-
-        
-        
-        
-        
      
         
     }
