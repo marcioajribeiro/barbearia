@@ -41,5 +41,6 @@ public abstract class GerenciadorGenerico {
             System.err.println("Erro ao salvar: " + e.getMessage());
         }
     }
+  
     
 }

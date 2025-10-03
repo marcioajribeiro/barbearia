@@ -27,6 +27,10 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         System.out.println("Cliente Salvo");
         super.salvarLista(caminho, clientes);
     }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
     
     public void listarClientes(){
         if (clientes.isEmpty()){
@@ -39,28 +43,6 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         }
     }
     
-    public Cliente buscarClienteId(int id){
-        for(Cliente cliente : clientes){
-            if(cliente.getIdCliente()== id){
-                return cliente;
-            }
-        }
-        
-        System.out.println("ID: " + id + "não encontrado");
-        return null;   
-    }
-    
-    public void removerClienteId(int id){
-        Cliente cliente = buscarClienteId(id);
-        if(cliente !=null){
-            clientes.remove(cliente);
-            System.out.println("Cliente removido com sucesso");
-            super.salvarLista(caminho, clientes);
-        }else {
-            System.out.println("Cliente não encontrado");
-        }
-    }
-    
     
     public Cliente buscarClienteCpf(String cpf){
         for(Cliente cliente : clientes){
@@ -69,7 +51,7 @@ public class GerenciadorClientes extends GerenciadorGenerico {
             }
         }
         
-        System.out.println("CPF: " + cpf + "não encontrado");
+        System.out.println("CPF: " + cpf + " não encontrado");
         return null;   
     }
     
@@ -95,16 +77,12 @@ public class GerenciadorClientes extends GerenciadorGenerico {
               clienteParaAlterar.setEndereco(endereco);
               clienteParaAlterar.setTelefone(novoTelefone);
               super.salvarLista(caminho, clientes);
-              System.out.println("Cliente alterado");
+              System.out.println("Alterações salvas");
           }
           
       }
-    
-    
 
-    
-    
-    
+
     
     
     

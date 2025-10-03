@@ -6,6 +6,7 @@ package Controller;
 
 import Entidades.Funcionario;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -19,6 +20,10 @@ public class GerenciadorFuncionario extends GerenciadorGenerico{
     public GerenciadorFuncionario() {
         this.funcionarios = super.carregarListas(caminho, Funcionario.class);
     }
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
     
     public void addFuncionario(Funcionario f){
         funcionarios.add(f);
@@ -26,7 +31,7 @@ public class GerenciadorFuncionario extends GerenciadorGenerico{
         super.salvarLista(caminho, funcionarios);
     }
     
-    public void listarFuncionários(int id){
+    public void listarFuncionários(){
         if(funcionarios.isEmpty()){
             System.out.println("Não há Funcionários cadastrados");
         }else{
@@ -58,6 +63,23 @@ public class GerenciadorFuncionario extends GerenciadorGenerico{
             System.out.println("Funcionario não encontrado");
         }
     }
+    
+    public void alterarFuncionario(String novoNome, String novoCargo, String novaSenha, String novoEndereco, String novoTelefone){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o CPF do funcionário que deseja alterar: ");
+        String cpf = sc.nextLine();
+        Funcionario funcParaAlterar = buscarFuncionarioCpf(cpf);
+        if (funcParaAlterar != null){
+            funcParaAlterar.setNome(novoNome);
+            funcParaAlterar.setCargo(novoCargo);
+            funcParaAlterar.setSenha(novaSenha);
+            funcParaAlterar.setEndereco(novoEndereco);
+            funcParaAlterar.setTelefone(novoTelefone);
+            super.salvarLista(caminho, funcionarios);
+            System.out.println("Alterações salvas");
+        }
+    }
+    
     
     
     
