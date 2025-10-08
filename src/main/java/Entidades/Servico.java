@@ -4,19 +4,32 @@
  */
 package Entidades;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  *
  * @author rafin
  */
 class Servico {
+    private static AtomicInteger geradorId = new AtomicInteger(0);
     private int idServico;
-    private String tipo;
-    private Float valor;
+    private String descricao;
+    private double valor;
+    private int duração;
 
-    public Servico(int idServico, String tipo, Float valor) {
-        this.idServico = idServico;
-        this.tipo = tipo;
+    public Servico(String descricao, double valor, int duração) {
+        this.descricao = descricao;
         this.valor = valor;
+        this.duração = duração;
+        this.idServico = geradorId.incrementAndGet();
+    }
+
+    public static AtomicInteger getGeradorId() {
+        return geradorId;
+    }
+
+    public static void setGeradorId(AtomicInteger geradorId) {
+        Servico.geradorId = geradorId;
     }
 
     public int getIdServico() {
@@ -27,21 +40,28 @@ class Servico {
         this.idServico = idServico;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public Float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
-    
-    
+
+    public int getDuração() {
+        return duração;
+    }
+
+    public void setDuração(int duração) {
+        this.duração = duração;
+    }
+
 }
