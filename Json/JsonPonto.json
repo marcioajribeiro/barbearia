@@ -1,0 +1,15 @@
+[
+  {
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "Gerente",
+      "senha": "senha123",
+      "nome": "João Silva",
+      "endereco": "Rua A, 123",
+      "telefone": "38999999999",
+      "cpf": "12345678900"
+    },
+    "entrada": "2025-10-15T01:21:19.2179609",
+    "saida": "2025-10-15T01:21:19.2199603"
+  }
+]
