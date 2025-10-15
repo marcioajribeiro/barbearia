@@ -7,6 +7,7 @@ package ControlePonto;
 import Entidades.Funcionario;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -53,6 +54,27 @@ public class RegistroPonto {
     public void pontoDeSaida(){
         this.saida = LocalDate.now();
     } 
+
+    @Override
+    public String toString() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        
+        String saidaFormatada = (saida !=null) ? fmt.format(saida) : "O PONTO ESTÁ EM ABERTO";
+        
+        return String.format("Funcionário: %s \n"
+                + "Entrada: %s \n"
+                + "Saída: %s \n"
+                + "Horas Trabalhadas: %.2f",
+                funcionario.getNome(),
+                fmt.format(entrada),
+                saidaFormatada,
+                getHorasTrabalhadas()
+        
+        
+        );
+    }
+    
+    
     
     
     
