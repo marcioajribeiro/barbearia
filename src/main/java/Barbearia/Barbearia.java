@@ -1,5 +1,6 @@
 package Barbearia;
 
+import ControlePonto.GerenciadorPonto;
 import Controller.*;
 import Entidades.Cliente;
 import Entidades.Funcionario;
@@ -16,6 +17,8 @@ public class Barbearia {
     public static void main(String[] args)  {
         GerenciadorClientes clientes = new GerenciadorClientes();
         GerenciadorFuncionario func = new GerenciadorFuncionario();
+        GerenciadorPonto pontos = new GerenciadorPonto();
+        
         clientes.getClientes().clear();
         func.getFuncionarios().clear();
         
@@ -36,6 +39,12 @@ public class Barbearia {
         func.addFuncionario(f2);
         func.addFuncionario(f3);
         clientes.alterarCliente("Márcio", "marcio@gmail.com", "Barão do Rio branco", "99184025");
+        pontos.baterEntrada(f1);
+        pontos.baterSaida(f1);
+        pontos.baterSaida(f2);
+        pontos.listarPontos();
+        
+        
   
 
 

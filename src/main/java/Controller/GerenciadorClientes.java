@@ -68,7 +68,7 @@ public class GerenciadorClientes extends GerenciadorGenerico {
       
       public void alterarCliente(String novoNome,String email, String endereco, String novoTelefone){
           Scanner sc = new Scanner(System.in);
-          System.out.println("Digite o CPF do cliente que deseja alterar: ");
+          System.out.print("Digite o CPF do cliente que deseja alterar: ");
           String cpf = sc.nextLine();
           Cliente clienteParaAlterar = buscarClienteCpf(cpf);
           if (clienteParaAlterar != null){

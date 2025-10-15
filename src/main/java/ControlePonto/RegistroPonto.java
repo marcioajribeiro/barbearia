@@ -6,21 +6,22 @@ package ControlePonto;
 
 import Entidades.Funcionario;
 import java.time.Duration;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- *
+ *                          
  * @author MARCIO JUNIOR
  */
 public class RegistroPonto {
     private  final Funcionario funcionario;
-    private final LocalDate  entrada;
-    private LocalDate saida;
+    private final LocalDateTime  entrada;
+    private LocalDateTime saida;
 
     public RegistroPonto(Funcionario funcionario) {
         this.funcionario = funcionario;
-        this.entrada = LocalDate.now();
+        this.entrada = LocalDateTime.now();
         this.saida = null;
     }
     
@@ -31,11 +32,11 @@ public class RegistroPonto {
         return funcionario;
     }
 
-    public LocalDate getEntrada() {
+    public LocalDateTime getEntrada() {
         return entrada;
     }
 
-    public LocalDate getSaida() {
+    public LocalDateTime getSaida() {
         return saida;
     }
     
@@ -52,26 +53,22 @@ public class RegistroPonto {
     
     
     public void pontoDeSaida(){
-        this.saida = LocalDate.now();
+        this.saida = LocalDateTime.now();
     } 
 
     @Override
     public String toString() {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         
+        String entradaFormatada = fmt.format(entrada);
+        
         String saidaFormatada = (saida !=null) ? fmt.format(saida) : "O PONTO ESTÁ EM ABERTO";
         
-        return String.format("Funcionário: %s \n"
-                + "Entrada: %s \n"
-                + "Saída: %s \n"
-                + "Horas Trabalhadas: %.2f",
-                funcionario.getNome(),
-                fmt.format(entrada),
-                saidaFormatada,
-                getHorasTrabalhadas()
-        
-        
-        );
+        return "Funcionario: " + funcionario.getNome() +
+                ", Entrada: " + entradaFormatada +
+                ", Saída: " + saidaFormatada +
+                ", Horas: " + getHorasTrabalhadas();
+     
     }
     
     
