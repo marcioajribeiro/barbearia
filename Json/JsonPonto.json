@@ -10,6 +10,49 @@
       "cpf": "12345678900"
     },
     "entrada": "2025-10-15T01:21:19.2179609",
-    "saida": "2025-10-15T01:21:19.2199603"
+    "saida": "2025-10-15T01:21:19.2199603",
+    "horasTrabalhadas": 0.0
+  },
+  {
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "Gerente",
+      "senha": "senha123",
+      "nome": "João Silva",
+      "endereco": "Rua A, 123",
+      "telefone": "38999999999",
+      "cpf": "12345678900"
+    },
+    "entrada": "2025-10-17T13:27:37.0664617",
+    "saida": "2025-10-17T13:27:37.0724600",
+    "horasTrabalhadas": 0.0
+  },
+  {
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "Gerente",
+      "senha": "senha123",
+      "nome": "João Silva",
+      "endereco": "Rua A, 123",
+      "telefone": "38999999999",
+      "cpf": "12345678900"
+    },
+    "entrada": "2025-10-17T13:28:50.6814112",
+    "saida": "2025-10-17T13:28:50.6864070",
+    "horasTrabalhadas": 0.0
+  },
+  {
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "Gerente",
+      "senha": "senha123",
+      "nome": "João Silva",
+      "endereco": "Rua A, 123",
+      "telefone": "38999999999",
+      "cpf": "12345678900"
+    },
+    "entrada": "2025-10-17T13:29:50.6807434",
+    "saida": "2025-10-17T13:29:50.6862583",
+    "horasTrabalhadas": 0.0
   }
 ]

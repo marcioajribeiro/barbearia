@@ -4,24 +4,25 @@
  */
 package Loja;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  *
  * @author rafin
  */
 public class Produto {
+    private static final AtomicInteger geradorId = new AtomicInteger(0);
     
     private String nome;
     private double preco;
-    private int estoque;
-    private int quantidadeInicial;
+    private int quantidade;
     private int id;
 
-    public Produto(String nome, double preco, int estoque, int quantidadeInicial, int id) {
+    public Produto(String nome, double preco, int quantidade) {
         this.nome = nome;
         this.preco = preco;
-        this.estoque = estoque;
-        this.quantidadeInicial = quantidadeInicial;
-        this.id = id;
+        this.quantidade = quantidade;
+        this.id = geradorId.incrementAndGet();
     }
 
     public String getNome() {
@@ -40,20 +41,12 @@ public class Produto {
         this.preco = preco;
     }
 
-    public int getEstoque() {
-        return estoque;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setEstoque(int estoque) {
-        this.estoque = estoque;
-    }
-
-    public int getQuantidadeInicial() {
-        return quantidadeInicial;
-    }
-
-    public void setQuantidadeInicial(int quantidadeInicial) {
-        this.quantidadeInicial = quantidadeInicial;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public int getId() {
@@ -64,10 +57,16 @@ public class Produto {
         this.id = id;
     }
 
- @Override
+   
+  @Override
     public String toString() {
-        return "Produto{" + "nome=" + nome + ", preco=" + preco + ", estoque=" + estoque + '}';
-    }
+        return 
+                "ID: " + id + 
+                ", Nome: " + nome +
+                ", Preço: " + preco +
+                ", Quantidade: " + quantidade;
+
+  }
    
     
 }

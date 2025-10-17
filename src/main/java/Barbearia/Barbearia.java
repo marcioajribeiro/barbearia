@@ -4,6 +4,7 @@ import ControlePonto.GerenciadorPonto;
 import Controller.*;
 import Entidades.Cliente;
 import Entidades.Funcionario;
+import Loja.Produto;
 
 
 
@@ -15,12 +16,12 @@ import Entidades.Funcionario;
 public class Barbearia {
 
     public static void main(String[] args)  {
+        GerenciadorProduto produtos = new GerenciadorProduto();
         GerenciadorClientes clientes = new GerenciadorClientes();
         GerenciadorFuncionario func = new GerenciadorFuncionario();
         GerenciadorPonto pontos = new GerenciadorPonto();
         
-        clientes.getClientes().clear();
-        func.getFuncionarios().clear();
+     
         
         Cliente c1 = new Cliente("Ana Silva","111.111.111-11","ana@email.com","Rua A, 123","99999-1111");
         Cliente c2 = new Cliente("Bruno Souza","222.222.222-22","bruno@email.com","Rua B, 456","99999-2222");
@@ -45,7 +46,11 @@ public class Barbearia {
         pontos.listarPontos();
         
         
-  
+        Produto p1 = new Produto("papel",12,2);
+        Produto p2 = new Produto("shapoo", 10, 20);
+        
+        produtos.addProduto(p1);
+        produtos.addProduto(p2);
 
 
      
