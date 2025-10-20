@@ -6,7 +6,6 @@ package Controller;
 
 import Entidades.Funcionario;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -64,20 +63,28 @@ public class GerenciadorFuncionario extends GerenciadorGenerico{
         }
     }
     
-    public void alterarFuncionario(String novoNome, String novoCargo, String novaSenha, String novoEndereco, String novoTelefone){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Digite o CPF do funcionário que deseja alterar: ");
-        String cpf = sc.nextLine();
-        Funcionario funcParaAlterar = buscarFuncionarioCpf(cpf);
-        if (funcParaAlterar != null){
-            funcParaAlterar.setNome(novoNome);
-            funcParaAlterar.setCargo(novoCargo);
-            funcParaAlterar.setSenha(novaSenha);
-            funcParaAlterar.setEndereco(novoEndereco);
-            funcParaAlterar.setTelefone(novoTelefone);
-            super.salvarLista(caminho, funcionarios);
-            System.out.println("Alterações salvas");
-        }
+    public void alterarNomeFuncionario(String novoNome, Funcionario f){
+        f.setNome(novoNome);
+    }
+    
+    public void alterarEnderecoFuncionario(String novoEndereco, Funcionario f){
+        f.setEndereco(novoEndereco);
+    }
+    
+    public void alterarTelefoneFuncionario(String novoTelefone, Funcionario f){
+        f.setTelefone(novoTelefone);
+    }
+    
+    public void alterarSenhaFuncionario (String novaSenha,Funcionario f){
+        f.setSenha(novaSenha);
+    }
+    
+    public void alterarCargoFuncionario (String novoCargo, Funcionario f){
+        f.setCargo(novoCargo);
+    }
+    
+    public void alterarCpfFuncionario (String novoCpf, Funcionario f){
+        f.setCpf(novoCpf);
     }
     
     

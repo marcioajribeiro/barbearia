@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author MARCIO JUNIOR
  */
 public class Cliente extends Pessoa {
-    private static AtomicInteger geradorId = new AtomicInteger(0);
+    private static AtomicInteger geradorId;
     
     private int idCliente;
     private String email;

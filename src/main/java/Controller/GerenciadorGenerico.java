@@ -24,14 +24,14 @@ public abstract class GerenciadorGenerico {
     private static final Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter()).setPrettyPrinting().create();
   
     public <T> List<T> carregarListas(String caminho, Class<T> type){
-        try (FileReader reader = new FileReader(caminho)){
-        Type tipoLista = TypeToken.getParameterized(List.class, type).getType();
+        try (FileReader reader = new FileReader(caminho)){   
+        Type tipoLista = TypeToken.getParameterized(List.class, type).getType(); 
         List<T> objetos = gson.fromJson(reader, tipoLista);
         
-        return (objetos!=null)? objetos : new ArrayList<>();        
+        return (objetos!=null)? objetos : new ArrayList<>();
     }   catch (IOException e){
-        System.err.println("️ Erro ao carregar lista: " + e.getMessage());
-        return new ArrayList<>();
+        System.err.println("️ Erro ao carregar lista: " + e.getMessage());  
+        return null;
         
     }
     }

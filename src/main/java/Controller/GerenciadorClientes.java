@@ -6,7 +6,6 @@ package Controller;
 
 import Entidades.Cliente;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -14,7 +13,7 @@ import java.util.Scanner;
  */
 public class GerenciadorClientes extends GerenciadorGenerico {
     
-    private List<Cliente> clientes;
+    private  List<Cliente> clientes;
     private final String caminho = "Json/JsonCliente.json";
     
     
@@ -66,20 +65,24 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         }
     }
       
-      public void alterarCliente(String novoNome,String email, String endereco, String novoTelefone){
-          Scanner sc = new Scanner(System.in);
-          System.out.print("Digite o CPF do cliente que deseja alterar: ");
-          String cpf = sc.nextLine();
-          Cliente clienteParaAlterar = buscarClienteCpf(cpf);
-          if (clienteParaAlterar != null){
-              clienteParaAlterar.setNome(novoNome);
-              clienteParaAlterar.setEmail(email);
-              clienteParaAlterar.setEndereco(endereco);
-              clienteParaAlterar.setTelefone(novoTelefone);
-              super.salvarLista(caminho, clientes);
-              System.out.println("Alterações salvas");
-          }
-          
+      public void alterarNomeCliente(String novoNome, Cliente c){
+          c.setNome(novoNome); 
+      }
+      
+      public void alterarEnderecoCliente(String novoEndereco, Cliente c){
+          c.setEndereco(novoEndereco);
+      }
+      
+      public void alterarTelefoneCliente(String novoTelefone, Cliente c){
+          c.setEndereco(novoTelefone);
+      }
+      
+      public void alterarEmailCliente(String novoEmail, Cliente c){
+          c.setEmail(novoEmail);
+      }
+      
+      public void alterarCpfCliente(String Cpf, Cliente c){
+          c.setCpf(Cpf);
       }
 
 
