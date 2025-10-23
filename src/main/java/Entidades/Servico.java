@@ -4,32 +4,23 @@
  */
 package Entidades;
 
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  *
  * @author rafin
  */
-class Servico {
-    private static AtomicInteger geradorId = new AtomicInteger(0);
+public class Servico {
     private int idServico;
     private String descricao;
     private double valor;
     private int duração;
 
-    public Servico(String descricao, double valor, int duração) {
+    public Servico(int id,String descricao, double valor, int duração) {
         this.descricao = descricao;
         this.valor = valor;
         this.duração = duração;
-        this.idServico = geradorId.incrementAndGet();
-    }
-
-    public static AtomicInteger getGeradorId() {
-        return geradorId;
-    }
-
-    public static void setGeradorId(AtomicInteger geradorId) {
-        Servico.geradorId = geradorId;
+        this.idServico = id;
     }
 
     public int getIdServico() {

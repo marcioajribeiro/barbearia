@@ -5,7 +5,9 @@
 package Controller;
 
 import Entidades.Cliente;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -21,9 +23,9 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         this.clientes = super.carregarListas(caminho, Cliente.class);
     }
     
-    public void addCliente(Cliente c){
-        this.clientes.add(c);
-        System.out.println("Cliente Salvo");
+    public void addCliente(Cliente cliente){
+        cliente.setIdCliente(geradorIdCliente());
+        clientes.add(cliente);
         super.salvarLista(caminho, clientes);
     }
 
@@ -43,7 +45,7 @@ public class GerenciadorClientes extends GerenciadorGenerico {
     }
     
     
-    public Cliente buscarClienteCpf(String cpf){
+    public Cliente buscarCliente(String cpf){
         for(Cliente cliente : clientes){
             if(cliente.getCpf().equals(cpf)){
                 return cliente;
@@ -54,15 +56,10 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         return null;   
     }
     
-      public void removerClienteCpf(String cpf){
-        Cliente cliente = buscarClienteCpf(cpf);
-        if(cliente !=null){
+      public void removerCliente(Cliente cliente){
             clientes.remove(cliente);
             System.out.println("Cliente removido");
             super.salvarLista(caminho, clientes);
-        }else {
-            System.out.println("Cliente não encontrado");
-        }
     }
       
       public void alterarNomeCliente(String novoNome, Cliente c){
@@ -84,10 +81,26 @@ public class GerenciadorClientes extends GerenciadorGenerico {
       public void alterarCpfCliente(String Cpf, Cliente c){
           c.setCpf(Cpf);
       }
-
-
-    
-    
-    
+      
+      public int geradorIdCliente(){
+          if(clientes.isEmpty()){
+              return 1;
+          }
+          
+          Set<Integer> idsExistentes = new HashSet<>();
+          for(Cliente cliente: clientes){
+              idsExistentes.add(cliente.getIdCliente());
+          }
+          
+          int novoId = 1;
+          
+          while(idsExistentes.contains(novoId)){
+              novoId++;
+          }
+          
+          return novoId;
+          
+      }
+      
     
 }

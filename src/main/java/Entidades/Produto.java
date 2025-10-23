@@ -2,27 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Loja;
+package Entidades;
 
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  *
  * @author rafin
  */
 public class Produto {
-    private static final AtomicInteger geradorId = new AtomicInteger(0);
     
     private String nome;
     private double preco;
     private int quantidade;
     private int id;
 
-    public Produto(String nome, double preco, int quantidade) {
+    public Produto(int id, String nome, double preco, int quantidade) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
-        this.id = geradorId.incrementAndGet();
+        this.id = id;
     }
 
     public String getNome() {

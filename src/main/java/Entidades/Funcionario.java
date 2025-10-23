@@ -4,22 +4,21 @@
  */
 package Entidades;
 
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  *
  * @author rafin
  */
 public class Funcionario extends Pessoa {
-    private static AtomicInteger geradorId = new AtomicInteger(0);
     
-    private int idFuncionario;
+    private final int idFuncionario;
     private String cargo;
     private String senha;
 
-    public Funcionario(String nome, String cpf, String cargo, String senha, String endereco, String telefone) {
+    public Funcionario(int id, String nome, String cpf, String cargo, String senha, String endereco, String telefone) {
         super(nome, endereco, telefone, cpf);
-        this.idFuncionario = geradorId.incrementAndGet();
+        this.idFuncionario = id ;
         this.cargo = cargo;
         this.senha = senha;
     }

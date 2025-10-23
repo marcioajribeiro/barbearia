@@ -4,7 +4,7 @@
  */
 package Controller;
 
-import Loja.Produto;
+import Entidades.Produto;
 import java.util.List;
 
 /**
