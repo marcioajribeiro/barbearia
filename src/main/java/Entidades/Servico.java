@@ -12,15 +12,14 @@ package Entidades;
  */
 public class Servico {
     private int idServico;
-    private String descricao;
+    private String tipoServico;
     private double valor;
-    private int duração;
+    private int duraçãoMin;
 
-    public Servico(int id,String descricao, double valor, int duração) {
-        this.descricao = descricao;
+    public Servico(String descricao, double valor, int duração) {
+        this.tipoServico = descricao;
         this.valor = valor;
-        this.duração = duração;
-        this.idServico = id;
+        this.duraçãoMin = duração;
     }
 
     public int getIdServico() {
@@ -31,12 +30,12 @@ public class Servico {
         this.idServico = idServico;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getServico() {
+        return tipoServico;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricao(String tipoServico) {
+        this.tipoServico = tipoServico;
     }
 
     public double getValor() {
@@ -48,11 +47,11 @@ public class Servico {
     }
 
     public int getDuração() {
-        return duração;
+        return duraçãoMin;
     }
 
     public void setDuração(int duração) {
-        this.duração = duração;
+        this.duraçãoMin = duração;
     }
 
 }

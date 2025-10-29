@@ -17,7 +17,7 @@ public class Barbearia {
     public static void main(String[] args)  {
         GerenciadorProduto produtos = new GerenciadorProduto();
         GerenciadorClientes clientes = new GerenciadorClientes();
-        GerenciadorFuncionario func = new GerenciadorFuncionario();
+        GerenciadorFuncionarios func = new GerenciadorFuncionarios();
         GerenciadorPonto pontos = new GerenciadorPonto();
         
      

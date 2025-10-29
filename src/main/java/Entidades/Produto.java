@@ -14,14 +14,24 @@ public class Produto {
     
     private String nome;
     private double preco;
-    private int quantidade;
-    private int id;
+    private int quantidadeEstoque;
+    private int idProduto;
+    private String Fornecedor;
 
-    public Produto(int id, String nome, double preco, int quantidade) {
+    public Produto(String nome, double preco, int quantidade, int idProduto, String Fornecedor) {
         this.nome = nome;
         this.preco = preco;
-        this.quantidade = quantidade;
-        this.id = id;
+        this.quantidadeEstoque = quantidade;
+        this.idProduto = idProduto;
+        this.Fornecedor = Fornecedor;
+    }
+
+    public String getFornecedor() {
+        return Fornecedor;
+    }
+
+    public void setFornecedor(String Fornecedor) {
+        this.Fornecedor = Fornecedor;
     }
 
     public String getNome() {
@@ -40,30 +50,30 @@ public class Produto {
         this.preco = preco;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public int getQuantidadeEstoque() {
+        return quantidadeEstoque;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setQuantidadeEstoque(int quantidade) {
+        this.quantidadeEstoque = quantidade;
     }
 
-    public int getId() {
-        return id;
+    public int getIdProduto() {
+        return idProduto;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdProduto(int id) {
+        this.idProduto = id;
     }
 
    
   @Override
     public String toString() {
         return 
-                "ID: " + id + 
+                "ID: " + idProduto + 
                 ", Nome: " + nome +
                 ", Preço: " + preco +
-                ", Quantidade: " + quantidade;
+                ", Quantidade: " + quantidadeEstoque;
 
   }
    

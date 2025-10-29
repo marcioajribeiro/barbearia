@@ -12,13 +12,13 @@ package Entidades;
  */
 public class Funcionario extends Pessoa {
     
-    private final int idFuncionario;
+    private  int idFuncionario;
+
     private String cargo;
     private String senha;
 
-    public Funcionario(int id, String nome, String cpf, String cargo, String senha, String endereco, String telefone) {
+    public Funcionario(String nome, String cpf, String cargo, String senha, String endereco, String telefone) {
         super(nome, endereco, telefone, cpf);
-        this.idFuncionario = id ;
         this.cargo = cargo;
         this.senha = senha;
     }
@@ -26,6 +26,10 @@ public class Funcionario extends Pessoa {
    
     public int getIdFuncionario() {
         return idFuncionario;
+    }
+    
+    public void setIdFuncionario(int idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
 
 

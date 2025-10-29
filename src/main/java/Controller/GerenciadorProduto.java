@@ -5,7 +5,9 @@
 package Controller;
 
 import Entidades.Produto;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -13,37 +15,38 @@ import java.util.List;
  */
 public class GerenciadorProduto extends GerenciadorGenerico {
     
-    public List<Produto> produto;
+    public List<Produto> produtos;
     public final String caminho = "Json/JsonEstoque.json";
 
     public GerenciadorProduto() {
-        this.produto = super.carregarListas(caminho, Produto.class);
+        this.produtos = super.carregarListas(caminho, Produto.class);
     }
 
     public List<Produto> getProduto() {
-        return produto;
+        return produtos;
     }
     
     public void addProduto(Produto p){
-        produto.add(p);
+        p.setIdProduto(geradorId());
+        produtos.add(p);
         System.out.println("Produto salvo");
-        super.salvarLista(caminho, produto);
+        super.salvarLista(caminho, produtos);
     }
     
     public void listarProdutos(){
-        if(produto.isEmpty()){
+        if(produtos.isEmpty()){
             System.out.println("Não há produto cadastrado");
         }else{
             System.out.println("-----Lista de Produtos-----");
-            for(Produto p : produto){
+            for(Produto p : produtos){
                 System.out.println(p);
             }
         }   
     }
     
     public Produto buscarProdutoPorId(int id) {
-    for (Produto p : produto) {
-        if (p.getId() == id) {
+    for (Produto p : produtos) {
+        if (p.getIdProduto()== id) {
             return p;
         }
     }
@@ -52,16 +55,64 @@ public class GerenciadorProduto extends GerenciadorGenerico {
     return null;
 }
     
-    public void removerProdutoPorId(int id) {
-    Produto p = buscarProdutoPorId(id);
-    if (p != null) {
-        produto.remove(p);
+    public void removerProdutoPorId(Produto p) {
+        produtos.remove(p);
         System.out.println("Produto removido com sucesso!");
-        super.salvarLista(caminho, produto);
-    } else {
-        System.out.println("Produto com ID " + id + " não encontrado.");
-    }
+        super.salvarLista(caminho, produtos);
+    
+    
 }
+    public void editarPrecoProduto(Produto p , double precoNovo){
+        p.setPreco(precoNovo);
+    }
+    
+    public void editarFornecedorProduto(Produto p, String novofornecedor){
+        p.setFornecedor(novofornecedor);
+    }
+    
+    public boolean adicionarEstoque(Produto p ,int quantidade){
+        if(quantidade >0){
+            p.setQuantidadeEstoque(quantidade + p.getQuantidadeEstoque());
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean removerEstoque(Produto p, int quantidade){
+        if(quantidade > 0 && p.getQuantidadeEstoque() >= quantidade){
+            if(quantidade >0){
+                p.setQuantidadeEstoque(p.getQuantidadeEstoque() - quantidade);
+                return true;
+            }
+            else{
+                return false;
+            }
+        } else{
+            return false;
+        }
+    }
+    
+    
+    public int geradorId(){
+        if(produtos.isEmpty()){
+            return 1;
+        }
+        
+        Set<Integer> idsExistentes = new HashSet<>();
+        for(Produto p: produtos){
+            idsExistentes.add(p.getIdProduto());
+        }
+        
+        int novoId = 1;
+        
+        while(idsExistentes.contains(novoId)){
+            novoId++;
+        }
+        
+        return novoId;
+        
+    }
 
     
 

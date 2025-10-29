@@ -5,18 +5,20 @@
 package Controller;
 
 import Entidades.Funcionario;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
  * @author MARCIO JUNIOR
  */
-public class GerenciadorFuncionario extends GerenciadorGenerico{
+public class GerenciadorFuncionarios extends GerenciadorGenerico{
     
     public List<Funcionario> funcionarios;
     public final String caminho = "Json/JsonFuncionario.json";
 
-    public GerenciadorFuncionario() {
+    public GerenciadorFuncionarios() {
         this.funcionarios = super.carregarListas(caminho, Funcionario.class);
     }
 
@@ -25,6 +27,7 @@ public class GerenciadorFuncionario extends GerenciadorGenerico{
     }
     
     public void addFuncionario(Funcionario f){
+        f.setIdFuncionario(geradorIdFuncionario());
         funcionarios.add(f);
         System.out.println("Funcionário salvo");
         super.salvarLista(caminho, funcionarios);
@@ -52,8 +55,7 @@ public class GerenciadorFuncionario extends GerenciadorGenerico{
         return null;
     }
     
-    public void removerFuncionarioCpf(String cpf){
-        Funcionario f = buscarFuncionarioCpf(cpf);
+    public void removerFuncionarioCpf(Funcionario f){
         if(f != null){
             funcionarios.remove(f);
             System.out.println("Funcionario removido com sucesso");
@@ -86,6 +88,26 @@ public class GerenciadorFuncionario extends GerenciadorGenerico{
     public void alterarCpfFuncionario (String novoCpf, Funcionario f){
         f.setCpf(novoCpf);
     }
+    
+    public int geradorIdFuncionario(){
+          if(funcionarios.isEmpty()){
+              return 1;
+          }
+          
+          Set<Integer> idsExistentes = new HashSet<>();
+          for(Funcionario funcionario: funcionarios){
+              idsExistentes.add(funcionario.getIdFuncionario());
+          }
+          
+          int novoId = 1;
+          
+          while(idsExistentes.contains(novoId)){
+              novoId++;
+          }
+          
+          return novoId;
+          
+      }
     
     
     
