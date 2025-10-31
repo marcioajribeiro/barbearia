@@ -67,26 +67,32 @@ public class GerenciadorFuncionarios extends GerenciadorGenerico{
     
     public void alterarNomeFuncionario(String novoNome, Funcionario f){
         f.setNome(novoNome);
+        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarEnderecoFuncionario(String novoEndereco, Funcionario f){
         f.setEndereco(novoEndereco);
+        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarTelefoneFuncionario(String novoTelefone, Funcionario f){
         f.setTelefone(novoTelefone);
+        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarSenhaFuncionario (String novaSenha,Funcionario f){
         f.setSenha(novaSenha);
+        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarCargoFuncionario (String novoCargo, Funcionario f){
         f.setCargo(novoCargo);
+        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarCpfFuncionario (String novoCpf, Funcionario f){
         f.setCpf(novoCpf);
+        super.salvarLista(caminho, funcionarios);
     }
     
     public int geradorIdFuncionario(){

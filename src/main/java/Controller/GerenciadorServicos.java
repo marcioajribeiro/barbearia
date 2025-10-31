@@ -30,6 +30,7 @@ public class GerenciadorServicos extends GerenciadorGenerico{
     
     public void removerServico(Servico servico){
         servicos.remove(servico);
+        System.out.println("Novo serviço cadastrado");
         super.salvarLista(caminho, servicos);
     }
     
@@ -48,10 +49,12 @@ public class GerenciadorServicos extends GerenciadorGenerico{
     
     public void editarValorServico(Servico s, double novoValor){
         s.setValor(novoValor);
+        super.salvarLista(caminho, servicos);
     }
     
     public void editarDuracaoServico(Servico s, int novaDuracao){
         s.setDuração(novaDuracao);
+        super.salvarLista(caminho, servicos);
     }
     
     

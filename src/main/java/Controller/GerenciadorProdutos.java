@@ -13,12 +13,12 @@ import java.util.Set;
  *
  * @author rafin
  */
-public class GerenciadorProduto extends GerenciadorGenerico {
+public class GerenciadorProdutos extends GerenciadorGenerico {
     
     public List<Produto> produtos;
     public final String caminho = "Json/JsonEstoque.json";
 
-    public GerenciadorProduto() {
+    public GerenciadorProdutos() {
         this.produtos = super.carregarListas(caminho, Produto.class);
     }
 
@@ -64,10 +64,12 @@ public class GerenciadorProduto extends GerenciadorGenerico {
 }
     public void editarPrecoProduto(Produto p , double precoNovo){
         p.setPreco(precoNovo);
+        super.salvarLista(caminho, produtos);
     }
     
     public void editarFornecedorProduto(Produto p, String novofornecedor){
         p.setFornecedor(novofornecedor);
+        super.salvarLista(caminho, produtos);
     }
     
     public boolean adicionarEstoque(Produto p ,int quantidade){
@@ -83,6 +85,7 @@ public class GerenciadorProduto extends GerenciadorGenerico {
         if(quantidade > 0 && p.getQuantidadeEstoque() >= quantidade){
             if(quantidade >0){
                 p.setQuantidadeEstoque(p.getQuantidadeEstoque() - quantidade);
+                super.salvarLista(caminho, produtos);
                 return true;
             }
             else{
