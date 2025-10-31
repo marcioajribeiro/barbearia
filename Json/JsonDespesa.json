@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "descricao": "Pagamento dos salarios",
+    "valor": 10000.0,
+    "tipo": "DESPESA_SALARIO",
+    "data": "2025-10-31"
+  }
+]

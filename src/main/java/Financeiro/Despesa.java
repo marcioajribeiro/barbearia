@@ -15,12 +15,13 @@ public class Despesa {
     
     private int id;
     private String descricao;
+    private double valor;
     private TipoDespesa tipo;
     private LocalDateTime data;
 
-    public Despesa(int id, String descricao, TipoDespesa tipo, LocalDateTime data) {
-        this.id = id;
+    public Despesa(String descricao, double valor, TipoDespesa tipo, LocalDateTime data) {
         this.descricao = descricao;
+        this.valor = valor;
         this.tipo = tipo;
         this.data = data;
     }
@@ -41,6 +42,14 @@ public class Despesa {
         this.descricao = descricao;
     }
 
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
     public TipoDespesa getTipo() {
         return tipo;
     }
@@ -56,6 +65,12 @@ public class Despesa {
     public void setData(LocalDateTime data) {
         this.data = data;
     }
+    
+    
+    
+    
+
+  
 
     @Override
     public String toString() {
@@ -63,10 +78,10 @@ public class Despesa {
         
         String dataFormatada = fmt.format(data);
         
-        return "Despesa" + " id: " + id 
-                + ", descricao: " + descricao 
-                + ", tipo: " + tipo + 
-                ", data: " + dataFormatada ;
+        return  "ID: " + id +
+                ", Descricao: " + descricao 
+                + ", Tipo: " + tipo + 
+                ", Data: " + dataFormatada ;
     }
     
     

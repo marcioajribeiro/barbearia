@@ -43,7 +43,7 @@ public class MenuServico {
                     Servico s = new Servico(nome, valor, duracao);
                     gs.addServico(s);
                 }
-                case 2 -> gs.listarServicos().forEach(System.out::println);
+                case 2 -> gs.listarServicos();
                 case 3 -> {
                     System.out.print("ID: ");
                     int id = sc.nextInt();

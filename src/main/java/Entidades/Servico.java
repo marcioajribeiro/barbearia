@@ -54,4 +54,13 @@ public class Servico {
         this.duraçãoMin = duração;
     }
 
+    @Override
+    public String toString() {
+        return "ID: " + idServico +
+                ", Servico: " + tipoServico +
+                ", Valor: " + valor +
+                "Duração: " + duraçãoMin;
+    }
+    
+    
 }
