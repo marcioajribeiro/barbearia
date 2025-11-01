@@ -1,0 +1,11 @@
+[
+  {
+    "idFuncionario": 1,
+    "cargo": "Barbeiro",
+    "senha": "123",
+    "nome": "Jose du corte",
+    "endereco": "barao do rio branco",
+    "telefone": "38999184025",
+    "cpf": "10936304693"
+  }
+]

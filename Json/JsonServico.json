@@ -1,0 +1,8 @@
+[
+  {
+    "idServico": 1,
+    "tipoServico": "Barba",
+    "valor": 25.0,
+    "duraçãoMin": 30
+  }
+]
