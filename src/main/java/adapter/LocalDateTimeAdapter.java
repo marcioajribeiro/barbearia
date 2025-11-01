@@ -17,23 +17,24 @@ import java.time.format.DateTimeFormatter;
  */
 public class LocalDateTimeAdapter extends TypeAdapter<LocalDateTime> {
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+    
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
     @Override
     public void write(JsonWriter out, LocalDateTime value) throws IOException {
         if (value == null) {
             out.nullValue();
+            return;
         }
         out.value(formatter.format(value));
     }
 
     @Override
     public LocalDateTime read(JsonReader in) throws IOException {
-        if (in.peek() == com.google.gson.stream.JsonToken.NULL) {
-            in.nextNull(); 
-            return null; 
+        String str = in.nextString();
+        if (str == null || str.isEmpty()) {
+            return null;
         }
-        String value = in.nextString();
-        return LocalDateTime.parse(value, formatter);
+        return LocalDateTime.parse(str, formatter);
     }
 }

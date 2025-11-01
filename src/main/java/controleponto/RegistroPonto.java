@@ -18,13 +18,11 @@ public class RegistroPonto {
     private  final Funcionario funcionario;
     private final LocalDateTime  entrada;
     private LocalDateTime saida;
-    private double horasTrabalhadas;
 
     public RegistroPonto(Funcionario funcionario) {
         this.funcionario = funcionario;
         this.entrada = LocalDateTime.now();
         this.saida = null;
-        this.horasTrabalhadas =0;
     }
     
     
@@ -42,23 +40,24 @@ public class RegistroPonto {
         return saida;
     }
     
-    public void getHorasTrabalhadas(){
-        if (saida !=null){
-            Duration duracao = Duration.between(entrada, saida );
-            this.horasTrabalhadas = duracao.toMinutes() /60.0;
-        }
-        
-        
-    }
-    
     
     public void pontoDeSaida(){
         this.saida = LocalDateTime.now();
     } 
+    
+     public double getHorasTrabalhadas() {
+        if (saida == null) {
+            return 0;
+        }
+      
+        Duration duracao = Duration.between(entrada, saida);
+
+        return duracao.toMinutes() / 60.0;
+    }
 
     @Override
     public String toString() {
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         
         String entradaFormatada = fmt.format(entrada);
         
@@ -67,7 +66,7 @@ public class RegistroPonto {
         return "Funcionario: " + funcionario.getNome() +
                 ", Entrada: " + entradaFormatada +
                 ", Saída: " + saidaFormatada +
-                ", Horas: " + horasTrabalhadas;
+                ", Horas: " + getHorasTrabalhadas();
      
     }
     

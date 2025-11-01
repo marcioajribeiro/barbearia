@@ -94,7 +94,7 @@ public class Agendamento {
 
     @Override
     public String toString() {
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         
         String dataFormatada = fmt.format(dataHora);
         List<String> nomesServicos = new ArrayList<>();
