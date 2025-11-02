@@ -27,6 +27,7 @@ public class MenuPrincipal {
             System.out.println("5 - Controle de Ponto");
             System.out.println("6 - Gerenciar Despesas");
             System.out.println("7 - Gerenciar Agendamento");
+            System.out.println("8 - Gerenciar Vendas");
             System.out.println("0 - Sair");
             System.out.println("====================================");
             System.out.print("Escolha uma opção: ");
@@ -41,6 +42,7 @@ public class MenuPrincipal {
                 case 5 -> MenuPonto.exibirMenuPonto();
                 case 6 -> MenuDespesa.exibirMenuDespesas();
                 case 7 -> MenuAgendamento.exibirMenuAgendamento();
+                case 8 -> MenuVenda.exibirMenuVendas();
                 case 0 -> System.out.println("Encerrando o sistema...");
                 default -> System.out.println("Opção inválida!");
             }
