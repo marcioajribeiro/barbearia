@@ -16,9 +16,9 @@ import java.util.Set;
 public class GerenciadorVenda extends GerenciadorGenerico{
 
     private List<Venda> vendas;
-    private final String caminho = "Json/JsonCliente.json";
+    private final String caminho = "Json/JsonVendas.json";
 
-    public GerenciadorVenda(List vendas) {
+    public GerenciadorVenda() {
         this.vendas = super.carregarListas(caminho, Venda.class);
     }
 

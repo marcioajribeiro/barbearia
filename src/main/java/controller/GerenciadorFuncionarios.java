@@ -32,6 +32,16 @@ public class GerenciadorFuncionarios extends GerenciadorGenerico{
         System.out.println("Funcionário salvo");
         super.salvarLista(caminho, funcionarios);
     }
+
+    public Funcionario buscarFuncionarioPorId(int id) {
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getIdFuncionario() == id) {
+                return funcionario;
+            }
+        }
+        System.out.println("Funcionário com ID " + id + " não encontrado.");
+        return null;
+    }
     
     public void listarFuncionarios(){
         if(funcionarios.isEmpty()){

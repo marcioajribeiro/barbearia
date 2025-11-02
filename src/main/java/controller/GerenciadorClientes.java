@@ -30,6 +30,16 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         super.salvarLista(caminho, clientes);
     }
 
+    public Cliente buscarClientePorId(int id) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getIdCliente() == id) {
+                return cliente;
+            }
+        }
+        System.out.println("Cliente com ID " + id + " não encontrado.");
+        return null;
+    }
+
     public List<Cliente> getClientes() {
         return clientes;
     }
