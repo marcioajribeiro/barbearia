@@ -49,7 +49,7 @@ public class MenuFuncionario {
                     Funcionario f = new Funcionario(nome,cpf, cargo,senha,endereco, telefone);
                     gf.addFuncionario(f);
                 }
-                case 2 -> gf.listarFuncionários();
+                case 2 -> gf.listarFuncionarios();
                 case 3 -> {
                     System.out.print("CPF: ");
                     String cpf = sc.nextLine();

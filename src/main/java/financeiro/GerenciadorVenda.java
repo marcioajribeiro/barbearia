@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller;
+package financeiro;
 
-import entidades.Venda;
+import controller.GerenciadorGenerico;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,8 +23,7 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     }
 
     public void registrarVenda(Venda venda) {
-        double total = venda.calcularValorTotal();
-        venda.setValorTotal(total);
+        venda.setIdVenda(geradorIdVenda());
         vendas.add(venda);
         super.salvarLista(caminho, vendas);
         System.out.println("Venda registrada com sucesso!");
@@ -64,6 +63,17 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         } else {
             System.out.println("Venda com ID " + id + " não encontrada.");
         }
+    }
+    
+    public double calcularVendasAnoMes(int ano, int mes){
+        double total = 0.0;
+        for(Venda v : vendas){
+            if(v.getDataHora().getYear() == ano && v.getDataHora().getMonthValue() == mes){
+                total+= v.getValorTotal();
+            }
+        }
+        
+        return total;
     }
 
 

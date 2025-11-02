@@ -33,7 +33,7 @@ public class GerenciadorFuncionarios extends GerenciadorGenerico{
         super.salvarLista(caminho, funcionarios);
     }
     
-    public void listarFuncionários(){
+    public void listarFuncionarios(){
         if(funcionarios.isEmpty()){
             System.out.println("Não há Funcionários cadastrados");
         }else{

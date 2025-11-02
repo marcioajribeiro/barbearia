@@ -25,6 +25,9 @@ public class GerenciadorDespesas extends GerenciadorGenerico {
     }
     
     
+    
+    
+    
     public void registrarDespesaMaterial(String materialComprado, double valor){
         Despesa novaDespesa = new Despesa(materialComprado, valor, TipoDespesa.DESPESA_MATERIAL, LocalDateTime.now());
         novaDespesa.setId(geradorId());
@@ -51,6 +54,20 @@ public class GerenciadorDespesas extends GerenciadorGenerico {
         novaDespesa.setId(geradorId());
         despesas.add(novaDespesa);
         super.salvarLista(caminho, despesas);
+    }
+    
+    
+    public double calcularDespesasAnoMes(int ano, int mes){
+        double total = 0.0;
+        for (Despesa d : despesas){
+            if(d.getData().getYear() == ano && d.getData().getMonthValue()== mes){
+                total+= d.getValor();
+            }  
+        }
+        
+        return total;
+        
+        
     }
     
     

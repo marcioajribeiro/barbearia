@@ -1,8 +1,12 @@
-package entidades;
+package financeiro;
 
 import entidades.Cliente;
+import entidades.Cliente;
+import entidades.Funcionario;
 import entidades.Funcionario;
 import entidades.Produto;
+import entidades.Produto;
+import entidades.Servico;
 import entidades.Servico;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,13 +30,12 @@ public class Venda {
     private String formaPagamento;
     private LocalDateTime dataHora;
 
-    public Venda(int idVenda, Cliente cliente, Funcionario funcionario, List produtos, List servicos, double valorTotal, String formaPagamento, LocalDateTime dataHora) {
-        this.idVenda = idVenda;
+    public Venda(Cliente cliente, Funcionario funcionario, List produtos, List servicos, String formaPagamento, LocalDateTime dataHora) {
         this.cliente = cliente;
         this.funcionario = funcionario;
         this.produtos = produtos;
         this.servicos = servicos;
-        this.valorTotal = valorTotal;
+        this.valorTotal = calcularValorTotal();
         this.formaPagamento = formaPagamento;
         this.dataHora = dataHora;
     }
@@ -101,7 +104,7 @@ public class Venda {
         this.dataHora = dataHora;
     }
 
-    public double calcularValorTotal() {
+    public final double calcularValorTotal() {
         double total = 0;
         if (produtos != null) {
             for (Produto p : produtos) {
