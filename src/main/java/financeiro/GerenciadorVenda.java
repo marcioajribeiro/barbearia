@@ -7,6 +7,7 @@ package financeiro;
 import agendamento.Agendamento;
 import agendamento.StatusPagamento;
 import controller.GerenciadorGenerico;
+import controller.GerenciadorProdutos;
 import entidades.Produto;
 import entidades.Servico;
 import java.time.LocalDateTime;
@@ -23,10 +24,14 @@ public class GerenciadorVenda extends GerenciadorGenerico{
 
     private List<Venda> vendas;
     private final String caminho = "Json/JsonVendas.json";
+    private final GerenciadorProdutos gp;
 
-    public GerenciadorVenda() {
+    public GerenciadorVenda(GerenciadorProdutos gp) {
         this.vendas = super.carregarListas(caminho, Venda.class);
+        this.gp = gp;
     }
+
+    
     
     public void registrarVendaCancelamento(Agendamento a){
         if(a.getStatusPagamento() != StatusPagamento.PAGAMENTO_CANCELADO){
@@ -45,11 +50,28 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     
 
     public void registrarVenda(Venda venda) {
-        venda.setIdVenda(geradorIdVenda());
-        vendas.add(venda);
-        System.out.println("Venda registrada com sucesso!");
-        super.salvarLista(caminho, vendas);
-    }
+    venda.setIdVenda(geradorIdVenda());
+
+ 
+        for (Produto pVenda : gp.getProduto()) {
+            Produto produtoEstoque = gp.buscarProdutoPorId(pVenda.getIdProduto());
+
+            if (produtoEstoque != null) {
+                boolean sucesso = gp.removerEstoque(produtoEstoque, 1);
+                if (!sucesso) {
+                    System.out.println("Erro ao tentar remover do estoque o produto: " + produtoEstoque.getNome());
+                }
+            } else {
+                System.out.println("Produto não encontrado no estoque: " + pVenda.getNome());
+            }
+        }
+    
+
+    vendas.add(venda);
+    super.salvarLista(caminho, vendas);
+    System.out.println("✅ Venda registrada com sucesso!");
+}
+
 
     public Venda buscarVendaPorId(int id) {
         for (Venda v : vendas) {

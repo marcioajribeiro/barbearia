@@ -24,10 +24,10 @@ public class MenuVenda {
     public static void exibirMenuVendas() {
         Scanner sc = new Scanner(System.in);
         GerenciadorAgendamento ga = new GerenciadorAgendamento();
-        GerenciadorVenda gv = new GerenciadorVenda();
+        GerenciadorProdutos gp = new GerenciadorProdutos();
+        GerenciadorVenda gv = new GerenciadorVenda(gp);
         GerenciadorClientes gc = new GerenciadorClientes();
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
-        GerenciadorProdutos gp = new GerenciadorProdutos();
         GerenciadorServicos gs = new GerenciadorServicos();
         int opc;
 
@@ -102,8 +102,6 @@ public class MenuVenda {
                     System.out.print("Forma de pagamento (Dinheiro / Cartão / Pix): ");
                     String formaPagamento = sc.nextLine();
 
-
-                    int idVenda = gv.geradorIdVenda();
 
 
                     LocalDateTime dataHora = LocalDateTime.now();
