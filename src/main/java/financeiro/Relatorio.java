@@ -36,7 +36,6 @@ public class Relatorio {
         }
         
         System.out.println("==============================");
-
                 
     }
 

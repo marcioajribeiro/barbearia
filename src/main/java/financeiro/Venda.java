@@ -147,19 +147,26 @@ public class Venda {
                 nomesProdutos.add(p.getNome());
             }
         }
-        
-        
-        
-        
-        
-        return "ID: " + idVenda +
-                "Cliente: " + cliente.getNome() +
-                "Funcionário: " + funcionario.getNome() +
-                "Serviços: " + String.join(", ", nomesServicos) +
-                "Produtos: " + String.join(", ", nomesProdutos) +
-                "Valor Total: R$ " + valorTotal +
-                "Forma de Pagamento: " + formaPagamento +
-                "Data: " + dataFormatada;
+        if(cancelamento == false){
+            return "ID: " + idVenda +
+                    "Cliente: " + cliente.getNome() +
+                    "Funcionário: " + funcionario.getNome() +
+                    "Serviços: " + String.join(", ", nomesServicos) +
+                    "Produtos: " + String.join(", ", nomesProdutos) +
+                    "Valor Total: R$ " + valorTotal +
+                    "Forma de Pagamento: " + formaPagamento +
+                    "Data: " + dataFormatada;
+        }else{
+            return "ID: " + idVenda +
+                    "Cliente: " + cliente.getNome() +
+                    "Funcionário: " + funcionario.getNome() +
+                    "Serviços: " + String.join(", ", nomesServicos) +
+                    "Produtos: " + String.join(", ", nomesProdutos) +
+                    "Valor Total: R$ " + valorTotal +
+                    "Forma de Pagamento: " + formaPagamento +
+                    "Data: " + dataFormatada +
+                    "CANCELAMENTO";
+        }
     }
 
 }

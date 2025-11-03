@@ -4,7 +4,13 @@
  */
 package financeiro;
 
+import agendamento.Agendamento;
+import agendamento.StatusPagamento;
 import controller.GerenciadorGenerico;
+import entidades.Produto;
+import entidades.Servico;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,13 +28,27 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         this.vendas = super.carregarListas(caminho, Venda.class);
     }
     
+    public void registrarVendaCancelamento(Agendamento a){
+        if(a.getStatusPagamento() != StatusPagamento.PAGAMENTO_CANCELADO){
+        System.out.println("O agendamento não está cancelado. Não é possível registrar venda de cancelamento.");
+    }
+        List<Produto> produtos = new ArrayList<>(); // normalmente vazio
+        List<Servico> servicos = a.getServicos();
+        Venda venda = new Venda(a.getCliente(), a.getFuncionario(),produtos,servicos,"N/A", LocalDateTime.now());
+        
+        venda.setValorTotal(a.getValor());
+        venda.setCancelamento(true);
+        
+        registrarVenda(venda);
+    }
+    
     
 
     public void registrarVenda(Venda venda) {
         venda.setIdVenda(geradorIdVenda());
         vendas.add(venda);
-        super.salvarLista(caminho, vendas);
         System.out.println("Venda registrada com sucesso!");
+        super.salvarLista(caminho, vendas);
     }
 
     public Venda buscarVendaPorId(int id) {
@@ -51,6 +71,9 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     }
 
     public void removerVenda(Venda venda) {
+        vendas.remove(venda);
+        System.out.println("Venda removida");
+        super.salvarLista(caminho, vendas);
        
     }
     

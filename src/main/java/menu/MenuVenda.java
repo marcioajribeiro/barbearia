@@ -1,6 +1,8 @@
 package menu;
 
 
+import agendamento.Agendamento;
+import agendamento.GerenciadorAgendamento;
 import controller.GerenciadorClientes;
 import controller.GerenciadorFuncionarios;
 import controller.GerenciadorProdutos;
@@ -21,6 +23,7 @@ public class MenuVenda {
 
     public static void exibirMenuVendas() {
         Scanner sc = new Scanner(System.in);
+        GerenciadorAgendamento ga = new GerenciadorAgendamento();
         GerenciadorVenda gv = new GerenciadorVenda();
         GerenciadorClientes gc = new GerenciadorClientes();
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
@@ -31,9 +34,10 @@ public class MenuVenda {
         do {
             System.out.println("\n----- MENU VENDAS -----");
             System.out.println("1 - Registrar Venda");
-            System.out.println("2 - Listar Vendas");
-            System.out.println("3 - Buscar Venda por ID");
-            System.out.println("4 - Remover Venda");
+            System.out.println("2 - Registrar Venda por cancelamento");
+            System.out.println("3 - Listar Vendas");
+            System.out.println("4 - Buscar Venda por ID");
+            System.out.println("5 - Remover Venda");
             System.out.println("0 - Voltar");
             System.out.print("Escolha: ");
             opc = sc.nextInt();
@@ -112,20 +116,27 @@ public class MenuVenda {
 
                     System.out.println("Venda registrada com sucesso!");
                 }
+                case 2 -> {
+                    System.out.println("Digite Id do agendamento cancelado: ");
+                    int id = sc.nextInt();
+                    Agendamento a = ga.buscarAgendamentoId(id);
+                    gv.registrarVendaCancelamento(a);
+                }
 
 
-                case 2 -> gv.listarVendas();
-                case 3 -> {
+                case 3 -> gv.listarVendas();
+                case 4 -> {
                     System.out.print("ID da venda: ");
                     int id = sc.nextInt();
                     Venda v = gv.buscarVendaPorId(id);
                     if (v != null) System.out.println(v);
                     else System.out.println("Venda não encontrada.");
                 }
-                case 4 -> {
+                case 5 -> {
                     System.out.print("ID da venda a remover: ");
                     int id = sc.nextInt();
-                    gv.removerVenda(id);
+                    Venda v = gv.buscarVendaPorId(id);
+                    gv.removerVenda(v);
                 }
                 case 0 -> System.out.println("Voltar");
                 default -> System.out.println("Opção inválida!");

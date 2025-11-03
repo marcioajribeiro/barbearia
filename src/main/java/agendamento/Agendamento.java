@@ -26,6 +26,9 @@ public class Agendamento {
     private StatusPagamento statusPagamento;
 
     public Agendamento( Cliente cliente, Funcionario funcionario, List<Servico> servicos, LocalDateTime dataHora) {
+        if(dataHora.isBefore(LocalDateTime.now())){
+            throw new IllegalArgumentException("A data do agendamento não pode ser no pasado");
+        }
         this.cliente = cliente;
         this.barbeiro = funcionario;
         this.servicos = servicos;

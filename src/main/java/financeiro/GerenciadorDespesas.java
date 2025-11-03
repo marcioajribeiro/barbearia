@@ -67,7 +67,7 @@ public class GerenciadorDespesas extends GerenciadorGenerico {
     public void removerDespesa(Despesa d){
         despesas.remove(d);
         System.out.println("Despesa removido");
-        
+        super.salvarLista(caminho, despesas);
     }
     
     

@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "cliente": {
+      "idCliente": 1,
+      "email": "marcio@gmail.com",
+      "nome": "Marcio",
+      "endereco": "Agua boa 310",
+      "telefone": "38999184025",
+      "cpf": "10936304693"
+    },
+    "barbeiro": {
+      "idFuncionario": 1,
+      "cargo": "Barbeiro",
+      "senha": "123",
+      "nome": "Jose du corte",
+      "endereco": "barao do rio branco",
+      "telefone": "38999184025",
+      "cpf": "10936304693"
+    },
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Barba",
+        "valor": 25.0,
+        "duraçãoMin": 30
+      }
+    ],
+    "dataHora": "2025-11-03T17:30",
+    "valor": 8.75,
+    "statusPagamento": "PAGAMENTO_CANCELADO"
+  }
+]
