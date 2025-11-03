@@ -5,12 +5,12 @@ import controller.GerenciadorClientes;
 import controller.GerenciadorFuncionarios;
 import controller.GerenciadorProdutos;
 import controller.GerenciadorServicos;
-import controller.GerenciadorVenda;
+import financeiro.GerenciadorVenda;
 import entidades.Cliente;
 import entidades.Funcionario;
 import entidades.Produto;
 import entidades.Servico;
-import entidades.Venda;
+import financeiro.Venda;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +105,7 @@ public class MenuVenda {
                     LocalDateTime dataHora = LocalDateTime.now();
 
 
-                    Venda venda = new Venda(idVenda, cliente, funcionario, listaProdutos, listaServicos, 0.0, formaPagamento, dataHora);
+                    Venda venda = new Venda(cliente, funcionario, listaProdutos, listaServicos, formaPagamento, dataHora);
 
 
                     gv.registrarVenda(venda);

@@ -21,6 +21,8 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     public GerenciadorVenda() {
         this.vendas = super.carregarListas(caminho, Venda.class);
     }
+    
+    
 
     public void registrarVenda(Venda venda) {
         venda.setIdVenda(geradorIdVenda());
@@ -48,21 +50,8 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         }
     }
 
-    public void removerVenda(int id) {
-        Venda remover = null;
-        for (Venda v : vendas) {
-            if (v.getIdVenda() == id) {
-                remover = v;
-                break;
-            }
-        }
-        if (remover != null) {
-            vendas.remove(remover);
-            super.salvarLista(caminho, vendas);
-            System.out.println("Venda removida com sucesso!");
-        } else {
-            System.out.println("Venda com ID " + id + " não encontrada.");
-        }
+    public void removerVenda(Venda venda) {
+       
     }
     
     public double calcularVendasAnoMes(int ano, int mes){

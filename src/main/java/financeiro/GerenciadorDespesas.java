@@ -26,8 +26,6 @@ public class GerenciadorDespesas extends GerenciadorGenerico {
     
     
     
-    
-    
     public void registrarDespesaMaterial(String materialComprado, double valor){
         Despesa novaDespesa = new Despesa(materialComprado, valor, TipoDespesa.DESPESA_MATERIAL, LocalDateTime.now());
         novaDespesa.setId(geradorId());
@@ -54,6 +52,22 @@ public class GerenciadorDespesas extends GerenciadorGenerico {
         novaDespesa.setId(geradorId());
         despesas.add(novaDespesa);
         super.salvarLista(caminho, despesas);
+    }
+    
+    public Despesa buscarVendaPorId(int id) {
+        for (Despesa d :despesas) {
+            if (d.getId()== id) {
+                return d;
+            }
+        }
+        return null;
+    }
+    
+    
+    public void removerDespesa(Despesa d){
+        despesas.remove(d);
+        System.out.println("Despesa removido");
+        
     }
     
     

@@ -1,14 +1,11 @@
 package financeiro;
-
-import entidades.Cliente;
 import entidades.Cliente;
 import entidades.Funcionario;
-import entidades.Funcionario;
 import entidades.Produto;
-import entidades.Produto;
-import entidades.Servico;
 import entidades.Servico;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -29,6 +26,7 @@ public class Venda {
     private double valorTotal;
     private String formaPagamento;
     private LocalDateTime dataHora;
+    private boolean cancelamento;
 
     public Venda(Cliente cliente, Funcionario funcionario, List produtos, List servicos, String formaPagamento, LocalDateTime dataHora) {
         this.cliente = cliente;
@@ -104,6 +102,16 @@ public class Venda {
         this.dataHora = dataHora;
     }
 
+    public boolean isCancelamento() {
+        return cancelamento;
+    }
+
+    public void setCancelamento(boolean cancelada) {
+        this.cancelamento = cancelada;
+    }
+    
+    
+
     public final double calcularValorTotal() {
         double total = 0;
         if (produtos != null) {
@@ -121,12 +129,37 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "\nVenda #" + idVenda +
-                "\nCliente: " + cliente.getNome() +
-                "\nFuncionário: " + funcionario.getNome() +
-                "\nValor Total: R$ " + valorTotal +
-                "\nForma de Pagamento: " + formaPagamento +
-                "\nData: " + dataHora + "\n";
+        
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        
+        String dataFormatada = fmt.format(dataHora);
+        List<String> nomesServicos = new ArrayList<>();
+        List<String> nomesProdutos = new ArrayList<>();
+        
+        for(Servico s: servicos){
+           nomesServicos.add(s.getTipoServico());
+        }
+        
+        if(produtos.isEmpty()){
+            nomesProdutos.add("Nenhum Produto");
+        }else{
+            for(Produto p: produtos){
+                nomesProdutos.add(p.getNome());
+            }
+        }
+        
+        
+        
+        
+        
+        return "ID: " + idVenda +
+                "Cliente: " + cliente.getNome() +
+                "Funcionário: " + funcionario.getNome() +
+                "Serviços: " + String.join(", ", nomesServicos) +
+                "Produtos: " + String.join(", ", nomesProdutos) +
+                "Valor Total: R$ " + valorTotal +
+                "Forma de Pagamento: " + formaPagamento +
+                "Data: " + dataFormatada;
     }
 
 }
