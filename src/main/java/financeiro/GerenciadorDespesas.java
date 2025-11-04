@@ -83,7 +83,12 @@ public class GerenciadorDespesas extends GerenciadorGenerico {
         
         
     }
+
+    public List<Despesa> getDespesas() {
+        return despesas;
+    }
     
+      
     
     public int geradorId(){
         if(despesas.isEmpty()){

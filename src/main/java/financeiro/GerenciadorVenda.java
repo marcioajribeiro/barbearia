@@ -37,7 +37,7 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         if(a.getStatusPagamento() != StatusPagamento.PAGAMENTO_CANCELADO){
         System.out.println("O agendamento não está cancelado. Não é possível registrar venda de cancelamento.");
     }
-        List<Produto> produtos = new ArrayList<>(); // normalmente vazio
+        List<Produto> produtos = new ArrayList<>();
         List<Servico> servicos = a.getServicos();
         Venda venda = new Venda(a.getCliente(), a.getFuncionario(),produtos,servicos,"N/A", LocalDateTime.now());
         
@@ -115,9 +115,6 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         return vendas;
     }
 
-    public void setVendas(List<Venda> vendas) {
-        this.vendas = vendas;
-    }
 
     public int geradorIdVenda(){
         if(vendas.isEmpty()){
