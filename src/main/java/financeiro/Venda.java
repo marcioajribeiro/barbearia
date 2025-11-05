@@ -18,6 +18,7 @@ import java.util.List;
  * @author rafin
  */
 public class Venda {
+    
     private int idVenda;
     private Cliente cliente;
     private Funcionario funcionario;

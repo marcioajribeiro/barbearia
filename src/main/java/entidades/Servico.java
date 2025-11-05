@@ -46,7 +46,7 @@ public class Servico {
         this.valor = valor;
     }
 
-    public int getDuração() {
+    public int getDuracao() {
         return duraçãoMin;
     }
 

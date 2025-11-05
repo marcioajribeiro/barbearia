@@ -23,12 +23,12 @@ public class MenuVenda {
 
     public static void exibirMenuVendas() {
         Scanner sc = new Scanner(System.in);
-        GerenciadorAgendamento ga = new GerenciadorAgendamento();
         GerenciadorProdutos gp = new GerenciadorProdutos();
         GerenciadorVenda gv = new GerenciadorVenda(gp);
         GerenciadorClientes gc = new GerenciadorClientes();
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
         GerenciadorServicos gs = new GerenciadorServicos();
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs);
         int opc;
 
         do {

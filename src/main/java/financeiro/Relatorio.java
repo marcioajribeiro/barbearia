@@ -14,8 +14,8 @@ import java.util.List;
 public class Relatorio {
     private final GerenciadorVenda gv;
     private final GerenciadorDespesas gd;
-    private List<Venda> vendas;
-    private List<Despesa> despesa;
+    private final List<Venda> vendas;
+    private final List<Despesa> despesa;
 
     public Relatorio(GerenciadorVenda gv, GerenciadorDespesas gd) {
         this.gv = gv;

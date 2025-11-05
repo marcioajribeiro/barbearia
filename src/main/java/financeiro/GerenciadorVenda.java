@@ -30,7 +30,6 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         this.vendas = super.carregarListas(caminho, Venda.class);
         this.gp = gp;
     }
-
     
     
     public void registrarVendaCancelamento(Agendamento a){
@@ -43,8 +42,8 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         
         venda.setValorTotal(a.getValor());
         venda.setCancelamento(true);
-        
-        registrarVenda(venda);
+        vendas.add(venda);
+        super.salvarLista(caminho, vendas);
     }
     
     
