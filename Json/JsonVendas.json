@@ -3,33 +3,102 @@
     "idVenda": 1,
     "cliente": {
       "idCliente": 1,
-      "email": "marcio@gmail.com",
-      "nome": "Marcio",
-      "endereco": "Agua boa 310",
-      "telefone": "38999184025",
-      "cpf": "10936304693"
+      "email": "rafa@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
     },
     "funcionario": {
-      "idFuncionario": 1,
-      "cargo": "Barbeiro",
-      "senha": "123",
-      "nome": "Jose du corte",
-      "endereco": "barao do rio branco",
-      "telefone": "38999184025",
-      "cpf": "10936304693"
+      "idFuncionario": 2,
+      "cargo": "Gerente",
+      "senha": "barb2",
+      "nome": "marcio",
+      "endereco": "Rua coco2",
+      "telefone": "38999279935",
+      "cpf": "15322402611"
     },
-    "produtos": [],
-    "servicos": [
+    "produtos": [
       {
-        "idServico": 1,
-        "tipoServico": "Barba",
-        "valor": 25.0,
-        "duraçãoMin": 30
+        "nome": "condicionador",
+        "preco": 15.0,
+        "quantidadeEstoque": 23,
+        "idProduto": 2,
+        "Fornecedor": "mercadin"
       }
     ],
-    "valorTotal": 8.75,
-    "formaPagamento": "N/A",
-    "dataHora": "2025-11-03T17:35",
-    "cancelamento": true
+    "servicos": [],
+    "valorTotal": 15.0,
+    "formaPagamento": "Pix",
+    "dataHora": "2025-11-04T23:10",
+    "cancelamento": false
+  },
+  {
+    "idVenda": 2,
+    "cliente": {
+      "idCliente": 1,
+      "email": "rafa@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 2,
+      "cargo": "Gerente",
+      "senha": "barb2",
+      "nome": "marcio",
+      "endereco": "Rua coco2",
+      "telefone": "38999279935",
+      "cpf": "15322402611"
+    },
+    "produtos": [
+      {
+        "nome": "condicionador",
+        "preco": 15.0,
+        "quantidadeEstoque": 23,
+        "idProduto": 2,
+        "Fornecedor": "mercadin"
+      }
+    ],
+    "servicos": [],
+    "valorTotal": 15.0,
+    "formaPagamento": "Pix",
+    "dataHora": "2025-11-04T23:14",
+    "cancelamento": false
+  },
+  {
+    "idVenda": 3,
+    "cliente": {
+      "idCliente": 1,
+      "email": "rafa@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 2,
+      "cargo": "Gerente",
+      "senha": "barb2",
+      "nome": "marcio",
+      "endereco": "Rua coco2",
+      "telefone": "38999279935",
+      "cpf": "15322402611"
+    },
+    "produtos": [
+      {
+        "nome": "condicionador",
+        "preco": 15.0,
+        "quantidadeEstoque": 22,
+        "idProduto": 2,
+        "Fornecedor": "mercadin"
+      }
+    ],
+    "servicos": [],
+    "valorTotal": 15.0,
+    "formaPagamento": "Pix",
+    "dataHora": "2025-11-04T23:43",
+    "cancelamento": false
   }
 ]

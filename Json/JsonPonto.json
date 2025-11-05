@@ -1,0 +1,14 @@
+[
+  {
+    "funcionario": {
+      "idFuncionario": 2,
+      "cargo": "Gerente",
+      "senha": "barb2",
+      "nome": "marcio",
+      "endereco": "Rua coco2",
+      "telefone": "38999279935",
+      "cpf": "15322402611"
+    },
+    "entrada": "2025-11-04T23:07"
+  }
+]

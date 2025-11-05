@@ -33,18 +33,76 @@ public class MenuVenda {
 
         do {
             System.out.println("\n----- MENU VENDAS -----");
-            System.out.println("1 - Registrar Venda");
-            System.out.println("2 - Registrar Venda por cancelamento");
-            System.out.println("3 - Listar Vendas");
-            System.out.println("4 - Buscar Venda por ID");
-            System.out.println("5 - Remover Venda");
+            System.out.println("2 - Registrar Venda Produto");
+            System.out.println("3 - Registrar Venda");
+            System.out.println("4 - Registrar Venda por cancelamento");
+            System.out.println("5 - Listar Vendas");
+            System.out.println("6 - Buscar Venda por ID");
+            System.out.println("7 - Remover Venda");
             System.out.println("0 - Voltar");
             System.out.print("Escolha: ");
             opc = sc.nextInt();
             sc.nextLine();
 
             switch (opc) {
-                case 1 -> {
+                case 2 -> {
+                    
+                    System.out.print("CPF do cliente: ");
+                    String cpf = sc.nextLine();
+                    Cliente cliente = gc.buscarCliente(cpf);
+                    if (cliente == null) {
+                        System.out.println("Cliente não encontrado!");
+                        break;
+                    }
+
+
+                    System.out.print("ID do funcionário responsável: ");
+                    int idFuncionario = sc.nextInt();
+                    sc.nextLine();
+                    Funcionario funcionario = gf.buscarFuncionarioPorId(idFuncionario);
+                    if (funcionario == null) {
+                        System.out.println("Funcionário não encontrado!");
+                        break;
+                    }
+
+
+                    List<Produto> listaProdutos = new ArrayList<>();
+                    String continua;
+                    do {
+                        System.out.print("ID do produto: ");
+                        int idProduto = sc.nextInt();
+                        sc.nextLine();
+                        Produto produto = gp.buscarProdutoPorId(idProduto);
+                        if (produto != null) {
+                            listaProdutos.add(produto);
+                        } else {
+                            System.out.println("Produto não encontrado!");
+                        }
+
+                        System.out.print("Deseja adicionar outro produto? (s/n): ");
+                        continua = sc.nextLine();
+                    } while (continua.equalsIgnoreCase("s"));
+                    
+                                        System.out.print("Forma de pagamento (Dinheiro / Cartão / Pix): ");
+                    String formaPagamento = sc.nextLine();
+
+
+
+                    LocalDateTime dataHora = LocalDateTime.now();
+
+
+                    Venda venda = new Venda(cliente, funcionario, listaProdutos, new ArrayList<>(), formaPagamento, dataHora);
+
+
+                    gv.registrarVenda(venda);
+
+                    System.out.println("Venda registrada com sucesso!");
+
+
+                    
+                    
+                }
+                case 3 -> {
 
                     System.out.print("CPF do cliente: ");
                     String cpf = sc.nextLine();
@@ -114,7 +172,7 @@ public class MenuVenda {
 
                     System.out.println("Venda registrada com sucesso!");
                 }
-                case 2 -> {
+                case 4 -> {
                     System.out.println("Digite Id do agendamento cancelado: ");
                     int id = sc.nextInt();
                     Agendamento a = ga.buscarAgendamentoId(id);
@@ -122,15 +180,15 @@ public class MenuVenda {
                 }
 
 
-                case 3 -> gv.listarVendas();
-                case 4 -> {
+                case 5 -> gv.listarVendas();
+                case 6 -> {
                     System.out.print("ID da venda: ");
                     int id = sc.nextInt();
                     Venda v = gv.buscarVendaPorId(id);
                     if (v != null) System.out.println(v);
                     else System.out.println("Venda não encontrada.");
                 }
-                case 5 -> {
+                case 7 -> {
                     System.out.print("ID da venda a remover: ");
                     int id = sc.nextInt();
                     Venda v = gv.buscarVendaPorId(id);
