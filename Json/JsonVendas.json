@@ -100,5 +100,64 @@
     "formaPagamento": "Pix",
     "dataHora": "2025-11-04T23:43",
     "cancelamento": false
+  },
+  {
+    "idVenda": 4,
+    "cliente": {
+      "idCliente": 1,
+      "email": "rafa@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 2,
+      "cargo": "Gerente",
+      "senha": "barb2",
+      "nome": "marcio",
+      "endereco": "Rua coco2",
+      "telefone": "38999279935",
+      "cpf": "15322402611"
+    },
+    "produtos": [],
+    "servicos": [],
+    "valorTotal": 0.0,
+    "formaPagamento": "",
+    "dataHora": "2025-11-04T23:56",
+    "cancelamento": false
+  },
+  {
+    "idVenda": 5,
+    "cliente": {
+      "idCliente": 1,
+      "email": "rafa@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 2,
+      "cargo": "Gerente",
+      "senha": "barb2",
+      "nome": "marcio",
+      "endereco": "Rua coco2",
+      "telefone": "38999279935",
+      "cpf": "15322402611"
+    },
+    "produtos": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "barba",
+        "valor": 25.0,
+        "duraçãoMin": 20
+      }
+    ],
+    "valorTotal": 25.0,
+    "formaPagamento": "Pix",
+    "dataHora": "2025-11-04T23:57",
+    "cancelamento": false
   }
 ]

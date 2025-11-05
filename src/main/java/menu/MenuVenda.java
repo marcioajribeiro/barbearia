@@ -33,8 +33,9 @@ public class MenuVenda {
 
         do {
             System.out.println("\n----- MENU VENDAS -----");
+            System.out.println("1 - Registrar Venda Serviço");
             System.out.println("2 - Registrar Venda Produto");
-            System.out.println("3 - Registrar Venda");
+            System.out.println("3 - Registrar Venda Serviço/Produto");
             System.out.println("4 - Registrar Venda por cancelamento");
             System.out.println("5 - Listar Vendas");
             System.out.println("6 - Buscar Venda por ID");
@@ -45,6 +46,61 @@ public class MenuVenda {
             sc.nextLine();
 
             switch (opc) {
+                case 1 -> {
+                    
+                    System.out.print("CPF do cliente: ");
+                    String cpf = sc.nextLine();
+                    Cliente cliente = gc.buscarCliente(cpf);
+                    if (cliente == null) {
+                        System.out.println("Cliente não encontrado!");
+                        break;
+                    }
+
+
+                    System.out.print("ID do funcionário responsável: ");
+                    int idFuncionario = sc.nextInt();
+                    sc.nextLine();
+                    Funcionario funcionario = gf.buscarFuncionarioPorId(idFuncionario);
+                    if (funcionario == null) {
+                        System.out.println("Funcionário não encontrado!");
+                        break;
+                    }
+                    
+                    List<Servico> listaServicos = new ArrayList<>();
+                    String continua;
+                    do {
+                        System.out.print("ID do serviço: ");
+                        int idServico = sc.nextInt();
+                        sc.nextLine();
+                        Servico servico = gs.buscarServicoId(idServico);
+                        if (servico != null) {
+                            listaServicos.add(servico);
+                        } else {
+                            System.out.println("Serviço não encontrado!");
+                        }
+
+                        System.out.print("Deseja adicionar outro serviço? (s/n): ");
+                        continua = sc.nextLine();
+                    } while (continua.equalsIgnoreCase("s"));
+
+                    System.out.print("Forma de pagamento (Dinheiro / Cartão / Pix): ");
+                    String formaPagamento = sc.nextLine();
+
+
+
+                    LocalDateTime dataHora = LocalDateTime.now();
+
+
+                    Venda venda = new Venda(cliente, funcionario, new ArrayList<>(), listaServicos, formaPagamento, dataHora);
+
+
+                    gv.registrarVenda(venda);
+
+                    System.out.println("Venda registrada com sucesso!");
+                    
+                    
+                    
+                }
                 case 2 -> {
                     
                     System.out.print("CPF do cliente: ");

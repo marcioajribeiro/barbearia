@@ -2,7 +2,7 @@
   {
     "nome": "condicionador",
     "preco": 15.0,
-    "quantidadeEstoque": 22,
+    "quantidadeEstoque": 20,
     "idProduto": 2,
     "Fornecedor": "mercadin"
   }
