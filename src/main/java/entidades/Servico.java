@@ -4,6 +4,8 @@
  */
 package entidades;
 
+import estacoesatendimento.EstacaoAtendimento;
+
 
 
 /**
@@ -14,13 +16,17 @@ public class Servico {
     private int idServico;
     private String tipoServico;
     private double valor;
-    private int duraçãoMin;
+    private int duracaoMin;
+    private EstacaoAtendimento estacaoUsada;
 
-    public Servico(String descricao, double valor, int duração) {
-        this.tipoServico = descricao;
+    public Servico(String tipoServico, double valor, int duracaoMin, EstacaoAtendimento estacaoUsada) {
+        this.tipoServico = tipoServico;
         this.valor = valor;
-        this.duraçãoMin = duração;
+        this.duracaoMin = duracaoMin;
+        this.estacaoUsada = estacaoUsada;
     }
+
+    
 
     public int getIdServico() {
         return idServico;
@@ -46,20 +52,31 @@ public class Servico {
         this.valor = valor;
     }
 
-    public int getDuracao() {
-        return duraçãoMin;
+    public int getDuracaoMin() {
+        return duracaoMin;
     }
 
-    public void setDuração(int duração) {
-        this.duraçãoMin = duração;
+    public void setDuracaoMin(int duracaoMin) {
+        this.duracaoMin = duracaoMin;
     }
+
+    public EstacaoAtendimento getEstacaoUsada() {
+        return estacaoUsada;
+    }
+
+    public void setEstacaoUsada(EstacaoAtendimento estacaoUsada) {
+        this.estacaoUsada = estacaoUsada;
+    }
+
+    
+    
 
     @Override
     public String toString() {
         return "ID: " + idServico +
                 ", Servico: " + tipoServico +
                 ", Valor: " + valor +
-                "Duração: " + duraçãoMin;
+                "Duração: " + duracaoMin;
     }
     
     

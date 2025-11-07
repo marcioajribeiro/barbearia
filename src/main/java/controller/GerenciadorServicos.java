@@ -62,7 +62,7 @@ public class GerenciadorServicos extends GerenciadorGenerico{
     }
     
     public void editarDuracaoServico(Servico s, int novaDuracao){
-        s.setDuração(novaDuracao);
+        s.setDuracaoMin(novaDuracao);
         super.salvarLista(caminho, servicos);
     }
     

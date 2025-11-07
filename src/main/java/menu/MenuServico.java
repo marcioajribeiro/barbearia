@@ -5,6 +5,8 @@
 package menu;
 import controller.GerenciadorServicos;
 import entidades.Servico;
+import estacoesatendimento.EstacaoAtendimento;
+import estacoesatendimento.GerenciadorDeEstacoes;
 import java.util.Scanner;
 /**
  *
@@ -39,8 +41,22 @@ public class MenuServico {
                     int duracao = sc.nextInt();
                     System.out.print("Valor: ");
                     double valor = sc.nextDouble();
+                    System.out.println("Qual cadeira ele ocupa: ");
+                    int cadeira = sc.nextInt();
+                    EstacaoAtendimento estacaoEscolhida = null;
+                    for (EstacaoAtendimento e : GerenciadorDeEstacoes.getEstacoes()) {
+                        if (e.getId() == cadeira) {
+                        estacaoEscolhida = e;
+                        break;
+                    }
+                }
 
-                    Servico s = new Servico(nome, valor, duracao);
+                    if (estacaoEscolhida == null) {
+                    System.out.println("Estação inválida!");
+                    break;
+    }
+
+                    Servico s = new Servico(nome, valor, duracao, estacaoEscolhida);
                     gs.addServico(s);
                 }
                 case 2 -> gs.listarServicos();
