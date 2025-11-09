@@ -4,6 +4,9 @@
  */
 package financeiro;
 
+import Interpreter.AplicarDesconto;
+import Interpreter.CondicaoDiaSemana;
+import Interpreter.ExpressaoDesconto;
 import agendamento.Agendamento;
 import agendamento.StatusPagamento;
 import controller.GerenciadorGenerico;
@@ -46,30 +49,21 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         super.salvarLista(caminho, vendas);
     }
     
+    private void processarVenda(Venda venda){
+        double valorServicoComDesconto = calcularValorServicoComRegras(venda);
+        double valorProdutos = venda.getProdutos().stream().mapToDouble(Produto::getPreco).sum();
+        venda.setValorTotal(valorServicoComDesconto + valorProdutos);
+    }
     
 
     public void registrarVenda(Venda venda) {
-    venda.setIdVenda(geradorIdVenda());
-
- 
-        for (Produto pVenda : gp.getProduto()) {
-            Produto produtoEstoque = gp.buscarProdutoPorId(pVenda.getIdProduto());
-
-            if (produtoEstoque != null) {
-                boolean sucesso = gp.removerEstoque(produtoEstoque, 1);
-                if (!sucesso) {
-                    System.out.println("Erro ao tentar remover do estoque o produto: " + produtoEstoque.getNome());
-                }
-            } else {
-                System.out.println("Produto não encontrado no estoque: " + pVenda.getNome());
-            }
-        }
-    
-
-    vendas.add(venda);
-    super.salvarLista(caminho, vendas);
-    System.out.println("✅ Venda registrada com sucesso!");
-}
+        venda.setIdVenda(geradorIdVenda());
+        processarVenda(venda);
+        vendas.add(venda);
+        super.salvarLista(caminho, vendas);
+        System.out.println("Venda registrada com sucesso!");
+    }
+  
 
 
     public Venda buscarVendaPorId(int id) {
@@ -113,6 +107,13 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     public List<Venda> getVendas() {
         return vendas;
     }
+    
+    public double calcularValorServicoComRegras(Venda venda) {
+        ExpressaoDesconto desconto20PorCento = new AplicarDesconto(0.2);
+        ExpressaoDesconto regraDescontoDoDia = new CondicaoDiaSemana(java.time.DayOfWeek.THURSDAY,desconto20PorCento);
+        return regraDescontoDoDia.interpretar(venda);
+}
+    
 
 
     public int geradorIdVenda(){

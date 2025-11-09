@@ -34,7 +34,6 @@ public class Venda {
         this.funcionario = funcionario;
         this.produtos = produtos;
         this.servicos = servicos;
-        this.valorTotal = calcularValorTotal();
         this.formaPagamento = formaPagamento;
         this.dataHora = dataHora;
     }
@@ -63,7 +62,7 @@ public class Venda {
         this.funcionario = funcionario;
     }
 
-    public List getProdutos() {
+    public List<Produto> getProdutos() {
         return produtos;
     }
 
@@ -71,7 +70,7 @@ public class Venda {
         this.produtos = produtos;
     }
 
-    public List getServicos() {
+    public List<Servico> getServicos() {
         return servicos;
     }
 
@@ -111,22 +110,6 @@ public class Venda {
         this.cancelamento = cancelada;
     }
     
-    
-
-    public final double calcularValorTotal() {
-        double total = 0;
-        if (produtos != null) {
-            for (Produto p : produtos) {
-                total += p.getPreco();
-            }
-        }
-        if (servicos != null) {
-            for (Servico s : servicos) {
-                total += s.getValor();
-            }
-        }
-        return total;
-    }
 
     @Override
     public String toString() {

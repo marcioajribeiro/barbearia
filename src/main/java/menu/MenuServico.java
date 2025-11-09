@@ -43,19 +43,7 @@ public class MenuServico {
                     double valor = sc.nextDouble();
                     System.out.println("Qual cadeira ele ocupa: ");
                     int cadeira = sc.nextInt();
-                    EstacaoAtendimento estacaoEscolhida = null;
-                    for (EstacaoAtendimento e : GerenciadorDeEstacoes.getEstacoes()) {
-                        if (e.getId() == cadeira) {
-                        estacaoEscolhida = e;
-                        break;
-                    }
-                }
-
-                    if (estacaoEscolhida == null) {
-                    System.out.println("Estação inválida!");
-                    break;
-    }
-
+                    EstacaoAtendimento estacaoEscolhida = GerenciadorDeEstacoes.buscarEstação(opc);
                     Servico s = new Servico(nome, valor, duracao, estacaoEscolhida);
                     gs.addServico(s);
                 }

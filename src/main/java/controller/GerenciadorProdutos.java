@@ -5,6 +5,7 @@
 package controller;
 
 import entidades.Produto;
+import financeiro.Venda;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,7 +22,7 @@ public class GerenciadorProdutos extends GerenciadorGenerico {
     public GerenciadorProdutos() {
         this.produtos = super.carregarListas(caminho, Produto.class);
     }
-
+    
     public List<Produto> getProduto() {
         return produtos;
     }
@@ -81,20 +82,33 @@ public class GerenciadorProdutos extends GerenciadorGenerico {
         }
     }
     
-    public boolean removerEstoque(Produto p, int quantidade){
-        if(quantidade > 0 && p.getQuantidadeEstoque() >= quantidade){
-            if(quantidade >0){
-                p.setQuantidadeEstoque(p.getQuantidadeEstoque() - quantidade);
-                super.salvarLista(caminho, produtos);
-                return true;
-            }
-            else{
-                return false;
-            }
-        } else{
-            return false;
+    public void removerEstoque(Produto p, int quantidade){
+        if (quantidade > 0 && p.getQuantidadeEstoque() >= quantidade){
+            p.setQuantidadeEstoque(p.getQuantidadeEstoque() - quantidade);
+        } else {
+            System.out.println("Quantidade insuficiente em estoque para o produto: " + p.getNome());
+        }
+}
+    
+    public void atualizarEstoquePorVenda(Venda venda) {
+        for (Produto pVenda : venda.getProdutos()) { 
+            Produto produtoEstoque = buscarProdutoPorId(pVenda.getIdProduto());
+        if (produtoEstoque != null) {
+            removerEstoque(produtoEstoque, 1); 
         }
     }
+        super.salvarLista(caminho, produtos); 
+    }
+    
+    public void removerEstoqueManual(Produto p, int quantidade){
+        if (quantidade > 0 && p.getQuantidadeEstoque() >= quantidade){
+            p.setQuantidadeEstoque(p.getQuantidadeEstoque() - quantidade);
+            super.salvarLista(caminho, produtos);
+        }   else {
+        System.out.println("Quantidade insuficiente para o produto: " + p.getNome());
+        }
+    }
+
     
     
     public int geradorId(){

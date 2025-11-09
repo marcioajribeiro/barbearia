@@ -55,10 +55,24 @@ public class GerenciadorDeEstacoes {
         }
         System.out.println("Estação não encontrada.");
     }
+      
+      public static EstacaoAtendimento buscarEstação(int id){
+          for(EstacaoAtendimento e : estacoes ){
+              if(e.getId() == id){
+                  return e;
+              }
+          }
+          System.out.println("Estação com ID " + id + " não encontrado.");
+          return null;
+      }
 
     public static EstacaoAtendimento[] getEstacoes() {
         return estacoes;
     }
+
+    
+    
+    
       
       
        

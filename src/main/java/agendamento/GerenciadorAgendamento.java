@@ -101,12 +101,12 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
     
     
     public boolean verificarDisponibilidade(LocalDateTime dataHoraDesejada, Agendamento agendamento){
-        int duracaoTotalDesejada = agendamento.getServicos().stream().mapToInt(Servico::getDuracao).sum();
+        int duracaoTotalDesejada = agendamento.getServicos().stream().mapToInt(Servico::getDuracaoMin).sum();
         LocalDateTime FinalDataHora = dataHoraDesejada.plusMinutes(duracaoTotalDesejada);
         for(Agendamento agendamentosExistentes : agendaBarbearia){
             if(agendamentosExistentes.getFuncionario().equals(agendamento.getFuncionario())){
                 LocalDateTime inicioExistente = agendamentosExistentes.getDataHora();
-                int duracaoExistente = agendamentosExistentes.getServicos().stream().mapToInt(Servico::getDuracao).sum();
+                int duracaoExistente = agendamentosExistentes.getServicos().stream().mapToInt(Servico::getDuracaoMin).sum();
 
                 LocalDateTime fimExistente = inicioExistente.plusMinutes(duracaoExistente);
 
