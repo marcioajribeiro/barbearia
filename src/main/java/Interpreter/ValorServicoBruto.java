@@ -7,10 +7,6 @@ package Interpreter;
 import entidades.Servico;
 import financeiro.Venda;
 
-/**
- *
- * @author MARCIO JUNIOR
- */
 public class ValorServicoBruto implements ExpressaoDesconto {
 
     @Override

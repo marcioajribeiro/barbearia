@@ -6,6 +6,7 @@ package financeiro;
 
 import Interpreter.AplicarDesconto;
 import Interpreter.CondicaoDiaSemana;
+import Interpreter.CondicaoValorMinimo;
 import Interpreter.ExpressaoDesconto;
 import agendamento.Agendamento;
 import agendamento.StatusPagamento;
@@ -13,6 +14,7 @@ import controller.GerenciadorGenerico;
 import controller.GerenciadorProdutos;
 import entidades.Produto;
 import entidades.Servico;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -109,9 +111,14 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     }
     
     public double calcularValorServicoComRegras(Venda venda) {
-        ExpressaoDesconto desconto20PorCento = new AplicarDesconto(0.2);
-        ExpressaoDesconto regraDescontoDoDia = new CondicaoDiaSemana(java.time.DayOfWeek.THURSDAY,desconto20PorCento);
-        return regraDescontoDoDia.interpretar(venda);
+        ExpressaoDesconto regraDescontoDoDia = new CondicaoDiaSemana(new AplicarDesconto(0.2));
+        ExpressaoDesconto regraDescontoValorMinimo = new CondicaoValorMinimo(new AplicarDesconto(0.1));
+       
+        double valorComDescontoDia = regraDescontoDoDia.interpretar(venda);
+        double valorComDescontoValor = regraDescontoValorMinimo.interpretar(venda);
+        
+        
+        return Math.min(valorComDescontoDia, valorComDescontoValor);
 }
     
 

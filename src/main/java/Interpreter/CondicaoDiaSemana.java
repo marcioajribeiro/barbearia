@@ -7,17 +7,12 @@ package Interpreter;
 import financeiro.Venda;
 import java.time.DayOfWeek;
 
-/**
- *
- * @author MARCIO JUNIOR
- */
 public class CondicaoDiaSemana implements ExpressaoDesconto {
-    private final DayOfWeek diaDesconto;
-    private final ExpressaoDesconto expressaoSeVerdadeira;
+    private final DayOfWeek diaDesconto = DayOfWeek.WEDNESDAY;
+    private final ExpressaoDesconto expressaoDesconto;
 
-    public CondicaoDiaSemana(DayOfWeek diaDesconto, ExpressaoDesconto expressaoSeVerdadeira) {
-        this.diaDesconto = diaDesconto;
-        this.expressaoSeVerdadeira = expressaoSeVerdadeira;
+    public CondicaoDiaSemana(ExpressaoDesconto expressaoSeVerdadeira) {
+        this.expressaoDesconto = expressaoSeVerdadeira;
     }
     
     
@@ -25,7 +20,7 @@ public class CondicaoDiaSemana implements ExpressaoDesconto {
     @Override
     public double interpretar(Venda venda) {
         if (venda.getDataHora().getDayOfWeek() == diaDesconto) {
-            return expressaoSeVerdadeira.interpretar(venda);
+            return expressaoDesconto.interpretar(venda);
         }
         
         return new ValorServicoBruto().interpretar(venda);
