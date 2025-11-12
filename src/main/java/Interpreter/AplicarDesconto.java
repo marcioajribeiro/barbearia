@@ -6,10 +6,7 @@ package Interpreter;
 
 import financeiro.Venda;
 
-/**
- *
- * @author MARCIO JUNIOR
- */
+
 public class AplicarDesconto implements ExpressaoDesconto {
     private final double desconto;
 

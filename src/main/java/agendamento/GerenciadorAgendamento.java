@@ -103,17 +103,33 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
     public boolean verificarDisponibilidade(LocalDateTime dataHoraDesejada, Agendamento agendamento){
         int duracaoTotalDesejada = agendamento.getServicos().stream().mapToInt(Servico::getDuracaoMin).sum();
         LocalDateTime FinalDataHora = dataHoraDesejada.plusMinutes(duracaoTotalDesejada);
+        Set<Integer> idsEstacoesDesejadas = agendamento.getServicos().stream().map(s -> s.getEstacaoUsada().getId()).collect(Collectors.toSet());
+        
+        
         for(Agendamento agendamentosExistentes : agendaBarbearia){
             if(agendamentosExistentes.getFuncionario().equals(agendamento.getFuncionario())){
                 LocalDateTime inicioExistente = agendamentosExistentes.getDataHora();
                 int duracaoExistente = agendamentosExistentes.getServicos().stream().mapToInt(Servico::getDuracaoMin).sum();
-
                 LocalDateTime fimExistente = inicioExistente.plusMinutes(duracaoExistente);
-
-            // Se os horários se sobrepõem, retorna falso
                 boolean sobrepoe = dataHoraDesejada.isBefore(fimExistente) && FinalDataHora.isAfter(inicioExistente);
-                if(sobrepoe){
-                    return false;
+                if (sobrepoe) {
+            
+                    if (agendamentosExistentes.getFuncionario().equals(agendamento.getFuncionario())) {
+                        System.err.println("ERRO: O barbeiro " + agendamento.getFuncionario().getNome() + " já está ocupado nesse horário: " + inicioExistente + " até " + fimExistente);
+                        return false;
+                    }
+
+
+                    Set<Integer> idsEstacoesExistentes = agendamentosExistentes.getServicos().stream()
+                        .map(s -> s.getEstacaoUsada().getId())
+                        .collect(Collectors.toSet());
+
+                    for (Integer idDesejado : idsEstacoesDesejadas) {
+                        if (idsEstacoesExistentes.contains(idDesejado)) {
+                            System.err.println("ERRO: A Estação de Atendimento ID " + idDesejado + " está ocupada por outro agendamento nesse horário.");
+                            return false;
+                        }
+                    }
                 }
             }
         }

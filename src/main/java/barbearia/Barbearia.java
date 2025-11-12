@@ -12,7 +12,7 @@ import menu.MenuPrincipal;
  */
 public class Barbearia {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws Exception  {
         MenuPrincipal menu = new MenuPrincipal();
         menu.exibirMenuPrincipal();
      

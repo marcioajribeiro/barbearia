@@ -6,11 +6,9 @@ package Interpreter;
 
 import financeiro.Venda;
 
-/**
- *
- * @author MARCIO JUNIOR
- */
 public interface ExpressaoDesconto {
     double interpretar(Venda venda);
     
 }
+
+
