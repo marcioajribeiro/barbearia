@@ -1,8 +1,13 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package login;
+
+import controller.GerenciadorFuncionarios;
+import entidades.Funcionario;
 
 /**
  *
@@ -10,28 +15,21 @@ package login;
  */
 public class Login {
     
-    private String senha;
-    private String usuario;
-
-    public Login(String senha, String usuario) {
-        this.senha = senha;
-        this.usuario = usuario;
+   private GerenciadorFuncionarios gf;
+   
+    public Login() {
+        this.gf = new GerenciadorFuncionarios();
     }
-
-    public String getSenha() {
-        return senha;
+    
+    public Funcionario fazerLogin(String cpf, String senha) {
+        for (Funcionario f : gf.getFuncionarios()) {
+            if (f.getCpf().equals(cpf) && f.getSenha().equals(senha)) {
+                System.out.println("Login realizado com sucesso! Bem-vindo, " + f.getNome());
+                return f;
+            }
+        }
+        System.out.println("CPF ou senha incorretos.");
+        return null;
     }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
 }
+ 

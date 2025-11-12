@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class MenuPrincipal {
 
-    public void exibirMenuPrincipal() {
+    public void exibirMenuPrincipal() throws Exception {
         Scanner sc = new Scanner(System.in);
         int opc;
 
