@@ -68,14 +68,7 @@ public class GerenciadorDeEstacoes {
 
     public static EstacaoAtendimento[] getEstacoes() {
         return estacoes;
-    }
-
-    
-    
-    
-      
-      
-       
+    }       
        
     
 }
