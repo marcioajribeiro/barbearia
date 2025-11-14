@@ -20,7 +20,7 @@ public class Despesa {
     /** Descrição da despesa. */
     private String descricao;
 
-    /** Valor monetário da despesa. */
+    /** Valor da despesa. */
     private double valor;
 
     /** Tipo da despesa categorizado por {@link TipoDespesa}. */

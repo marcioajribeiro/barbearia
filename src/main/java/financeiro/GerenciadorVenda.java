@@ -4,10 +4,10 @@
  */
 package financeiro;
 
+import agendamento.StatusAgendamento;
 import interpreter.AplicarDescontoFixo;
 import interpreter.AplicarDescontoPercentual;
 import agendamento.Agendamento;
-import agendamento.StatusPagamento;
 import controller.GerenciadorGenerico;
 import controller.GerenciadorProdutos;
 import entidades.Produto;
@@ -38,7 +38,7 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     
     
     public void registrarVendaCancelamento(Agendamento a){
-        if(a.getStatusPagamento() != StatusPagamento.PAGAMENTO_CANCELADO){
+        if(a.getStatusPagamento() != StatusAgendamento.AGENDAMENTO_CANCELADO){
         System.out.println("O agendamento não está cancelado. Não é possível registrar venda de cancelamento.");
     }
         List<Produto> produtos = new ArrayList<>();
