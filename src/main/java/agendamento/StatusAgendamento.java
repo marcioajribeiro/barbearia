@@ -9,10 +9,13 @@ package agendamento;
  * @author MARCIO JUNIOR
  */
 public enum StatusAgendamento {
+
+    /**O agendamento foi registrado, porém ainda não recebeu confirmação.*/
     AGENDAMENTO_PENDENTE,
-    
+
+    /**O agendamento foi confirmado e está ativo.*/
     AGENDAMENTO_CONFIRMADO,
-    
+
+    /**O agendamento foi cancelado e não será realizado.*/
     AGENDAMENTO_CANCELADO;
-    
 }
