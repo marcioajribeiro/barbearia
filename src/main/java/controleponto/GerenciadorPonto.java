@@ -35,7 +35,6 @@ public class GerenciadorPonto extends GerenciadorGenerico {
         }else {
             RegistroPonto novoPonto = new RegistroPonto(f);
             this.pontos.add(novoPonto);
-            super.salvarLista(caminho, pontos);
             System.out.println("Ponto Registrado.");
             return novoPonto;
         }
@@ -58,6 +57,10 @@ public class GerenciadorPonto extends GerenciadorGenerico {
                 }else {
                     return null;
                 }
+    }
+
+    public void atulizarPontos(){
+        super.salvarLista(caminho, pontos);
     }
     
     public void listarPontos(){

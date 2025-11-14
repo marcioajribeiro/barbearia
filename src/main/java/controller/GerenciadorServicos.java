@@ -26,13 +26,11 @@ public class GerenciadorServicos extends GerenciadorGenerico{
         novoServico.setIdServico(geradorId());
         servicos.add(novoServico);
         System.out.println("Servico salvo");
-        super.salvarLista(caminho, servicos);
     }
     
     public void removerServico(Servico servico){
         servicos.remove(servico);
         System.out.println("Novo serviço cadastrado");
-        super.salvarLista(caminho, servicos);
     }
     
     public Servico buscarServicoId(int id){
@@ -58,11 +56,13 @@ public class GerenciadorServicos extends GerenciadorGenerico{
     
     public void editarValorServico(Servico s, double novoValor){
         s.setValor(novoValor);
-        super.salvarLista(caminho, servicos);
     }
     
     public void editarDuracaoServico(Servico s, int novaDuracao){
         s.setDuracaoMin(novaDuracao);
+    }
+
+    public void salvarServicos(){
         super.salvarLista(caminho, servicos);
     }
     

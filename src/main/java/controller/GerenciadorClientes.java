@@ -30,6 +30,9 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         cliente.setIdCliente(geradorIdCliente());
         clientes.add(cliente);
         System.out.println("Cliente salvo");
+    }
+
+    public void atualizarLista() {
         super.salvarLista(caminho, clientes);
     }
 
@@ -73,37 +76,30 @@ public class GerenciadorClientes extends GerenciadorGenerico {
       public void removerCliente(Cliente cliente){
             clientes.remove(cliente);
             System.out.println("Cliente removido");
-            super.salvarLista(caminho, clientes);
     }
       
       public void alterarNomeCliente(String novoNome, Cliente c){
-          c.setNome(novoNome); 
-          super.salvarLista(caminho, clientes);
+          c.setNome(novoNome);
       }
       
       public void alterarEnderecoCliente(String novoEndereco, Cliente c){
           c.setEndereco(novoEndereco);
-          super.salvarLista(caminho, clientes);
       }
       
       public void alterarTelefoneCliente(String novoTelefone, Cliente c){
           c.setEndereco(novoTelefone);
-          super.salvarLista(caminho, clientes);
       }
       
       public void alterarEmailCliente(String novoEmail, Cliente c){
           c.setEmail(novoEmail);
-          super.salvarLista(caminho, clientes);
       }
       
       public void alterarCpfCliente(String Cpf, Cliente c){
           c.setCpf(Cpf);
-          super.salvarLista(caminho, clientes);
       }
       
       public void OrdenarOrdemAlfabetica(){
           Collections.sort(clientes, new ComparatorCliente());
-          super.salvarLista(caminho, clientes);
       }
       
       

@@ -12,7 +12,7 @@ public class MenuPrincipal {
     private Scanner sc = new Scanner(System.in);
     private GerenciadorFuncionarios gerenciadorFuncionarios = new GerenciadorFuncionarios();
     
-    private LoginService loginService = new LoginService();
+    private LoginService loginService = new LoginService(gerenciadorFuncionarios);
 
     public void iniciarSistema() {
         System.out.println("====================================");

@@ -23,7 +23,7 @@ public class Agendamento {
     private List<Servico> servicos;
     private LocalDateTime dataHora;
     private double valor;
-    private StatusPagamento statusPagamento;
+    private StatusAgendamento statusPagamento;
 
     public Agendamento( Cliente cliente, Funcionario funcionario, List<Servico> servicos, LocalDateTime dataHora) {
         if(dataHora.isBefore(LocalDateTime.now())){
@@ -34,7 +34,7 @@ public class Agendamento {
         this.servicos = servicos;
         this.dataHora = dataHora;
         this.valor = servicos.stream().mapToDouble(Servico::getValor).sum();
-        this.statusPagamento = StatusPagamento.PAGAMENTO_PENDENTE;
+        this.statusPagamento = StatusAgendamento.AGENDAMENTO_PENDENTE;
     }
     
     
@@ -87,11 +87,11 @@ public class Agendamento {
         this.valor = valor;
     }
 
-    public StatusPagamento getStatusPagamento() {
+    public StatusAgendamento getStatusPagamento() {
         return statusPagamento;
     }
 
-    public void setStatusPagamento(StatusPagamento statusPagamento) {
+    public void setStatusPagamento(StatusAgendamento statusPagamento) {
         this.statusPagamento = statusPagamento;
     }
 

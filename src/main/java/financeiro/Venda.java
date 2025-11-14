@@ -15,7 +15,8 @@ import java.util.List;
 
 /**
  *
- * @author rafin
+ * @author Márcio Antônio
+ * @author Rafael Martins
  */
 public class Venda {
     

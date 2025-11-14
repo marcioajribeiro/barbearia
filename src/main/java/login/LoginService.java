@@ -6,8 +6,8 @@ import entidades.Funcionario;
 public class LoginService {
     private GerenciadorFuncionarios gerenciadorFuncionarios;
 
-    public LoginService() {
-        this.gerenciadorFuncionarios = new GerenciadorFuncionarios();
+    public LoginService(GerenciadorFuncionarios gerenciadorFuncionarios) {
+        this.gerenciadorFuncionarios = gerenciadorFuncionarios;
     }
 
     public Funcionario login(String cpf, String senha) {
