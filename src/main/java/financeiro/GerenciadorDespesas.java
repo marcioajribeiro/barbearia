@@ -30,28 +30,24 @@ public class GerenciadorDespesas extends GerenciadorGenerico {
         Despesa novaDespesa = new Despesa(materialComprado, valor, TipoDespesa.DESPESA_MATERIAL, LocalDateTime.now());
         novaDespesa.setId(geradorId());
         despesas.add(novaDespesa);
-        super.salvarLista(caminho, despesas);
     }
     
     public void registrarDespesaSalario(double todosSalarios){
         Despesa novaDespesa = new Despesa("Pagamento dos salarios", todosSalarios, TipoDespesa.DESPESA_SALARIO, LocalDateTime.now());
         novaDespesa.setId(geradorId());
         despesas.add(novaDespesa);
-        super.salvarLista(caminho, despesas);
     }
     
     public void registrarDespesaLimpeza(double valorLimpeza){
         Despesa novaDespesa = new Despesa("Pagamento para limpeza", valorLimpeza, TipoDespesa.DESPESA_LIMPEZA, LocalDateTime.now());
         novaDespesa.setId(geradorId());
         despesas.add(novaDespesa);
-        super.salvarLista(caminho, despesas);
     }
     
     public void registrarDespesaCortesias(String cortesia, double valorCortesia){
         Despesa novaDespesa = new Despesa(cortesia, valorCortesia, TipoDespesa.DESPESA_CORTESIAS, LocalDateTime.now());
         novaDespesa.setId(geradorId());
         despesas.add(novaDespesa);
-        super.salvarLista(caminho, despesas);
     }
     
     public Despesa buscarVendaPorId(int id) {
@@ -67,6 +63,9 @@ public class GerenciadorDespesas extends GerenciadorGenerico {
     public void removerDespesa(Despesa d){
         despesas.remove(d);
         System.out.println("Despesa removido");
+    }
+
+    public void salvarDespesas(){
         super.salvarLista(caminho, despesas);
     }
     

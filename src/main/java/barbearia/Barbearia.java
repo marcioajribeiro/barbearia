@@ -3,7 +3,7 @@ package barbearia;
 
 import agendamento.Agendamento;
 import agendamento.GerenciadorAgendamento;
-import agendamento.StatusPagamento;
+import agendamento.StatusAgendamento;
 import controller.GerenciadorProdutos;
 import controller.GerenciadorServicos;
 import entidades.Cliente;

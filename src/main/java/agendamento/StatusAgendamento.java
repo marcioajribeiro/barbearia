@@ -8,12 +8,11 @@ package agendamento;
  *
  * @author MARCIO JUNIOR
  */
-public enum StatusPagamento {
+public enum StatusAgendamento {
+    AGENDAMENTO_PENDENTE,
     
-    PAGAMENTO_PENDENTE,
+    AGENDAMENTO_CONFIRMADO,
     
-    PAGAMENTO_CONCLUIDO,
-    
-    PAGAMENTO_CANCELADO;
+    AGENDAMENTO_CANCELADO;
     
 }

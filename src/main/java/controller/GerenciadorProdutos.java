@@ -31,7 +31,6 @@ public class GerenciadorProdutos extends GerenciadorGenerico {
         p.setIdProduto(geradorId());
         produtos.add(p);
         System.out.println("Produto salvo");
-        super.salvarLista(caminho, produtos);
     }
     
     public void listarProdutos(){
@@ -59,18 +58,15 @@ public class GerenciadorProdutos extends GerenciadorGenerico {
     public void removerProdutoPorId(Produto p) {
         produtos.remove(p);
         System.out.println("Produto removido com sucesso!");
-        super.salvarLista(caminho, produtos);
     
     
 }
     public void editarPrecoProduto(Produto p , double precoNovo){
         p.setPreco(precoNovo);
-        super.salvarLista(caminho, produtos);
     }
     
     public void editarFornecedorProduto(Produto p, String novofornecedor){
         p.setFornecedor(novofornecedor);
-        super.salvarLista(caminho, produtos);
     }
     
     public boolean adicionarEstoque(Produto p ,int quantidade){
@@ -97,7 +93,6 @@ public class GerenciadorProdutos extends GerenciadorGenerico {
             removerEstoque(produtoEstoque, 1); 
         }
     }
-        super.salvarLista(caminho, produtos); 
     }
     
     public void removerEstoqueManual(Produto p, int quantidade){
@@ -107,6 +102,10 @@ public class GerenciadorProdutos extends GerenciadorGenerico {
         }   else {
         System.out.println("Quantidade insuficiente para o produto: " + p.getNome());
         }
+    }
+
+    public void salvarEstoque(){
+        super.salvarLista(caminho, produtos);
     }
 
     

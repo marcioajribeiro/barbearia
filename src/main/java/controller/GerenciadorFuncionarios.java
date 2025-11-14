@@ -30,7 +30,6 @@ public class GerenciadorFuncionarios extends GerenciadorGenerico{
         f.setIdFuncionario(geradorIdFuncionario());
         funcionarios.add(f);
         System.out.println("Funcionário salvo");
-        super.salvarLista(caminho, funcionarios);
     }
 
     public Funcionario buscarFuncionarioPorId(int id) {
@@ -88,31 +87,29 @@ public class GerenciadorFuncionarios extends GerenciadorGenerico{
     
     public void alterarNomeFuncionario(String novoNome, Funcionario f){
         f.setNome(novoNome);
-        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarEnderecoFuncionario(String novoEndereco, Funcionario f){
         f.setEndereco(novoEndereco);
-        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarTelefoneFuncionario(String novoTelefone, Funcionario f){
         f.setTelefone(novoTelefone);
-        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarSenhaFuncionario (String novaSenha,Funcionario f){
         f.setSenha(novaSenha);
-        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarCargoFuncionario (String novoCargo, Funcionario f){
         f.setCargo(novoCargo);
-        super.salvarLista(caminho, funcionarios);
     }
     
     public void alterarCpfFuncionario (String novoCpf, Funcionario f){
         f.setCpf(novoCpf);
+    }
+
+    public void atualizarFuncionario(){
         super.salvarLista(caminho, funcionarios);
     }
     

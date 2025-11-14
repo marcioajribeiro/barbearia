@@ -41,21 +41,18 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
         }
         novoAgendamento.setId(geradorIdAgendamento());
         agendaBarbearia.add(novoAgendamento);
-        super.salvarLista(caminho, agendaBarbearia);
     }
         
    
     
     public void alterarStatusCancelado(Agendamento agendamento){
         agendamento.setValor(agendamento.getValor() *0.35);
-        agendamento.setStatusPagamento(StatusPagamento.PAGAMENTO_CANCELADO);
+        agendamento.setStatusPagamento(StatusAgendamento.AGENDAMENTO_CANCELADO);
         gv.registrarVendaCancelamento(agendamento);
-        super.salvarLista(caminho, agendaBarbearia);
     }
     
-    public void alterarStatusConcluido(Agendamento agendamento){
-        agendamento.setStatusPagamento(StatusPagamento.PAGAMENTO_CONCLUIDO);
-        super.salvarLista(caminho, agendaBarbearia);
+    public void alterarStatusConfirmado(Agendamento agendamento){
+        agendamento.setStatusPagamento(StatusAgendamento.AGENDAMENTO_CONFIRMADO);
     }
     
     public Agendamento buscarAgendamentoId(int id){
@@ -134,6 +131,10 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
     
     public void organizarPorMaisRecentes(){
         Collections.sort(agendaBarbearia, new ComparatorAgendamento());
+    }
+
+
+    public void atulizarAgenda(){
         super.salvarLista(caminho, agendaBarbearia);
     }
     

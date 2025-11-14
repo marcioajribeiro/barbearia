@@ -48,7 +48,6 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         venda.setValorTotal(a.getValor());
         venda.setCancelamento(true);
         vendas.add(venda);
-        super.salvarLista(caminho, vendas);
     }
     
     private void processarVenda(Venda venda){
@@ -62,7 +61,6 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         venda.setIdVenda(geradorIdVenda());
         processarVenda(venda);
         vendas.add(venda);
-        super.salvarLista(caminho, vendas);
         System.out.println("Venda registrada com sucesso!");
     }
   
@@ -90,7 +88,6 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     public void removerVenda(Venda venda) {
         vendas.remove(venda);
         System.out.println("Venda removida");
-        super.salvarLista(caminho, vendas);
        
     }
     
@@ -115,6 +112,10 @@ public class GerenciadorVenda extends GerenciadorGenerico{
         }
         
         return total;
+    }
+
+    public void salvarVendas(){
+        super.salvarLista(caminho, vendas);
     }
 
 
