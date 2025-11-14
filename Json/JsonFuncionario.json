@@ -1,11 +1,20 @@
 [
   {
+    "idFuncionario": 1,
+    "cargo": "ADMIN",
+    "senha": "admin123",
+    "nome": "Administrador",
+    "endereco": "Rua Central, 100",
+    "telefone": "(38)999279932",
+    "cpf": "15322402608"
+  },
+  {
     "idFuncionario": 2,
-    "cargo": "Gerente",
-    "senha": "barb2",
-    "nome": "marcio",
-    "endereco": "Rua coco2",
-    "telefone": "38999279935",
-    "cpf": "15322402611"
+    "cargo": "BARBEIRO",
+    "senha": "barb123",
+    "nome": "rafael",
+    "endereco": "rua Barao do rio Branco",
+    "telefone": "38999279933",
+    "cpf": "15322402609"
   }
 ]

@@ -1,5 +1,8 @@
 package barbearia;
 
+import entidades.Funcionario;
+import java.util.Scanner;
+import login.LoginService;
 import menu.MenuPrincipal;
 
 
@@ -13,9 +16,10 @@ import menu.MenuPrincipal;
 public class Barbearia {
 
     public static void main(String[] args) throws Exception  {
-        MenuPrincipal menu = new MenuPrincipal();
-        menu.exibirMenuPrincipal();
-     
-        
+        new MenuPrincipal().iniciarSistema();
     }
+    
+    
+    
+   
 }
