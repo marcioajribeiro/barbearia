@@ -1,0 +1,396 @@
+[
+  {
+    "id": 10,
+    "cliente": {
+      "idCliente": 0,
+      "email": "pedro@gmail.com",
+      "nome": "Pedro Santos",
+      "endereco": "Rua B, 200",
+      "telefone": "389912345",
+      "cpf": "111.222.333-44"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha2",
+      "nome": "Rafael Corte",
+      "endereco": "Centro",
+      "telefone": "389900022",
+      "cpf": "111.222.333-00"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 0,
+        "tipoServico": "Sobrancelha",
+        "valor": 15.0,
+        "duracaoMin": 10,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-14T06:50",
+    "valor": 50.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 4,
+    "cliente": {
+      "idCliente": 0,
+      "email": "marcos@gmail.com",
+      "nome": "Marcos Lima",
+      "endereco": "Rua D, 400",
+      "telefone": "389923456",
+      "cpf": "999.888.777-66"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha2",
+      "nome": "Rafael Corte",
+      "endereco": "Centro",
+      "telefone": "389900022",
+      "cpf": "111.222.333-00"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-15T02:50",
+    "valor": 35.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 6,
+    "cliente": {
+      "idCliente": 0,
+      "email": "edu@gmail.com",
+      "nome": "Eduardo Alves",
+      "endereco": "Rua E, 500",
+      "telefone": "389987654",
+      "cpf": "444.333.222-11"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha2",
+      "nome": "Rafael Corte",
+      "endereco": "Centro",
+      "telefone": "389900022",
+      "cpf": "111.222.333-00"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-15T02:50",
+    "valor": 35.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 3,
+    "cliente": {
+      "idCliente": 0,
+      "email": "lucas@gmail.com",
+      "nome": "Lucas Pereira",
+      "endereco": "Rua C, 300",
+      "telefone": "389934567",
+      "cpf": "555.666.777-88"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha2",
+      "nome": "Rafael Corte",
+      "endereco": "Centro",
+      "telefone": "389900022",
+      "cpf": "111.222.333-00"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T05:50",
+    "valor": 35.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 8,
+    "cliente": {
+      "idCliente": 0,
+      "email": "marcos@gmail.com",
+      "nome": "Marcos Lima",
+      "endereco": "Rua D, 400",
+      "telefone": "389923456",
+      "cpf": "999.888.777-66"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha1",
+      "nome": "Carlos Barbeiro",
+      "endereco": "Centro",
+      "telefone": "389900011",
+      "cpf": "222.333.444-55"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-17T02:50",
+    "valor": 35.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 5,
+    "cliente": {
+      "idCliente": 0,
+      "email": "joao@gmail.com",
+      "nome": "João Silva",
+      "endereco": "Rua A, 100",
+      "telefone": "389999999",
+      "cpf": "123.456.789-10"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha1",
+      "nome": "Carlos Barbeiro",
+      "endereco": "Centro",
+      "telefone": "389900011",
+      "cpf": "222.333.444-55"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-17T03:50",
+    "valor": 35.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 9,
+    "cliente": {
+      "idCliente": 0,
+      "email": "edu@gmail.com",
+      "nome": "Eduardo Alves",
+      "endereco": "Rua E, 500",
+      "telefone": "389987654",
+      "cpf": "444.333.222-11"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha2",
+      "nome": "Rafael Corte",
+      "endereco": "Centro",
+      "telefone": "389900022",
+      "cpf": "111.222.333-00"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte + Barba",
+        "valor": 50.0,
+        "duracaoMin": 50,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-17T05:50",
+    "valor": 50.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 7,
+    "cliente": {
+      "idCliente": 0,
+      "email": "lucas@gmail.com",
+      "nome": "Lucas Pereira",
+      "endereco": "Rua C, 300",
+      "telefone": "389934567",
+      "cpf": "555.666.777-88"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha1",
+      "nome": "Carlos Barbeiro",
+      "endereco": "Centro",
+      "telefone": "389900011",
+      "cpf": "222.333.444-55"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 0,
+        "tipoServico": "Sobrancelha",
+        "valor": 15.0,
+        "duracaoMin": 10,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-19T04:50",
+    "valor": 35.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 2,
+    "cliente": {
+      "idCliente": 0,
+      "email": "pedro@gmail.com",
+      "nome": "Pedro Santos",
+      "endereco": "Rua B, 200",
+      "telefone": "389912345",
+      "cpf": "111.222.333-44"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha1",
+      "nome": "Carlos Barbeiro",
+      "endereco": "Centro",
+      "telefone": "389900011",
+      "cpf": "222.333.444-55"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-19T04:50",
+    "valor": 35.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  },
+  {
+    "id": 1,
+    "cliente": {
+      "idCliente": 0,
+      "email": "joao@gmail.com",
+      "nome": "João Silva",
+      "endereco": "Rua A, 100",
+      "telefone": "389999999",
+      "cpf": "123.456.789-10"
+    },
+    "barbeiro": {
+      "idFuncionario": 0,
+      "cargo": "Barbeiro",
+      "senha": "senha1",
+      "nome": "Carlos Barbeiro",
+      "endereco": "Centro",
+      "telefone": "389900011",
+      "cpf": "222.333.444-55"
+    },
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-20T03:50",
+    "valor": 35.0,
+    "statusPagamento": "PAGAMENTO_PENDENTE"
+  }
+]

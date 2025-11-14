@@ -145,8 +145,10 @@ public class MenuAgendamento {
                             System.out.println("Formato inválido! Use dd/MM/yyyy HH:mm");
                         }
                     }
-                    ga.buscarAgendamentosDia(dataHora);
+                    ga.organizarPorMaisRecentes();
+                    ga.listarAgendamentos();
                 }
+                
                     
             }
         } while (opc != 0);

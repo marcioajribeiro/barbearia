@@ -19,33 +19,20 @@ public class ComparatorAgendamento implements Comparator<Agendamento>{
     @Override
     public int compare(Agendamento a1, Agendamento a2) {
 
-        
-        if (a1 == null && a2 == null){
+        if (a1 == null && a2 == null) {
             return 0;
         }
-        if (a1 == null){
-            return -1;
-        }
-        if (a2 == null){
+        if (a1 == null) {
             return 1;
+        }
+        if (a2 == null) {
+            return -1;
         }
 
         LocalDateTime d1 = a1.getDataHora();
         LocalDateTime d2 = a2.getDataHora();
 
-        
-        if (d1 == null && d2 == null){
-            return 0;
-        }
-        if (d1 == null){
-            return -1;
-        }
-        if (d2 == null){
-            return 1;
-        }
-
-        
-        
+       
         if (d1.getYear() != d2.getYear()) {
             return d1.getYear() - d2.getYear();
         }
@@ -66,12 +53,10 @@ public class ComparatorAgendamento implements Comparator<Agendamento>{
             return d1.getMinute() - d2.getMinute();
         }
 
-        
         if (d1.getSecond() != d2.getSecond()) {
             return d1.getSecond() - d2.getSecond();
         }
 
-        
         return 0;
     }
 }
