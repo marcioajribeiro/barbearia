@@ -4,7 +4,10 @@
  */
 package controller;
 
+import comparator.ComparatorCliente;
 import entidades.Cliente;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -97,6 +100,14 @@ public class GerenciadorClientes extends GerenciadorGenerico {
           c.setCpf(Cpf);
           super.salvarLista(caminho, clientes);
       }
+      
+      public void OrdenarOrdemAlfabetica(){
+          Collections.sort(clientes, new ComparatorCliente());
+          super.salvarLista(caminho, clientes);
+      }
+      
+      
+      
       
       public int geradorIdCliente(){
           if(clientes.isEmpty()){
