@@ -19,4 +19,7 @@ public class Barbearia {
         new MenuPrincipal().iniciarSistema();
     }
     
+    
+    
+   
 }
