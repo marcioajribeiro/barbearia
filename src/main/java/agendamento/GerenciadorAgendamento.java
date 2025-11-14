@@ -4,6 +4,7 @@
  */
 package agendamento;
 
+import comparator.ComparatorAgendamento;
 import controller.GerenciadorGenerico;
 import controller.GerenciadorServicos;
 import entidades.Funcionario;
@@ -11,6 +12,7 @@ import entidades.Servico;
 import financeiro.GerenciadorVenda;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -37,15 +39,12 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
         if (!verificarDisponibilidade(novoAgendamento.getDataHora(), novoAgendamento)) {
             throw new Exception("Horário indisponível para o barbeiro selecionado!");
         }
-
-        salvarAgendamento(novoAgendamento);
-    }
-        
-    private void salvarAgendamento(Agendamento agendamento){
-        agendaBarbearia.add(agendamento);
+        novoAgendamento.setId(geradorIdAgendamento());
+        agendaBarbearia.add(novoAgendamento);
         super.salvarLista(caminho, agendaBarbearia);
     }
-
+        
+   
     
     public void alterarStatusCancelado(Agendamento agendamento){
         agendamento.setValor(agendamento.getValor() *0.35);
@@ -83,21 +82,6 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
         }
     }
     
-    public void buscarAgendamentosDia(LocalDate dataEscolhida){
-
-        List<Agendamento> agendaDia = agendaBarbearia.stream()
-            .filter(a -> a.getDataHora().toLocalDate().equals(dataEscolhida))
-            .collect(Collectors.toList());
-
-        if (agendaDia.isEmpty()) {
-        System.out.println("Não há agendamentos para o dia " + dataEscolhida);
-           } else {
-                System.out.println("----- Agendamentos de " + dataEscolhida + " -----");
-            for (Agendamento a : agendaDia) {
-            System.out.println(a);
-        }
-    }
-    }
     
     
     public boolean verificarDisponibilidade(LocalDateTime dataHoraDesejada, Agendamento agendamento){
@@ -146,6 +130,11 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
                 System.out.println(a);
             }
         }   
+    }
+    
+    public void organizarPorMaisRecentes(){
+        Collections.sort(agendaBarbearia, new ComparatorAgendamento());
+        super.salvarLista(caminho, agendaBarbearia);
     }
     
     public int geradorIdAgendamento(){

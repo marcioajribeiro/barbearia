@@ -2,17 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package interpreter;
+package Interpreter;
 
-import entidades.Servico;
 import financeiro.Venda;
 
-public class ValorServicoBruto implements ExpressaoDesconto {
+/**
+ *
+ * @author MARCIO JUNIOR
+ */
+public class AplicarDescontoPercentual implements ExpressaoDesconto {
+    private final double desconto = 0.2;
+    
 
     @Override
     public double interpretar(Venda venda) {
-        return venda.getServicos().stream().mapToDouble(Servico::getValor).sum();
+        double valorBruto = new ValorServicoBruto().interpretar(venda);
         
+        return valorBruto * (1 - desconto);
     }
-  
+    
 }

@@ -4,10 +4,11 @@
  */
 package financeiro;
 
-import interpreter.AplicarDesconto;
-import interpreter.CondicaoDiaSemana;
-import interpreter.CondicaoValorMinimo;
-import interpreter.ExpressaoDesconto;
+import Interpreter.AplicarDescontoFixo;
+import Interpreter.AplicarDescontoPercentual;
+import Interpreter.CondicaoDiaSemana;
+import Interpreter.CondicaoValorMinimo;
+import Interpreter.ExpressaoDesconto;
 import agendamento.Agendamento;
 import agendamento.StatusPagamento;
 import controller.GerenciadorGenerico;
@@ -94,6 +95,18 @@ public class GerenciadorVenda extends GerenciadorGenerico{
        
     }
     
+    public double calcularValorServicoComRegras(Venda venda) {
+        ExpressaoDesconto regraDescontoDoDia = new CondicaoDiaSemana(new AplicarDescontoPercentual());
+        
+        ExpressaoDesconto regraDescontoValorMinimo = new CondicaoValorMinimo(new AplicarDescontoFixo());
+       
+        double valorComDescontoDia = regraDescontoDoDia.interpretar(venda);
+        double valorComDescontoValor = regraDescontoValorMinimo.interpretar(venda);
+        
+        
+        return Math.min(valorComDescontoDia, valorComDescontoValor);
+    }
+    
     public double calcularVendasAnoMes(int ano, int mes){
         double total = 0.0;
         for(Venda v : vendas){
@@ -106,20 +119,11 @@ public class GerenciadorVenda extends GerenciadorGenerico{
     }
 
 
+
     public List<Venda> getVendas() {
         return vendas;
     }
     
-    public double calcularValorServicoComRegras(Venda venda) {
-        ExpressaoDesconto regraDescontoDoDia = new CondicaoDiaSemana(new AplicarDesconto(0.2));
-        ExpressaoDesconto regraDescontoValorMinimo = new CondicaoValorMinimo(new AplicarDesconto(0.1));
-       
-        double valorComDescontoDia = regraDescontoDoDia.interpretar(venda);
-        double valorComDescontoValor = regraDescontoValorMinimo.interpretar(venda);
-        
-        
-        return Math.min(valorComDescontoDia, valorComDescontoValor);
-}
     
 
 

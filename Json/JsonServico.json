@@ -1,8 +1,50 @@
 [
   {
     "idServico": 1,
-    "tipoServico": "barba",
-    "valor": 25.0,
-    "duraçãoMin": 20
+    "tipoServico": "Corte de Cabelo",
+    "valor": 35.0,
+    "duracaoMin": 30,
+    "estacaoUsada": {
+      "id": 1,
+      "descricao": "Cadeira 1",
+      "ocupado": false,
+      "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+    }
+  },
+  {
+    "idServico": 2,
+    "tipoServico": "Barba",
+    "valor": 20.0,
+    "duracaoMin": 20,
+    "estacaoUsada": {
+      "id": 1,
+      "descricao": "Cadeira 1",
+      "ocupado": false,
+      "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+    }
+  },
+  {
+    "idServico": 3,
+    "tipoServico": "Sobrancelha",
+    "valor": 15.0,
+    "duracaoMin": 10,
+    "estacaoUsada": {
+      "id": 1,
+      "descricao": "Cadeira 1",
+      "ocupado": false,
+      "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+    }
+  },
+  {
+    "idServico": 4,
+    "tipoServico": "Corte + Barba",
+    "valor": 50.0,
+    "duracaoMin": 50,
+    "estacaoUsada": {
+      "id": 1,
+      "descricao": "Cadeira 1",
+      "ocupado": false,
+      "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+    }
   }
 ]

@@ -7,7 +7,6 @@ package agendamento;
 import entidades.Cliente;
 import entidades.Funcionario;
 import entidades.Servico;
-import estacoesatendimento.EstacaoAtendimento;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class Agendamento {
 
     public Agendamento( Cliente cliente, Funcionario funcionario, List<Servico> servicos, LocalDateTime dataHora) {
         if(dataHora.isBefore(LocalDateTime.now())){
-            throw new IllegalArgumentException("A data do agendamento não pode ser no pasado");
+            throw new IllegalArgumentException("Data Inválida");
         }
         this.cliente = cliente;
         this.barbeiro = funcionario;
