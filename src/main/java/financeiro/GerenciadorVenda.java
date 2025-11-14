@@ -4,18 +4,17 @@
  */
 package financeiro;
 
-import Interpreter.AplicarDescontoFixo;
-import Interpreter.AplicarDescontoPercentual;
-import Interpreter.CondicaoDiaSemana;
-import Interpreter.CondicaoValorMinimo;
-import Interpreter.ExpressaoDesconto;
+import interpreter.AplicarDescontoFixo;
+import interpreter.AplicarDescontoPercentual;
 import agendamento.Agendamento;
 import agendamento.StatusPagamento;
 import controller.GerenciadorGenerico;
 import controller.GerenciadorProdutos;
 import entidades.Produto;
 import entidades.Servico;
-import java.time.DayOfWeek;
+import interpreter.CondicaoDiaSemana;
+import interpreter.CondicaoValorMinimo;
+import interpreter.ExpressaoDesconto;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;

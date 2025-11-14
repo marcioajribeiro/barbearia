@@ -6,14 +6,12 @@ package interpreter;
 
 import financeiro.Venda;
 
-
-public class AplicarDesconto implements ExpressaoDesconto {
-    private final double desconto;
-
-    public AplicarDesconto(double desconto) {
-        this.desconto = desconto;
-    }
-    
+/**
+ *
+ * @author MARCIO JUNIOR
+ */
+public class AplicarDescontoPercentual implements ExpressaoDesconto {
+    private final double desconto = 0.2;
     
 
     @Override
