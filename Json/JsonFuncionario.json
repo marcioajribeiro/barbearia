@@ -16,5 +16,14 @@
     "endereco": "rua Barao do rio Branco",
     "telefone": "38999279933",
     "cpf": "15322402609"
+  },
+  {
+    "idFuncionario": 3,
+    "cargo": "BARBEIRO",
+    "senha": "barb1234",
+    "nome": "Rafa",
+    "endereco": "Rua",
+    "telefone": "38999279935",
+    "cpf": "15324292920"
   }
 ]

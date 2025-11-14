@@ -41,7 +41,7 @@ public class MenuFuncionario {
                     String telefone = sc.nextLine();
                     System.out.print("CPF: ");
                     String cpf = sc.nextLine();
-                    System.out.print("Cargo: ");
+                    System.out.print("Cargo(BARBEIRO/ADMIN): ");
                     String cargo = sc.nextLine();
                     System.out.print("Senha: ");
                     String senha = sc.nextLine();

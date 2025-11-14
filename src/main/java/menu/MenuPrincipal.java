@@ -2,13 +2,16 @@ package menu;
 
 import controller.GerenciadorFuncionarios;
 import login.LoginService;
+import entidades.Cliente;
 import entidades.Funcionario;
 import java.util.Scanner;
 
 public class MenuPrincipal {
+    
     private Scanner sc = new Scanner(System.in);
-    private LoginService loginService = new LoginService();
     private GerenciadorFuncionarios gerenciadorFuncionarios = new GerenciadorFuncionarios();
+    
+    private LoginService loginService = new LoginService();
 
     public void iniciarSistema() {
         System.out.println("====================================");
@@ -39,20 +42,36 @@ public class MenuPrincipal {
             System.out.println("\n====================================");
             System.out.println("Bem-vindo, " + admin.getNome() + " (ADMIN)");
             System.out.println("====================================");
-            System.out.println("1 - Cadastrar Funcionário");
-            System.out.println("2 - Listar Funcionários");
-            System.out.println("3 - Remover Funcionário");
-            System.out.println("4 - Editar Dados de Funcionário");
+            System.out.println("1 - Administração de Funcionário");
+            System.out.println("2 - Administração de Cliente");
+            System.out.println("3 - Administração de Agendamento");
+            System.out.println("4 - Administração de Despesa");
+            System.out.println("5 - Administração de Ponto");
+            System.out.println("6 - Administração de Produto");
+            System.out.println("7 - Administração de Serviços");
+            System.out.println("8 - Administração de Vendas");
+            System.out.println("9 - Administração de Relatório");
             System.out.println("0 - Logout");
             System.out.print("Escolha: ");
             opc = sc.nextInt();
             sc.nextLine();
 
             switch (opc) {
-                case 1 -> cadastrarFuncionario();
-                case 2 -> gerenciadorFuncionarios.listarFuncionarios();
-                case 3 -> removerFuncionario();
-                case 4 -> editarFuncionario();
+                case 1 -> MenuFuncionario.exibirMenuFuncionarios();
+                case 2 -> MenuCliente.exibirMenuClientes();
+                case 3 ->{
+                try {
+                    MenuAgendamento.exibirMenuAgendamento();
+                } catch (Exception e) {
+                    System.out.println("Erro ao abrir o menu de agendamentos: " + e.getMessage());
+                }
+            }
+                case 4 -> MenuDespesa.exibirMenuDespesas();
+                case 5 -> MenuPonto.exibirMenuPonto();
+                case 6 -> MenuProduto.exibirMenuProdutos();
+                case 7 -> MenuServico.exibirMenuServicos();
+                case 8 -> MenuVenda.exibirMenuVendas();
+                case 9 -> MenuRelatorio.exibirMenuRelatorio();
                 case 0 -> System.out.println("Saindo...");
                 default -> System.out.println("Opção inválida!");
             }
@@ -65,84 +84,31 @@ public class MenuPrincipal {
             System.out.println("\n====================================");
             System.out.println("Bem-vindo, " + barbeiro.getNome() + " (BARBEIRO)");
             System.out.println("====================================");
-            System.out.println("1 - Ver agendamentos");
-            System.out.println("2 - Registrar atendimento");
+            System.out.println("1 - Administração de Cliente");
+            System.out.println("2 - Administração de Agendamento");
+            System.out.println("3 - Administração de Ponto");
+            System.out.println("4 - Administração de Produto");
+            System.out.println("5 - Administração de Vendas");
             System.out.println("0 - Logout");
             System.out.print("Escolha: ");
             opc = sc.nextInt();
             sc.nextLine();
 
             switch (opc) {
-                case 1 -> System.out.println("Mostrando agendamentos (em desenvolvimento)...");
-                case 2 -> System.out.println("Registrando atendimento (em desenvolvimento)...");
+                case 1 -> MenuCliente.exibirMenuClientes();
+                case 2 -> {
+                try {
+                    MenuAgendamento.exibirMenuAgendamento();
+                } catch (Exception e) {
+                    System.out.println("Erro ao abrir o menu de agendamentos: " + e.getMessage());
+                }
+            }
+                case 3 -> MenuPonto.exibirMenuPonto();
+                case 4 -> MenuProduto.exibirMenuProdutos();
+                case 5 -> MenuVenda.exibirMenuVendas();
                 case 0 -> System.out.println("Saindo...");
                 default -> System.out.println("Opção inválida!");
             }
         } while (opc != 0);
     }
-
-    private void cadastrarFuncionario() {
-        System.out.println("\n--- Cadastro de Funcionário ---");
-        System.out.print("Nome: ");
-        String nome = sc.nextLine();
-        System.out.print("CPF: ");
-        String cpf = sc.nextLine();
-        System.out.print("Cargo (ADMIN/BARBEIRO): ");
-        String cargo = sc.nextLine();
-        System.out.print("Senha: ");
-        String senha = sc.nextLine();
-        System.out.print("Endereço: ");
-        String endereco = sc.nextLine();
-        System.out.print("Telefone: ");
-        String telefone = sc.nextLine();
-
-        Funcionario novo = new Funcionario(nome, cpf, cargo.toUpperCase(), senha, endereco, telefone);
-        gerenciadorFuncionarios.addFuncionario(novo);
-    }
-
-    private void removerFuncionario() {
-        System.out.print("Informe o ID do funcionário a remover: ");
-        int id = sc.nextInt();
-        sc.nextLine();
-        Funcionario f = gerenciadorFuncionarios.buscarFuncionarioPorId(id);
-        gerenciadorFuncionarios.removerFuncionarioCpf(f);
-    }
-
-    private void editarFuncionario() {
-        System.out.print("Informe o ID do funcionário para editar: ");
-        int id = sc.nextInt();
-        sc.nextLine();
-        Funcionario f = gerenciadorFuncionarios.buscarFuncionarioPorId(id);
-        if (f == null) return;
-
-        System.out.println("1 - Nome\n2 - Endereço\n3 - Telefone\n4 - Cargo\n5 - Senha");
-        System.out.print("Escolha o campo para alterar: ");
-        int campo = sc.nextInt();
-        sc.nextLine();
-
-        switch (campo) {
-            case 1 -> {
-                System.out.print("Novo nome: ");
-                gerenciadorFuncionarios.alterarNomeFuncionario(sc.nextLine(), f);
-            }
-            case 2 -> {
-                System.out.print("Novo endereço: ");
-                gerenciadorFuncionarios.alterarEnderecoFuncionario(sc.nextLine(), f);
-            }
-            case 3 -> {
-                System.out.print("Novo telefone: ");
-                gerenciadorFuncionarios.alterarTelefoneFuncionario(sc.nextLine(), f);
-            }
-            case 4 -> {
-                System.out.print("Novo cargo (ADMIN/BARBEIRO): ");
-                gerenciadorFuncionarios.alterarCargoFuncionario(sc.nextLine().toUpperCase(), f);
-            }
-            case 5 -> {
-                System.out.print("Nova senha: ");
-                gerenciadorFuncionarios.alterarSenhaFuncionario(sc.nextLine(), f);
-            }
-            default -> System.out.println("Opção inválida!");
-        }
-    }
-
 }
