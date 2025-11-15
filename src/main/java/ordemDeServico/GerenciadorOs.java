@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ordemDeServico;
+package ordemdeservico;
 
 import controller.GerenciadorClientes;
 import controller.GerenciadorFuncionarios;
@@ -14,6 +14,7 @@ import entidades.Servico;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import ordemDeServico.TipoStatusOs;
 
 /**
  *
@@ -21,7 +22,7 @@ import java.util.Set;
  */
 public class GerenciadorOs extends GerenciadorGenerico {
     
-    private List<OrdemDeServico> gerenciadorOs;
+    private List<OrdemDeServico> listaOs;
     private final String caminho = "Json/JsonOs.json";
     private final GerenciadorServicos gs ;
     private final GerenciadorClientes gc ;
@@ -29,7 +30,7 @@ public class GerenciadorOs extends GerenciadorGenerico {
     private final GerenciadorProdutos gp ;
 
     public GerenciadorOs(GerenciadorServicos gs, GerenciadorClientes gc, GerenciadorFuncionarios gf, GerenciadorProdutos gp) {
-        this.gerenciadorOs = super.carregarListas(caminho, OrdemDeServico.class);
+        this.listaOs = super.carregarListas(caminho, OrdemDeServico.class);
         this.gs = gs;
         this.gc = gc;
         this.gf = gf;
@@ -39,15 +40,23 @@ public class GerenciadorOs extends GerenciadorGenerico {
     
     
     public void addOrdemServico(OrdemDeServico os) {
-    os.setIdOS(geradorIdOS());
-    gerenciadorOs.add(os);
+        os.setIdOS(geradorIdOS());
+        listaOs.add(os);
     
 }
+    
+    public void addProduto(Produto produto, OrdemDeServico os) {
+        os.getProduto().add(produto);
+    }
+    
+    public void addServico(Servico servico, OrdemDeServico os) {
+        os.getServicos().add(servico);
+    }
     
     
         
     public OrdemDeServico buscarPorId(int id) {
-        for (OrdemDeServico os : gerenciadorOs) {
+        for (OrdemDeServico os : listaOs) {
             if (os.getIdOS() == id) {
                 return os;
             }
@@ -56,22 +65,12 @@ public class GerenciadorOs extends GerenciadorGenerico {
     }
     
     
-    public void alterarStatusOS(int id, TipoStatusOs novoStatus) {
-        OrdemDeServico os = buscarPorId(id);
-        if (os != null) {
-            os.setStatusOs(novoStatus);
-            System.out.println("Status da Ordem de Serviço " + id + " alterado para: " + novoStatus);
-        } else {
-            System.out.println("Ordem de Serviço com ID " + id + " não encontrada.");
-        }
-    }
     
-    
-     public void listarOS() {
-        if (gerenciadorOs.isEmpty()) {
+    public void listarOS() {
+        if (listaOs.isEmpty()) {
             System.out.println("Nenhuma Ordem de Serviço cadastrada.");
         } else {
-            for (OrdemDeServico os : gerenciadorOs) {
+            for (OrdemDeServico os : listaOs) {
                 System.out.println(os);
             }
         }
@@ -79,46 +78,49 @@ public class GerenciadorOs extends GerenciadorGenerico {
     
 
     
-        public void atualizarLista() {
-        super.salvarLista(caminho, gerenciadorOs);
+    public void atualizarLista() {
+        super.salvarLista(caminho, listaOs);
         }
     
         
-        public boolean removerOrdemServico(int id) {
+    public boolean removerOrdemServico(int id) {
         OrdemDeServico os = buscarPorId(id);
             if (os != null) {
-                gerenciadorOs.remove(os);
+                listaOs.remove(os);
             return true;
         }
             return false;
 }
         
-        public double calcularValorTotal(OrdemDeServico os) {
-            double totalProdutos = os.getProduto().stream().mapToDouble(Produto::getPreco).sum();
-            double totalServicos = os.getServicos().stream().mapToDouble(Servico::getValor).sum();
-                os.setValorTotal(totalProdutos + totalServicos);
-                    return os.getValorTotal();
-}
+//        public double calcularValorTotal(OrdemDeServico os) {
+//            double totalProdutos = os.getProduto().stream().mapToDouble(Produto::getPreco).sum();
+//            double totalServicos = os.getServicos().stream().mapToDouble(Servico::getValor).sum();
+//                os.setValorTotal(totalProdutos + totalServicos);
+//                    return os.getValorTotal();
+//}
         
-        public boolean atualizarOrdemServico(OrdemDeServico osAtualizada) {
-            OrdemDeServico osExistente = buscarPorId(osAtualizada.getIdOS());
-                if (osExistente != null) {
-                    osExistente.setCliente(osAtualizada.getCliente());
-                return true;
-            }
-                return false;
-}
-
-    
-    
-        public int geradorIdOS(){
-        if(gerenciadorOs.isEmpty()){
+    public void alterarStatusEmAndamento(OrdemDeServico os) {
+        os.setStatusOs(TipoStatusOs.OS_EM_ANDAMENTO);
+    }
+            
+    public void alterarStatusConcluido(OrdemDeServico os) {
+        os.setStatusOs(TipoStatusOs.OS_CONCLUIDO);
+    }
+        
+      
+    public void alterarStatusCancelado(OrdemDeServico os) {
+        os.setStatusOs(TipoStatusOs.OS_CANCELADO);
+    }
+        
+ 
+    public int geradorIdOS(){
+        if(listaOs.isEmpty()){
             return 1;
         }
         
         Set<Integer> idExistentes = new HashSet<>();
         
-        for(OrdemDeServico d : gerenciadorOs){
+        for(OrdemDeServico d : listaOs){
             idExistentes.add(d.getIdOS());
         }
         

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ordemDeServico;
+package ordemdeservico;
 
 
 import entidades.Cliente;
@@ -11,6 +11,7 @@ import entidades.Produto;
 import entidades.Servico;
 import java.time.LocalDateTime;
 import java.util.List;
+import ordemDeServico.TipoStatusOs;
 
 /**
  *
@@ -24,21 +25,17 @@ public class OrdemDeServico {
     private List<Produto> produto;
     private List<Servico> servicos; 
     private LocalDateTime dataHora;
-    private double valorTotal;
     private String observacoes;
     private TipoStatusOs statusOs;
-
-JavaDoc
-    public OrdemDeServico(int idOS, Cliente cliente, Funcionario funcionario, List<Produto> produto, List<Servico> servicos, LocalDateTime dataHora, double valorTotal, String observacoes)
-        this.idOS = idOS;
+    
+    public OrdemDeServico(Cliente cliente, Funcionario funcionario, List<Produto> produto, List<Servico> servicos, LocalDateTime dataHora, String observacoes) {
         this.cliente = cliente;
         this.funcionario = funcionario;
         this.produto = produto;
         this.servicos = servicos;
         this.dataHora = dataHora;
-        this.valorTotal = valorTotal;
         this.observacoes = observacoes;
-        this.statusOs = statusOs.OS_PENDENTE;
+        this.statusOs = TipoStatusOs.OS_PENDENTE;
     }
     
     
@@ -91,13 +88,13 @@ JavaDoc
         this.dataHora = dataHora;
     }
 
-    public double getValorTotal() {
-        return valorTotal;
-    }
+    //public double getValorTotal() {
+    //    return valorTotal;
+   // }
 
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
+   // public void setValorTotal(double valorTotal) {
+   //     this.valorTotal = valorTotal;
+    //}
 
     public String getObservacoes() {
         return observacoes;
@@ -124,7 +121,7 @@ JavaDoc
                         ", Produto:  " + produto +
                         ", Servicos: " + servicos +
                         ", DataHora: " + dataHora  +
-                        ", ValorTotal: " + valorTotal  +
+                       // ", ValorTotal: " + valorTotal  +
                         ", Observacoes: " + observacoes  +
                         ", Status: " + statusOs ;
     }
