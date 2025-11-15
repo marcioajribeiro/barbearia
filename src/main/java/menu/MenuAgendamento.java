@@ -34,7 +34,7 @@ public class MenuAgendamento {
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
         GerenciadorServicos gs = new GerenciadorServicos();
         GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
-        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs, gas);
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gas);
         int opc;
 
         do {
@@ -116,7 +116,7 @@ public class MenuAgendamento {
                     System.out.print("Digite o ID: ");
                     int id = sc.nextInt();
                     Agendamento agendamento = ga.buscarAgendamentoId(id);
-                    System.out.println(agendamento); 
+                    System.out.println(agendamento);
                 }
                 case 4 ->{
                     System.out.print("Digite o ID: ");
@@ -150,8 +150,8 @@ public class MenuAgendamento {
                     ga.organizarPorMaisRecentes();
                     ga.listarAgendamentos();
                 }
-                
-                    
+
+
             }
         } while (opc != 0);
     }

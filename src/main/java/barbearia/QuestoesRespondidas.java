@@ -21,41 +21,41 @@ import financeiro.GerenciadorVenda;
  * @author rafin
  */
 public class QuestoesRespondidas {
-    
-    
-    
-    public static void main(String[] args) { 
-        
-    GerenciadorServicos gs = new GerenciadorServicos();
-    GerenciadorProdutos gp = new GerenciadorProdutos();
-    GerenciadorVenda gv = new GerenciadorVenda(gp);
-    GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
-    GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs, gas);
-    GerenciadorClientes gc = new GerenciadorClientes();
-    GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
-    GerenciadorDespesas gd = new GerenciadorDespesas();
-        
+
+
+
+    public static void main(String[] args) {
+
+        GerenciadorServicos gs = new GerenciadorServicos();
+        GerenciadorProdutos gp = new GerenciadorProdutos();
+        GerenciadorVenda gv = new GerenciadorVenda(gp);
+        GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gas);
+        GerenciadorClientes gc = new GerenciadorClientes();
+        GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
+        GerenciadorDespesas gd = new GerenciadorDespesas();
+
         //Questão 01: {
-        System.out.printf("===== Questão 01 =====");
+        System.out.println("===== Questão 01 =====");
         System.out.println("Diagrama feito");
         // }
         //Questão 02: {
         System.out.println("====Questão 02====");
         System.out.println("Acessar a classe Funcionario, atributo cargo ( Linha 17 )");
         //}
-        //Questão 03:{
+        //Questão 03: {
         System.out.println("====Questão 03====");
         System.out.println("Acessar qualquer entidades");
         // }
-        //Questão 04:{
+        //Questão 04: {
         System.out.println("====Questão 04====");
-        System.out.println("Acessar a classe Funcionario ou Cliente em seus construtores");
+        System.out.println("Acessar a classe Funcionário ou Cliente em seus construtores");
         // }
-        //Questão 05:{
+        //Questão 05: {
         System.out.println("====Questão 05====");
-        System.out.println("Acessar a classe GerenciadorDeEstacoes ( linha 12 a 19 )");
+        System.out.println("Acessar a classe GerenciadorDeEstações ( linha 12 a 19 )");
         // }
-        //Questão 06:{
+        //Questão 06: {
         System.out.println("====Questão 06====");
         Funcionario f = new Funcionario("Rafael", "15322402608", "ADMIN", "admin123", "Rua Barao do Rio Branco", "38999279932");
         gf.addFuncionario(f);
@@ -65,9 +65,10 @@ public class QuestoesRespondidas {
         gf.alterarNomeFuncionario("Marcio", f);
         gf.alterarSenhaFuncionario("barb123", f);
         gf.alterarTelefoneFuncionario("38999184025", f);
+        gf.removerFuncionarioCpf(f);
         //}
-        
-        //Questão 07:{
+
+        //Questão 07: {
         System.out.println("====Questão 07====");
         Cliente c = new Cliente("Rafael", "15322402608", "rafinhamartins@gmail.com", "Rua Barao do Rio Branco", "38999279932");
         gc.addCliente(c);
@@ -76,55 +77,56 @@ public class QuestoesRespondidas {
         gc.alterarEnderecoCliente("Rua Diamantina", c);
         gc.alterarNomeCliente("Marcio", c);
         gc.alterarTelefoneCliente("38999184025", c);
-                
-        //Questão 08:{
+        gc.removerCliente(c);
+
+        //Questão 08: {
         System.out.println("====Questão 08====");
         System.out.println("Precisa fazer!");
         // }
-        //Questão 09:{
+        //Questão 09: {
         System.out.println("====Questão 09====");
-        System.out.println("Precisa fazer!");
+        System.out.println("preciso fazer");
         // }
-        //Questão 10:{
+        //Questão 10: {
         System.out.println("====Questão 10====");
         System.out.println("Precisa fazer!");
-        
+
         // }
-        //Questão 11:{
+        //Questão 11: {
         System.out.println("====Questão 11====");
         System.out.println("Precisar fazer!");
         // }
-        //Questão 12:{
+        //Questão 12: {
         System.out.println("====Questão 12====");
         System.out.println("Precisa fazer!");
         // }
-        //Questão 13:{
+        //Questão 13: {
         System.out.println("====Questão 13====");
         System.out.println("Acessar a classe CompareteNameCliente");
         // }
-        //Questão 14:{
+        //Questão 14: {
         System.out.println("====Questão 14====");
         System.out.println("Mostrar as JSON prontas!");
         // }
-        //Questão 15:{
+        //Questão 15: {
         System.out.println("====Questão 15====");
         System.out.println("Precisa fazer");
         // }
-        //Questão 16:{
+        //Questão 16: {
         System.out.println("====Questão 16====");
         System.out.println("Precisa fazer");
         // }
-        //Questão 17:{
+        //Questão 17: {
         System.out.println("====Questão 17====");
         System.out.println("Precisa fazer");
         // }
-        //Questão 18:{
+        //Questão 18: {
         System.out.println("====Questão 18====");
         System.out.println("Precisa fazer");
         // }
-        
+
     }
-    
-    
-    
+
+
+
 }

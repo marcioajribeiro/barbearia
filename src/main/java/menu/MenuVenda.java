@@ -24,19 +24,19 @@ public class MenuVenda {
 
     public static void exibirMenuVendas() {
         Scanner sc = new Scanner(System.in);
-        
-        
-        GerenciadorProdutos gp = new GerenciadorProdutos(); 
-        
-   
-        GerenciadorVenda gv = new GerenciadorVenda(gp); 
-        
+
+
+        GerenciadorProdutos gp = new GerenciadorProdutos();
+
+
+        GerenciadorVenda gv = new GerenciadorVenda(gp);
+
         GerenciadorClientes gc = new GerenciadorClientes();
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
         GerenciadorServicos gs = new GerenciadorServicos();
         GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
-        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs, gas);
-        
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gas);
+
         int opc;
 
         do {
@@ -55,7 +55,7 @@ public class MenuVenda {
 
             switch (opc) {
                 case 1 -> { // REGISTRAR VENDA SERVIÇO
-                    
+
                     System.out.print("CPF do cliente: ");
                     String cpf = sc.nextLine();
                     Cliente cliente = gc.buscarCliente(cpf);
@@ -72,7 +72,7 @@ public class MenuVenda {
                         System.out.println("Funcionário não encontrado!");
                         break;
                     }
-                    
+
                     List<Servico> listaServicos = new ArrayList<>();
                     String continua;
                     do {
@@ -94,18 +94,18 @@ public class MenuVenda {
                     String formaPagamento = sc.nextLine();
 
                     LocalDateTime dataHora = LocalDateTime.now();
-                    
+
                     // Cria a Venda com valorTotal = 0.0 (assumindo a Venda refatorada)
                     Venda venda = new Venda(cliente, funcionario, new ArrayList<>(), listaServicos, formaPagamento, dataHora);
 
                     // Chama o método que executa o Interpreter (processarVenda) antes de salvar.
-                    gv.registrarVenda(venda); 
-                    
+                    gv.registrarVenda(venda);
+
                     // A mensagem de sucesso agora está dentro de registrarVenda.
-                    
+
                 }
                 case 2 -> { // REGISTRAR VENDA PRODUTO
-                    
+
                     System.out.print("CPF do cliente: ");
                     String cpf = sc.nextLine();
                     Cliente cliente = gc.buscarCliente(cpf);
@@ -139,7 +139,7 @@ public class MenuVenda {
                         System.out.print("Deseja adicionar outro produto? (s/n): ");
                         continua = sc.nextLine();
                     } while (continua.equalsIgnoreCase("s"));
-                    
+
                     System.out.print("Forma de pagamento (Dinheiro / Cartão / Pix): ");
                     String formaPagamento = sc.nextLine();
 
@@ -149,7 +149,7 @@ public class MenuVenda {
                     Venda venda = new Venda(cliente, funcionario, listaProdutos, new ArrayList<>(), formaPagamento, dataHora);
 
                     gp.atualizarEstoquePorVenda(venda);
-                    gv.registrarVenda(venda); 
+                    gv.registrarVenda(venda);
                 }
                 case 3 -> { // REGISTRAR VENDA SERVIÇO/PRODUTO
 
@@ -188,7 +188,7 @@ public class MenuVenda {
                         continua = sc.nextLine();
                     } while (continua.equalsIgnoreCase("s"));
 
-                    
+
                     List<Servico> listaServicos = new ArrayList<>();
                     do {
                         System.out.print("ID do serviço: ");
@@ -210,13 +210,13 @@ public class MenuVenda {
 
                     LocalDateTime dataHora = LocalDateTime.now();
 
-                    
+
                     Venda venda = new Venda(cliente, funcionario, listaProdutos, listaServicos, formaPagamento, dataHora);
                     gp.atualizarEstoquePorVenda(venda);
-                    gv.registrarVenda(venda); 
+                    gv.registrarVenda(venda);
                 }
-                
-                
+
+
                 case 4 -> {
                     System.out.println("Digite Id do agendamento cancelado: ");
                     int id = sc.nextInt();

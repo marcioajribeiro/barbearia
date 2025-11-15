@@ -20,10 +20,10 @@ public class testeComparatorAgenda {
         GerenciadorProdutos gp = new GerenciadorProdutos();
         GerenciadorVenda gv = new GerenciadorVenda(gp);
         GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
-        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv , gs , gas);
-        
-        
+        GerenciadorAgendamento ga = new GerenciadorAgendamento( gas);
+
+
         ga.organizarPorMaisRecentes();
     }
-    
+
 }
