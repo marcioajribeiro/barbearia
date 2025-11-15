@@ -8,6 +8,15 @@ package ordemdeservico;
  *
  * @author rafin
  */
-public class TipoStatusOs {
+public enum TipoStatusOs {
+    
+    OS_PENDENTE,
+    
+    OS_EM_ANDAMENTO,
+    
+    OS_CONCLUIDO,
+    
+    OS_CANCELADO,
+    
     
 }
