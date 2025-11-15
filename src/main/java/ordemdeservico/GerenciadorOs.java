@@ -9,6 +9,8 @@ import controller.GerenciadorFuncionarios;
 import controller.GerenciadorServicos;
 import controller.GerenciadorGenerico;
 import controller.GerenciadorProdutos;
+import entidades.Produto;
+import entidades.Servico;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -81,6 +83,32 @@ public class GerenciadorOs extends GerenciadorGenerico {
         super.salvarLista(caminho, gerenciadorOs);
         }
     
+        
+        public boolean removerOrdemServico(int id) {
+        OrdemDeServico os = buscarPorId(id);
+            if (os != null) {
+                gerenciadorOs.remove(os);
+            return true;
+        }
+            return false;
+}
+        
+        public double calcularValorTotal(OrdemDeServico os) {
+            double totalProdutos = os.getProduto().stream().mapToDouble(Produto::getPreco).sum();
+            double totalServicos = os.getServicos().stream().mapToDouble(Servico::getValor).sum();
+                os.setValorTotal(totalProdutos + totalServicos);
+                    return os.getValorTotal();
+}
+        
+        public boolean atualizarOrdemServico(OrdemDeServico osAtualizada) {
+            OrdemDeServico osExistente = buscarPorId(osAtualizada.getIdOS());
+                if (osExistente != null) {
+                    osExistente.setCliente(osAtualizada.getCliente());
+                return true;
+            }
+                return false;
+}
+
     
     
         public int geradorIdOS(){

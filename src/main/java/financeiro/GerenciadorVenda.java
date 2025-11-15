@@ -22,8 +22,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
- *
- * @author rafin
+ * Classe responsável por gerenciar todas as vendas do sistema.
+ * Herda funcionalidade genérica de carregamento e salvamento de listas
+ * da classe {@link GerenciadorGenerico}
+ * @author Márcio Antônio
+ * @author Rafael Martins
  */
 public class GerenciadorVenda extends GerenciadorGenerico {
     /** Lista de vendas cadastrados no sistema. */
@@ -53,7 +56,7 @@ public class GerenciadorVenda extends GerenciadorGenerico {
      * @param a agendamento cancelado que será convertido em venda
      */
     public void registrarVendaCancelamento(Agendamento a) {
-        if (a.getStatusPagamento() != StatusAgendamento.AGENDAMENTO_CANCELADO) {
+        if (a.getStatusAgendamento() != StatusAgendamento.AGENDAMENTO_CANCELADO) {
             System.out.println("O agendamento não está cancelado. Não é possível registrar venda de cancelamento.");
         }
 
