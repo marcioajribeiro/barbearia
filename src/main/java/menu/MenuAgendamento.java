@@ -126,7 +126,7 @@ public class MenuAgendamento {
                     System.out.print("Digite o ID: ");
                     int id = sc.nextInt();
                     Agendamento agendamento = ga.buscarAgendamentoId(id);
-                    ga.alterarStatusConcluido(agendamento);
+                    ga.alterarStatusConfirmado(agendamento);
                 }
                 case 6 -> {
                     ga.listarAgendamentosDoDia();
