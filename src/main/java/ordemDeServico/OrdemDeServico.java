@@ -28,7 +28,8 @@ public class OrdemDeServico {
     private String observacoes;
     private TipoStatusOs statusOs;
 
-    public OrdemDeServico(int idOS, Cliente cliente, Funcionario funcionario, List<Produto> produto, List<Servico> servicos, LocalDateTime dataHora, double valorTotal, String observacoes) {
+JavaDoc
+    public OrdemDeServico(int idOS, Cliente cliente, Funcionario funcionario, List<Produto> produto, List<Servico> servicos, LocalDateTime dataHora, double valorTotal, String observacoes)
         this.idOS = idOS;
         this.cliente = cliente;
         this.funcionario = funcionario;
