@@ -177,6 +177,32 @@ public class Venda {
     }
 
     /**
+     * Gera um extrato de venda formatado para impressão.
+     * O extrato contém informações como:
+     * <ul>
+     *     <li>ID da venda</li>
+     *     <li>Data e hora da venda (formatada como "dd/MM/yyyy HH:mm:ss")</li>
+     *     <li>Dados do cliente (nome)</li>
+     *     <li>Valor total da venda</li>
+     * </ul>
+     *
+     * @return Uma String contendo o extrato completo pronto para impressão.
+     */
+    public String gerarExtratoParaImpressao() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dataFormatada = fmt.format(dataHora);
+
+        String extrato = "================ COMPROVANTE DE VENDA ================\n";
+        extrato += String.format("ID da Venda: %d\n", idVenda);
+        extrato += String.format("Data/Hora: %s\n", dataFormatada);
+        extrato += "---------------- DADOS DO CLIENTE ----------------\n";
+        extrato += String.format("Nome: %s\n", cliente.getNome());
+        extrato += String.format("VALOR TOTAL: R$ %.2f\n", valorTotal);
+        extrato += "=======================================================\n";
+        return extrato;
+    }
+
+    /**
      * Retorna uma representação em String do produto,
      * contendo ID, o nome do funcionário que executou a venda, os serviços prestados
      * os produtos comprado, valor total em R$, a forma de pagamento e a data da venda.
