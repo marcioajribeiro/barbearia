@@ -78,23 +78,27 @@ public class RegistroPonto {
      * Calcula o total de horas trabalhadas entre a entrada e a saída.
      * Caso o ponto ainda esteja aberto (sem saída registrada), retorna 0.
      *
-     * @return número de horas trabalhadas, em formato decimal.
+     * @return uma string representando o tempo trabalhado em horas e minutos,
+     * ou uma mensagem informando que a saída não foi registrada.
      */
-    public double getHorasTrabalhadas() {
+    public String getHorasTrabalhadas() {
         if (saida == null) {
-            return 0;
+            return "Saída ainda não registrada";
         }
 
         Duration duracao = Duration.between(entrada, saida);
-        return duracao.toMinutes() / 60.0;
+
+        long horas = duracao.toHours();
+        long minutos = duracao.toMinutesPart(); // Java 9+
+
+        return horas + "h " + minutos + "min";
     }
 
     /**
-     * Retorna uma representação textual do registro de ponto, exibindo o nome do funcionário,
-     * horário de entrada, horário de saída (ou aviso caso ainda esteja em aberto)
-     * e o total de horas trabalhadas.
+     * Retorna uma representação em String do produto,
+     * contendo ID, o nome do funcionario, entrada, saída e as horas trabalhadas.
      *
-     * @return string formatada contendo as informações do registro de ponto.
+     * @return uma string representando o ponto
      */
     @Override
     public String toString() {
@@ -107,7 +111,7 @@ public class RegistroPonto {
         return "Funcionario: " + funcionario.getNome() +
                 ", Entrada: " + entradaFormatada +
                 ", Saída: " + saidaFormatada +
-                ", Horas: " + getHorasTrabalhadas();
+                ", Horas Trabalhadas: " + getHorasTrabalhadas();
     }
     
     
