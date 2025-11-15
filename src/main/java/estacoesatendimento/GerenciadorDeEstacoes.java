@@ -7,15 +7,15 @@ package estacoesatendimento;
 
 /**
  * Classe responsável por gerenciar as estações de atendimento da barbearia.
- * Mantém um conjunto fixo de três estações e fornece métodos utilitários
- * para consulta, ocupação, liberação e listagem das estações.
+ * @author Márcio Antônio
+ * @author Rafael Martins
  */
 public class GerenciadorDeEstacoes {
 
     /** Conjunto fixo de estações de atendimento disponíveis na barbearia. */
     private static final EstacaoAtendimento[] estacoes = new EstacaoAtendimento[3];
 
-    /**Bloco estático responsável por inicializar as estações.*/
+    /* Bloco estático responsável por inicializar as estações.*/
     static {
         estacoes[0] = new EstacaoAtendimento(1, "Cadeira 1", TipoDeEstacao.LAVAGEM_E_SECADOR);
         estacoes[1] = new EstacaoAtendimento(2, "Cadeira 2", TipoDeEstacao.ATIVIDADES_CORRIQUEIRAS);
@@ -85,7 +85,7 @@ public class GerenciadorDeEstacoes {
      * Realiza uma busca por uma estação específica com base no seu ID.
      *
      * @param id o identificador da estação procurada.
-     * @return a estação encontrada, ou {@code null} se não existir uma estação com este ID.
+     * @return a estação encontrada, ou null se não existir uma estação com este ID.
      */
     public static EstacaoAtendimento buscarEstação(int id) {
         for (EstacaoAtendimento e : estacoes) {
