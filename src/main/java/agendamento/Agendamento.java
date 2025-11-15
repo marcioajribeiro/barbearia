@@ -188,7 +188,7 @@ public class Agendamento {
      *
      * @param statusPagamento novo status.
      */
-    public void setStatusPagamento(StatusAgendamento statusPagamento) {
+    public void setStatusAgendamento(StatusAgendamento statusPagamento) {
         this.statusAgendamento = statusPagamento;
     }
 

@@ -3,6 +3,7 @@ package menu;
 
 import agendamento.Agendamento;
 import agendamento.GerenciadorAgendamento;
+import agendamento.GerenciadorAgendamentoSecundario;
 import controller.GerenciadorClientes;
 import controller.GerenciadorFuncionarios;
 import controller.GerenciadorProdutos;
@@ -33,7 +34,8 @@ public class MenuVenda {
         GerenciadorClientes gc = new GerenciadorClientes();
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
         GerenciadorServicos gs = new GerenciadorServicos();
-        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs); 
+        GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs, gas);
         
         int opc;
 

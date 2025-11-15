@@ -5,6 +5,7 @@
 package barbearia;
 
 import agendamento.GerenciadorAgendamento;
+import agendamento.GerenciadorAgendamentoSecundario;
 import controller.GerenciadorProdutos;
 import controller.GerenciadorServicos;
 import financeiro.GerenciadorVenda;
@@ -18,7 +19,8 @@ public class testeComparatorAgenda {
         GerenciadorServicos gs = new GerenciadorServicos();
         GerenciadorProdutos gp = new GerenciadorProdutos();
         GerenciadorVenda gv = new GerenciadorVenda(gp);
-        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv , gs);
+        GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv , gs , gas);
         
         
         ga.organizarPorMaisRecentes();

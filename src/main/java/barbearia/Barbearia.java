@@ -3,6 +3,7 @@ package barbearia;
 
 import agendamento.Agendamento;
 import agendamento.GerenciadorAgendamento;
+import agendamento.GerenciadorAgendamentoSecundario;
 import agendamento.StatusAgendamento;
 import controller.GerenciadorProdutos;
 import controller.GerenciadorServicos;
@@ -33,7 +34,8 @@ public class Barbearia {
         GerenciadorServicos gs = new GerenciadorServicos();
         GerenciadorProdutos gp = new GerenciadorProdutos();
         GerenciadorVenda gv = new GerenciadorVenda(gp);
-        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv , gs);
+        GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv , gs, gas);
         
         Cliente c1 = new Cliente("João Silva", "123.456.789-10", "joao@gmail.com",
         "Rua A, 100", "389999999");
