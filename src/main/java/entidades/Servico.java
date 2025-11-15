@@ -76,7 +76,7 @@ public class Servico {
      *
      * @param tipoServico o novo tipo do serviço
      */
-    public void settipoServico(String tipoServico) {
+    public void setTipoServico(String tipoServico) {
         this.tipoServico = tipoServico;
     }
 

@@ -179,7 +179,7 @@ public class Agendamento {
      *
      * @return o status.
      */
-    public StatusAgendamento getStatusPagamento() {
+    public StatusAgendamento getStatusAgendamento() {
         return statusAgendamento;
     }
 
