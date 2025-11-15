@@ -43,7 +43,7 @@ public class Agendamento {
     /**
      * Cria um novo agendamento.
      * A data deve ser futura; caso seja anterior ao momento atual,
-     * será lançada uma {@link IllegalArgumentException}.
+     * será lançada uma IllegalArgumentException.
      * O valor total é calculado automaticamente com base nos serviços informados.
      *
      * @param cliente    o cliente que realizará o agendamento.
