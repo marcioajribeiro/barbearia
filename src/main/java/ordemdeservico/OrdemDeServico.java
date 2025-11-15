@@ -11,7 +11,6 @@ import entidades.Produto;
 import entidades.Servico;
 import java.time.LocalDateTime;
 import java.util.List;
-import ordemDeServico.TipoStatusOs;
 
 /**
  *
@@ -27,15 +26,16 @@ public class OrdemDeServico {
     private LocalDateTime dataHora;
     private String observacoes;
     private TipoStatusOs statusOs;
+    private double valorTotal;
     
-    public OrdemDeServico(Cliente cliente, Funcionario funcionario, List<Produto> produto, List<Servico> servicos, LocalDateTime dataHora, String observacoes) {
+    public OrdemDeServico(Cliente cliente, Funcionario funcionario, List<Produto> produto, List<Servico> servicos, LocalDateTime dataHora) {
         this.cliente = cliente;
         this.funcionario = funcionario;
         this.produto = produto;
         this.servicos = servicos;
         this.dataHora = dataHora;
-        this.observacoes = observacoes;
         this.statusOs = TipoStatusOs.OS_PENDENTE;
+        this.valorTotal = 0;
     }
     
     
@@ -88,13 +88,15 @@ public class OrdemDeServico {
         this.dataHora = dataHora;
     }
 
-    //public double getValorTotal() {
-    //    return valorTotal;
-   // }
+    public double getValorTotal() {
+       return valorTotal ;
+   }
 
-   // public void setValorTotal(double valorTotal) {
-   //     this.valorTotal = valorTotal;
-    //}
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+
 
     public String getObservacoes() {
         return observacoes;
@@ -121,7 +123,7 @@ public class OrdemDeServico {
                         ", Produto:  " + produto +
                         ", Servicos: " + servicos +
                         ", DataHora: " + dataHora  +
-                       // ", ValorTotal: " + valorTotal  +
+                        ", ValorTotal: " + valorTotal  +
                         ", Observacoes: " + observacoes  +
                         ", Status: " + statusOs ;
     }

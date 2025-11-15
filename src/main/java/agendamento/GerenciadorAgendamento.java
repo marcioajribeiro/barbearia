@@ -30,11 +30,6 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
     /** Lista contendo todos os agendamentos registrados no sistema. */
     private List<Agendamento> agendaBarbearia;
 
-    /** Gerenciador de vendas utilizado para registrar cancelamentos com reembolso. */
-    private final GerenciadorVenda gv;
-
-    /** Gerenciador de serviços utilizado para obtenção de informações dos serviços. */
-    private final GerenciadorServicos gs;
 
     /** Gerenciador de agendamentos secundários (fila de espera). */
     private final GerenciadorAgendamentoSecundario gas;
@@ -46,14 +41,12 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
      * Construtor responsável por carregar a lista de agendamentos
      * e inicializar os gerenciadores necessários.
      *
-     * @param gv gerenciador de vendas
-     * @param gs gerenciador de serviços
+     * @param gas gerenciador de agendamento secundario
+     *
      */
-    public GerenciadorAgendamento(GerenciadorVenda gv, GerenciadorServicos gs, GerenciadorAgendamentoSecundario gas) {
+    public GerenciadorAgendamento(GerenciadorAgendamentoSecundario gas) {
         this.agendaBarbearia = super.carregarListas(caminho, Agendamento.class);
         this.gas = gas;
-        this.gv = gv;
-        this.gs = gs;
     }
 
     /**
@@ -79,7 +72,6 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
     public void alterarStatusCancelado(Agendamento agendamento) {
         agendamento.setValor(agendamento.getValor() * 0.35);
         agendamento.setStatusAgendamento(StatusAgendamento.AGENDAMENTO_CANCELADO);
-        gv.registrarVendaCancelamento(agendamento);
     }
 
     /**

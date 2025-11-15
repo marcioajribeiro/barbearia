@@ -15,6 +15,9 @@ import entidades.Servico;
 import interpreter.CondicaoDiaSemana;
 import interpreter.CondicaoValorMinimo;
 import interpreter.ExpressaoDesconto;
+import ordemdeservico.OrdemDeServico;
+import ordemdeservico.TipoStatusOs;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -163,6 +166,36 @@ public class GerenciadorVenda extends GerenciadorGenerico {
         double valorComDescontoValor = regraDescontoValorMinimo.interpretar(venda);
 
         return Math.min(valorComDescontoDia, valorComDescontoValor);
+    }
+
+    /**
+     * Registra uma nova venda a partir de uma Ordem de Serviço concluída.
+     *
+     * @param os Ordem de Serviço concluída que será convertida em venda.
+     * @param formaPagamento Forma de pagamento utilizada.
+     */
+    public void registrarVendaOS(OrdemDeServico os, String formaPagamento) {
+        if (os.getStatusOs() != TipoStatusOs.OS_CONCLUIDO) {
+            System.err.println("ERRO: A OS precisa estar concluída para gerar uma venda.");
+            return;
+        }
+
+        Venda venda = new Venda(
+                os.getCliente(),
+                os.getFuncionario(),
+                os.getProduto(),
+                os.getServicos(),
+                formaPagamento,
+                os.getDataHora()
+        );
+
+        venda.setIdVenda(geradorIdVenda());
+        processarVenda(venda);
+
+        gp.atualizarEstoquePorVenda(venda);
+        vendas.add(venda);
+
+        System.out.println("Venda registrada com sucesso a partir da OS ID: " + os.getIdOS());
     }
 
     /**

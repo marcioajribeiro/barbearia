@@ -35,7 +35,7 @@ public class Barbearia {
         GerenciadorProdutos gp = new GerenciadorProdutos();
         GerenciadorVenda gv = new GerenciadorVenda(gp);
         GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
-        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv , gs, gas);
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gas);
         
         Cliente c1 = new Cliente("João Silva", "123.456.789-10", "joao@gmail.com",
         "Rua A, 100", "389999999");

@@ -30,7 +30,7 @@ public class QuestoesRespondidas {
     GerenciadorProdutos gp = new GerenciadorProdutos();
     GerenciadorVenda gv = new GerenciadorVenda(gp);
     GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
-    GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs, gas);
+    GerenciadorAgendamento ga = new GerenciadorAgendamento(gas);
     GerenciadorClientes gc = new GerenciadorClientes();
     GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
     GerenciadorDespesas gd = new GerenciadorDespesas();
@@ -76,6 +76,7 @@ public class QuestoesRespondidas {
         gc.alterarEnderecoCliente("Rua Diamantina", c);
         gc.alterarNomeCliente("Marcio", c);
         gc.alterarTelefoneCliente("38999184025", c);
+        gc.removerCliente(c);
                 
         //Questão 08:{
         System.out.println("====Questão 08====");

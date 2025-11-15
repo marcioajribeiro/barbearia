@@ -34,7 +34,7 @@ public class MenuAgendamento {
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
         GerenciadorServicos gs = new GerenciadorServicos();
         GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
-        GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs, gas);
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gas);
         int opc;
 
         do {

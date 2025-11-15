@@ -1,8 +1,10 @@
 package menu;
 
+import agendamento.GerenciadorAgendamento;
+import agendamento.GerenciadorAgendamentoSecundario;
 import ordemdeservico.GerenciadorOs;
 import ordemdeservico.OrdemDeServico;
-import ordemDeServico.TipoStatusOs;
+
 
 import controller.GerenciadorClientes;
 import controller.GerenciadorFuncionarios;
@@ -31,9 +33,11 @@ public class MenuOrdemDeServico {
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
         GerenciadorServicos gs = new GerenciadorServicos();
         GerenciadorProdutos gp = new GerenciadorProdutos();
+        GerenciadorAgendamentoSecundario gas  = new GerenciadorAgendamentoSecundario();
+        GerenciadorAgendamento ga = new GerenciadorAgendamento(gas);
 
         // GerenciadorOs EXIGE esses 4 no construtor
-        GerenciadorOs gos = new GerenciadorOs(gs, gc, gf, gp);
+        GerenciadorOs gos = new GerenciadorOs(gs, gc, gf, gp, ga);
 
         int opc;
 
@@ -129,8 +133,6 @@ public class MenuOrdemDeServico {
                         }
                     }
 
-                    System.out.print("Observações: ");
-                    String observacoes = sc.nextLine();
 
                     // Criar OS (sem valor total)
                     OrdemDeServico os = new OrdemDeServico(
@@ -139,7 +141,6 @@ public class MenuOrdemDeServico {
                         listaProdutos,
                         listaServico,
                         dataHora,
-                        observacoes
                     );
 
                     gos.addOrdemServico(os);
@@ -250,7 +251,6 @@ public class MenuOrdemDeServico {
                     switch (st) {
                         case 1 -> gos.alterarStatusEmAndamento(os);
                         case 2 -> gos.alterarStatusConcluido(os);
-                        case 3 -> gos.alterarStatusCancelado(os);
                         default -> System.out.println("Status inválido!");
                     }
 
