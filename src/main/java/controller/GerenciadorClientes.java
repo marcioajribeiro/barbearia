@@ -146,7 +146,7 @@ public class GerenciadorClientes extends GerenciadorGenerico {
      * @param c            o cliente a ser atualizado
      */
     public void alterarTelefoneCliente(String novoTelefone, Cliente c) {
-        c.setEndereco(novoTelefone); // POSSÍVEL ERRO: deveria ser setTelefone()
+        c.setTelefone(novoTelefone);
     }
 
     /**

@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 /**
  * Classe responsável por gerenciar os agendamentos da barbearia.
  * Herda funcionalidade genérica de carregamento e salvamento de listas
- * da classe {@link GerenciadorGenerico}
+ * da classe GerenciadorGenerico
  * @author Márcio Antônio
  * @author Rafael Martins
  */
@@ -36,6 +36,9 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
     /** Gerenciador de serviços utilizado para obtenção de informações dos serviços. */
     private final GerenciadorServicos gs;
 
+    /** Gerenciador de agendamentos secundários (fila de espera). */
+    private final GerenciadorAgendamentoSecundario gas;
+
     /** Caminho do arquivo JSON onde os agendamentos serão armazenados. */
     private final String caminho = "Json/JsonAgendamento.json";
 
@@ -46,8 +49,9 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
      * @param gv gerenciador de vendas
      * @param gs gerenciador de serviços
      */
-    public GerenciadorAgendamento(GerenciadorVenda gv, GerenciadorServicos gs) {
+    public GerenciadorAgendamento(GerenciadorVenda gv, GerenciadorServicos gs, GerenciadorAgendamentoSecundario gas) {
         this.agendaBarbearia = super.carregarListas(caminho, Agendamento.class);
+        this.gas = gas;
         this.gv = gv;
         this.gs = gs;
     }
@@ -74,7 +78,7 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
      */
     public void alterarStatusCancelado(Agendamento agendamento) {
         agendamento.setValor(agendamento.getValor() * 0.35);
-        agendamento.setStatusPagamento(StatusAgendamento.AGENDAMENTO_CANCELADO);
+        agendamento.setStatusAgendamento(StatusAgendamento.AGENDAMENTO_CANCELADO);
         gv.registrarVendaCancelamento(agendamento);
     }
 
@@ -84,7 +88,7 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
      * @param agendamento agendamento a ser confirmado
      */
     public void alterarStatusConfirmado(Agendamento agendamento) {
-        agendamento.setStatusPagamento(StatusAgendamento.AGENDAMENTO_CONFIRMADO);
+        agendamento.setStatusAgendamento(StatusAgendamento.AGENDAMENTO_CONFIRMADO);
     }
 
     /**
@@ -214,6 +218,23 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
     public void atulizarAgenda() {
         super.salvarLista(caminho, agendaBarbearia);
     }
+
+    /**
+     * Delega a função de adicionar um agendamento secundário ao respectivo gerenciador.
+     * @param agendamentoSecundario
+     */
+    public void adicionarAgendamentoSecundario(AgendamentoSecundario agendamentoSecundario) {
+        gas.addFila(agendamentoSecundario);
+    }
+
+
+    /**
+     * Delega a função de listar a fila de espera ao respectivo gerenciador.
+     */
+    public AgendamentoSecundario chamarProximoDaFila() {
+        return gas.chamarProximoDaFila();
+    }
+
 
     /**
      * Gera um novo ID único para um agendamento.

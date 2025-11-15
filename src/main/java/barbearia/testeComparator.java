@@ -67,7 +67,7 @@ Cliente c5 = new Cliente(
     gc.addCliente(c4);
     gc.addCliente(c5);
     
-    gc.OrdenarOrdemAlfabetica();
+    gc.organizarPorOrdemAlfabetica();
 
         
      }

@@ -5,6 +5,7 @@
 package barbearia;
 
 import agendamento.GerenciadorAgendamento;
+import agendamento.GerenciadorAgendamentoSecundario;
 import controller.GerenciadorClientes;
 import controller.GerenciadorFuncionarios;
 import controller.GerenciadorProdutos;
@@ -28,10 +29,10 @@ public class QuestoesRespondidas {
     GerenciadorServicos gs = new GerenciadorServicos();
     GerenciadorProdutos gp = new GerenciadorProdutos();
     GerenciadorVenda gv = new GerenciadorVenda(gp);
-    GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs);
+    GerenciadorAgendamentoSecundario gas = new GerenciadorAgendamentoSecundario();
+    GerenciadorAgendamento ga = new GerenciadorAgendamento(gv, gs, gas);
     GerenciadorClientes gc = new GerenciadorClientes();
     GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
-    GerenciadorDeEstacoes ge = new GerenciadorDeEstacoes();
     GerenciadorDespesas gd = new GerenciadorDespesas();
         
         //Questão 01: {
