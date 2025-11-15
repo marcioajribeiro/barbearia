@@ -29,7 +29,6 @@ public class GerenciadorOs extends GerenciadorGenerico {
 
     private List<OrdemDeServico> listaOs;
     private final String caminho = "Json/JsonOs.json";
-    private final GerenciadorAgendamento ga;
 
     /**
      * Construtor que inicializa o gerenciador e suas dependências.
@@ -38,7 +37,11 @@ public class GerenciadorOs extends GerenciadorGenerico {
      */
     public GerenciadorOs(GerenciadorServicos gs, GerenciadorClientes gc, GerenciadorFuncionarios gf, GerenciadorProdutos gp, GerenciadorAgendamento ga) {
         this.listaOs = super.carregarListas(caminho, OrdemDeServico.class);
-        this.ga = ga;
+    }
+
+
+    public void addOrdemServico(OrdemDeServico o) {
+        this.listaOs.add(o);
     }
 
     /**
@@ -87,7 +90,7 @@ public class GerenciadorOs extends GerenciadorGenerico {
 
         );
         novaOs.setIdOS(geradorIdOS());
-        listaOs.add(novaOs);
+        addOrdemServico(novaOs);
 
         System.out.println("Ordem de Serviço ID " + novaOs.getIdOS() + " criada com sucesso e Agendamento ID " + agendamento.getId() + " está em andamento.");
     }
@@ -129,7 +132,7 @@ public class GerenciadorOs extends GerenciadorGenerico {
      *           Não deve ser {@code null} e deve possuir serviços atribuídos.
      */
     public void alterarStatusEmAndamento(OrdemDeServico os) {
-        os.setStatusOs(TipoStatusOs.OS_EM_ANDAMENTO);
+        os.setStatusOs(TipoStatusOs.ESTADO_ANDAMENTO);
 
         // Marca as estações como ocupadas
         for (Servico s : os.getServicos()) {
@@ -144,7 +147,7 @@ public class GerenciadorOs extends GerenciadorGenerico {
      *           Não deve ser  null e deve possuir serviços associados.
      */
     public void alterarStatusConcluido(OrdemDeServico os, String observacao) {
-        os.setStatusOs(TipoStatusOs.OS_CONCLUIDO);
+        os.setStatusOs(TipoStatusOs.ESTADO_CONCLUIDO);
         os.setObservacoes(observacao);
 
         for (Servico s : os.getServicos()) {
@@ -158,8 +161,8 @@ public class GerenciadorOs extends GerenciadorGenerico {
      */
     public void listarOSemAberto() {
         List<OrdemDeServico> osEmAberto = listaOs.stream()
-                .filter(os -> os.getStatusOs() == TipoStatusOs.OS_PENDENTE ||
-                        os.getStatusOs() == TipoStatusOs.OS_EM_ANDAMENTO)
+                .filter(os -> os.getStatusOs() == TipoStatusOs.ESTADO_AGUARDANDO ||
+                        os.getStatusOs() == TipoStatusOs.ESTADO_ANDAMENTO)
                 .collect(Collectors.toList());
 
         if (osEmAberto.isEmpty()) {

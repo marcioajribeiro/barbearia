@@ -10,12 +10,10 @@ import entidades.Funcionario;
 import entidades.Produto;
 import entidades.Servico;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-/**
- *
- * @author rafin
- */
+
 public class OrdemDeServico {
     
     private int idOS;
@@ -34,11 +32,62 @@ public class OrdemDeServico {
         this.produto = produto;
         this.servicos = servicos;
         this.dataHora = dataHora;
-        this.statusOs = TipoStatusOs.OS_PENDENTE;
+        this.statusOs = TipoStatusOs.ESTADO_AGUARDANDO;
         this.valorTotal = 0;
     }
-    
-    
+
+    /**
+     * Gera um extrato detalhado da Ordem de Serviço formatado para impressão.
+     * Inclui serviços, produtos, valores, status e observações.
+     *
+     * @return Uma String contendo o extrato completo da OS.
+     */
+    public String gerarExtrato() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dataFormatada = fmt.format(dataHora);
+        StringBuilder extrato = new StringBuilder();
+
+        extrato.append("================ ORDEM DE SERVIÇO ================\n");
+        extrato.append(String.format("ID da OS: %d\n", idOS));
+        extrato.append(String.format("Status: %s\n", statusOs));
+        extrato.append(String.format("Data/Hora: %s\n", dataFormatada));
+        extrato.append("---------------- DADOS ----------------\n");
+        extrato.append(String.format("Cliente: %s (CPF: %s)\n", cliente.getNome(), cliente.getCpf()));
+        extrato.append(String.format("Funcionário: %s\n", funcionario.getNome()));
+        extrato.append("---------------- ITENS ----------------\n");
+
+        if (servicos != null && !servicos.isEmpty()) {
+            extrato.append("SERVIÇOS:\n");
+            for (Servico s : servicos) {
+
+                extrato.append(String.format("- %s (Duração: %d min) - R$ %.2f\n", s.getTipoServico(), s.getDuracaoMin(), s.getValor()));
+            }
+        } else {
+            extrato.append("Nenhum Serviço Adicionado.\n");
+        }
+
+        extrato.append("\n");
+
+        if (produto != null && !produto.isEmpty()) {
+            extrato.append("PRODUTOS:\n");
+            for (Produto p : produto) {
+                extrato.append(String.format("- %s (Fornecedor: %s) - R$ %.2f\n", p.getNome(), p.getFornecedor(), p.getPreco()));
+            }
+        } else {
+            extrato.append("Nenhum Produto Adicionado.\n");
+        }
+
+        extrato.append("---------------- TOTAL ----------------\n");
+        extrato.append(String.format("Valor Total: R$ %.2f\n", valorTotal));
+
+        if (observacoes != null && !observacoes.trim().isEmpty()) {
+            extrato.append("---------------- OBSERVAÇÕES ----------------\n");
+            extrato.append(observacoes).append("\n");
+        }
+
+        extrato.append("===============================================\n");
+        return extrato.toString();
+    }
 
     public int getIdOS() {
         return idOS;

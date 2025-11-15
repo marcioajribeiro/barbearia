@@ -140,7 +140,7 @@ public class MenuOrdemDeServico {
                         func,
                         listaProdutos,
                         listaServico,
-                        dataHora,
+                        dataHora
                     );
 
                     gos.addOrdemServico(os);
@@ -250,7 +250,7 @@ public class MenuOrdemDeServico {
 
                     switch (st) {
                         case 1 -> gos.alterarStatusEmAndamento(os);
-                        case 2 -> gos.alterarStatusConcluido(os);
+                        case 2 -> gos.alterarStatusConcluido(os, "");
                         default -> System.out.println("Status inválido!");
                     }
 

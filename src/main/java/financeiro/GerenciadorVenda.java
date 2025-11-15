@@ -175,7 +175,7 @@ public class GerenciadorVenda extends GerenciadorGenerico {
      * @param formaPagamento Forma de pagamento utilizada.
      */
     public void registrarVendaOS(OrdemDeServico os, String formaPagamento) {
-        if (os.getStatusOs() != TipoStatusOs.OS_CONCLUIDO) {
+        if (os.getStatusOs() != TipoStatusOs.ESTADO_CONCLUIDO) {
             System.err.println("ERRO: A OS precisa estar concluída para gerar uma venda.");
             return;
         }
@@ -189,11 +189,9 @@ public class GerenciadorVenda extends GerenciadorGenerico {
                 os.getDataHora()
         );
 
-        venda.setIdVenda(geradorIdVenda());
-        processarVenda(venda);
 
-        gp.atualizarEstoquePorVenda(venda);
-        vendas.add(venda);
+
+        registrarVenda(venda);
 
         System.out.println("Venda registrada com sucesso a partir da OS ID: " + os.getIdOS());
     }
