@@ -722,7 +722,7 @@ public class Barbearia {
         String nomeBarbeiro = SC.nextLine();
 
         try {
-            List<Agendamento> resultados = ga.buscarAgendamentoInterpreter(dataStr, nomeBarbeiro);
+            List<Agendamento> resultados = ga.buscarInterpreter(dataStr, nomeBarbeiro);
             if (resultados.isEmpty()) {
                 System.out.println("Nenhum agendamento encontrado que corresponda aos critérios.");
             } else {
