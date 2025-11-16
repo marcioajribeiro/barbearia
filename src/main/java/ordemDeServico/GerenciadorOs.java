@@ -8,6 +8,8 @@ import controller.GerenciadorFuncionarios;
 import controller.GerenciadorServicos;
 import controller.GerenciadorGenerico;
 import controller.GerenciadorProdutos;
+import entidades.Cliente;
+import entidades.Funcionario;
 import entidades.Produto;
 import entidades.Servico;
 import java.util.ArrayList;
@@ -32,12 +34,13 @@ public class GerenciadorOs extends GerenciadorGenerico {
 
     /**
      * Construtor que inicializa o gerenciador e suas dependências.
-     * * @param gs Gerenciador de Serviços
-     * @param ga Gerenciador de Agendamentos (para integração OS/Agendamento)
+     *
      */
-    public GerenciadorOs(GerenciadorServicos gs, GerenciadorClientes gc, GerenciadorFuncionarios gf, GerenciadorProdutos gp, GerenciadorAgendamento ga) {
+    public GerenciadorOs() {
         this.listaOs = super.carregarListas(caminho, OrdemDeServico.class);
     }
+
+
 
 
     public void addOrdemServico(OrdemDeServico o) {
@@ -64,12 +67,26 @@ public class GerenciadorOs extends GerenciadorGenerico {
         calcularValorTotal(os);
     }
 
+    public OrdemDeServico abrirOs(Cliente cliente, Funcionario funcionario) {
+        if(cliente == null || funcionario == null){
+            return null;
+        }
+
+        OrdemDeServico os = new OrdemDeServico(cliente, funcionario,
+                new ArrayList<>(),new ArrayList<>(),
+                LocalDateTime.now());
+
+        addOrdemServico(os);
+        return os;
+
+    }
+
     /**
      * Cria uma nova Ordem de Serviço a partir de um Agendamento,
      * copiando os dados e serviços e alterando o status do Agendamento.
      * @param agendamento que vamos criar a partir.
      */
-    public void criarOSaPartirDeAgendamento(Agendamento agendamento, String observacao) {
+    public void criarOSaPartirDeAgendamento(Agendamento agendamento) {
 
 
         if (agendamento == null) {
@@ -109,6 +126,29 @@ public class GerenciadorOs extends GerenciadorGenerico {
         }
         return null;
     }
+
+    /**
+     * Imprime todas as Ordens de Serviço (OS) associadas a um determinado cliente.
+     *
+     * @param c o cliente cujas ordens de serviço devem ser impressas
+     */
+    public void imprimirOsDeCliente(Cliente c) {
+        boolean encontrou = false;
+
+        for (OrdemDeServico os : listaOs) {
+            if (os.getCliente() == c) {
+                System.out.println(os);
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            System.out.println("Nenhuma OS encontrada");
+        }
+    }
+
+
+
 
 
     /**
@@ -209,6 +249,10 @@ public class GerenciadorOs extends GerenciadorGenerico {
         double totalServicos = os.getServicos().stream().mapToDouble(Servico::getValor).sum();
         os.setValorTotal(totalProdutos + totalServicos);
         return os.getValorTotal();
+    }
+
+    public List<OrdemDeServico> getListaOs() {
+        return listaOs;
     }
 
     /**

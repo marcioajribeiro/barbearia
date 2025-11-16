@@ -119,6 +119,16 @@ public class GerenciadorClientes extends GerenciadorGenerico {
         System.out.println("Cliente removido");
     }
 
+
+    public void alterarTudoCliente(Cliente c,String novoNome,String novoCpf,String novoEmail, String novoEndereco, String novoTelefone) {
+        c.setNome(novoNome);
+        c.setCpf(novoCpf);
+        c.setEmail(novoEmail);
+        c.setEndereco(novoEndereco);
+        c.setTelefone(novoTelefone);
+
+    }
+
     /**
      * Altera o nome de um cliente.
      *

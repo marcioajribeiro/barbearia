@@ -42,7 +42,7 @@ public class Venda {
     /** Lista de serviços prestados ao cliente. */
     private List<Servico> servicos;
 
-    /** Valor total da venda (produtos + serviços, aplicando descontos se houver). */
+    /** Valor total da venda (produtos + serviços). */
     private double valorTotal;
 
     /** Forma de pagamento utilizada pelo cliente. */
@@ -71,6 +71,7 @@ public class Venda {
         this.produtos = produtos;
         this.servicos = servicos;
         this.formaPagamento = formaPagamento;
+        this.valorTotal = calcularValorTotal();
         this.dataHora = dataHora;
     }
 
@@ -174,6 +175,25 @@ public class Venda {
      */
     public void setCancelamento(boolean cancelada) {
         this.cancelamento = cancelada;
+    }
+
+    public double calcularValorTotal() {
+        double total = 0.0;
+
+
+        if (servicos != null) {
+            for (Servico s : servicos) {
+                total += s.getValor();
+            }
+        }
+
+        if (produtos != null) {
+            for (Produto p : produtos) {
+                total += p.getPreco();
+            }
+        }
+
+        return total;
     }
 
     /**

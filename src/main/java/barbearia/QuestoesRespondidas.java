@@ -15,6 +15,7 @@ import entidades.Funcionario;
 import estacoesatendimento.GerenciadorDeEstacoes;
 import financeiro.GerenciadorDespesas;
 import financeiro.GerenciadorVenda;
+import ordemdeservico.GerenciadorOs;
 
 /**
  *
@@ -34,6 +35,7 @@ public class QuestoesRespondidas {
         GerenciadorClientes gc = new GerenciadorClientes();
         GerenciadorFuncionarios gf = new GerenciadorFuncionarios();
         GerenciadorDespesas gd = new GerenciadorDespesas();
+        GerenciadorOs gos = new GerenciadorOs();
 
         //Questão 01: {
         System.out.println("===== Questão 01 =====");
@@ -78,14 +80,23 @@ public class QuestoesRespondidas {
         gc.alterarNomeCliente("Marcio", c);
         gc.alterarTelefoneCliente("38999184025", c);
         gc.removerCliente(c);
+        //}
 
         //Questão 08: {
         System.out.println("====Questão 08====");
-        System.out.println("Precisa fazer!");
+        Cliente clienteOs = new Cliente("Rafael", "15322402608", "rafinhamartins@gmail.com", "Rua Barao do Rio Branco", "38999279932");
+        Funcionario funcionarioOs = new Funcionario("Rafael", "15322402608", "ADMIN", "admin123", "Rua Barao do Rio Branco", "38999279932");
+        gos.abrirOs(c, f);
+        gos.imprimirOsDeCliente(c);
         // }
         //Questão 09: {
         System.out.println("====Questão 09====");
-        System.out.println("preciso fazer");
+        System.out.println("Mostrar Gerenciador Genérico");
+        System.out.println("Listas dinamicas carregadas: ");
+        System.out.println("Ordem de serviço: " + gos.getListaOs().size() + "Itens");
+        System.out.println("Clientes: " + gc.getClientes().size() + "Itens");
+        System.out.println("Estoque: " + gp.getProduto().size() + "Itens");
+
         // }
         //Questão 10: {
         System.out.println("====Questão 10====");

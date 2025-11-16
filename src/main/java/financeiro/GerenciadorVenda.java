@@ -5,16 +5,11 @@
 package financeiro;
 
 import agendamento.StatusAgendamento;
-import interpreter.AplicarDescontoFixo;
-import interpreter.AplicarDescontoPercentual;
 import agendamento.Agendamento;
 import controller.GerenciadorGenerico;
 import controller.GerenciadorProdutos;
 import entidades.Produto;
 import entidades.Servico;
-import interpreter.CondicaoDiaSemana;
-import interpreter.CondicaoValorMinimo;
-import interpreter.ExpressaoDesconto;
 import ordemdeservico.OrdemDeServico;
 import ordemdeservico.TipoStatusOs;
 
@@ -80,16 +75,6 @@ public class GerenciadorVenda extends GerenciadorGenerico {
         vendas.add(venda);
     }
 
-    /**
-     * Processa uma venda aplicando regras de desconto e calculando o valor total.
-     *
-     * @param venda venda a ser processada
-     */
-    private void processarVenda(Venda venda) {
-        double valorServicoComDesconto = calcularValorServicoComRegras(venda);
-        double valorProdutos = venda.getProdutos().stream().mapToDouble(Produto::getPreco).sum();
-        venda.setValorTotal(valorServicoComDesconto + valorProdutos);
-    }
 
     /**
      * Registra uma nova venda adicionando-a à lista e gerando seu ID automaticamente.
@@ -98,7 +83,6 @@ public class GerenciadorVenda extends GerenciadorGenerico {
      */
     public void registrarVenda(Venda venda) {
         venda.setIdVenda(geradorIdVenda());
-        processarVenda(venda);
         vendas.add(venda);
         System.out.println("Venda registrada com sucesso!");
     }
@@ -141,32 +125,7 @@ public class GerenciadorVenda extends GerenciadorGenerico {
         System.out.println("Venda removida");
     }
 
-    /**
-     * Calcula o valor dos serviços aplicando regras de desconto baseadas
-     * no padrão Interpreter.
-     * <p>
-     * São aplicadas duas regras:
-     * <ul>
-     *   <li>Desconto por dia da semana</li>
-     *   <li>Desconto por valor mínimo</li>
-     * </ul>
-     * O desconto final é o menor valor resultante entre as regras.
-     *
-     * @param venda venda analisada
-     * @return valor final dos serviços após aplicação de descontos
-     */
-    public double calcularValorServicoComRegras(Venda venda) {
-        ExpressaoDesconto regraDescontoDoDia =
-                new CondicaoDiaSemana(new AplicarDescontoPercentual());
 
-        ExpressaoDesconto regraDescontoValorMinimo =
-                new CondicaoValorMinimo(new AplicarDescontoFixo());
-
-        double valorComDescontoDia = regraDescontoDoDia.interpretar(venda);
-        double valorComDescontoValor = regraDescontoValorMinimo.interpretar(venda);
-
-        return Math.min(valorComDescontoDia, valorComDescontoValor);
-    }
 
     /**
      * Registra uma nova venda a partir de uma Ordem de Serviço concluída.

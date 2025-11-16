@@ -10,8 +10,14 @@ import controller.GerenciadorGenerico;
 import controller.GerenciadorServicos;
 import entidades.Servico;
 import financeiro.GerenciadorVenda;
+import interpreter.BuscaPorData;
+import interpreter.BuscaPorFuncionario;
+import interpreter.ExpressaoBusca;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;

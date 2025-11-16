@@ -37,7 +37,7 @@ public class MenuOrdemDeServico {
         GerenciadorAgendamento ga = new GerenciadorAgendamento(gas);
 
         // GerenciadorOs EXIGE esses 4 no construtor
-        GerenciadorOs gos = new GerenciadorOs(gs, gc, gf, gp, ga);
+        GerenciadorOs gos = new GerenciadorOs();
 
         int opc;
 
