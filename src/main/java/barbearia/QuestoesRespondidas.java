@@ -4,11 +4,9 @@
  */
 package barbearia;
 
-import agendamento.Agendamento;
+
 import agendamento.GerenciadorAgendamento;
 import agendamento.GerenciadorAgendamentoSecundario;
-import comparator.AgendamentoBarbeiroComparator;
-import comparator.AgendamentoDatasRecentesComparator;
 import comparator.ClienteCpfComparator;
 import comparator.ClienteNomeComparator;
 import controller.GerenciadorClientes;
@@ -17,14 +15,17 @@ import controller.GerenciadorProdutos;
 import controller.GerenciadorServicos;
 import entidades.Cliente;
 import entidades.Funcionario;
+import entidades.Produto;
+import entidades.Servico;
 import estacoesatendimento.GerenciadorDeEstacoes;
-import financeiro.GerenciadorDespesas;
-import financeiro.GerenciadorVenda;
+import financeiro.*;
 import ordemdeservico.GerenciadorOs;
 import ordemdeservico.OrdemDeServico;
 
 import java.time.LocalDateTime;
 import java.util.*;
+
+
 
 /**
  *
@@ -63,7 +64,7 @@ public class QuestoesRespondidas {
     }
 
     public static void main(String[] args) {
-
+        GerenciadorNotaFiscal gnf = new GerenciadorNotaFiscal();
         GerenciadorServicos gs = new GerenciadorServicos();
         GerenciadorProdutos gp = new GerenciadorProdutos();
         GerenciadorVenda gv = new GerenciadorVenda(gp);
@@ -287,7 +288,122 @@ public class QuestoesRespondidas {
         // }
 
 
+        //Questão 20: {
+        Funcionario barbeiro = gf.buscarFuncionarioId(1); // Usando o Gerente Master (ID 1 do JSON)
+        if (barbeiro == null) {
+            System.err.println("ERRO: Funcionário (ID 1) não encontrado. Abortando Questão 20.");
+        } else {
 
+            Servico corte = gs.buscarServicoId(1); // Serviço de Corte (ID 1 do JSON)
+            Servico barba = gs.buscarServicoId(2); // Serviço de Barba (ID 2 do JSON)
+
+            // Adiciona/Verifica um produto de teste (ID 100) e garante estoque
+            Produto gel = gp.buscarProdutoPorId(100);
+            if (gel == null) {
+                gel = new Produto("Gel Fixador", 5.0, 50, "Fornecedor Teste");
+                gel.setIdProduto(100);
+                gp.addProduto(gel);
+            }
+            gp.removerEstoque(gel, gel.getQuantidadeEstoque()); // Zera o estoque
+            gp.adicionarEstoque(gel, 100); // Adiciona 100 ao estoque
+
+            if (corte == null || barba == null) {
+                System.err.println("ERRO: Serviços (Corte/Barba) não encontrados. Verifique JsonServico.json.");
+            } else {
+
+                // Lista de clientes para a simulação
+                List<Cliente> clientesSimulacao = new ArrayList<>();
+                clientesSimulacao.add(new Cliente("Cliente A", "11111111111", "a@test.com", "Rua 1", "99991111"));
+                clientesSimulacao.add(new Cliente("Cliente B", "22222222222", "b@test.com", "Rua 2", "99992222"));
+                clientesSimulacao.add(new Cliente("Cliente C", "33333333333", "c@test.com", "Rua 3", "99993333"));
+                clientesSimulacao.add(new Cliente("Cliente D", "44444444444", "d@test.com", "Rua 4", "99994444"));
+                clientesSimulacao.add(new Cliente("Cliente E", "55555555555", "e@test.com", "Rua 5", "99995555"));
+                clientesSimulacao.add(new Cliente("Cliente F", "66666666666", "f@test.com", "Rua 6", "99996666"));
+                clientesSimulacao.add(new Cliente("Cliente G", "77777777777", "g@test.com", "Rua 7", "99997777"));
+                clientesSimulacao.add(new Cliente("Cliente H", "88888888888", "h@test.com", "Rua 8", "99998888"));
+                clientesSimulacao.add(new Cliente("Cliente I", "99999999999", "i@test.com", "Rua 9", "99999999"));
+                clientesSimulacao.add(new Cliente("Cliente J", "10101010101", "j@test.com", "Rua 10", "99990000"));
+
+                for (int i = 0; i < clientesSimulacao.size() -9; i++) {
+                    Cliente cliente = clientesSimulacao.get(i);
+                    String formaPagamento = (i % 2 == 0) ? "Cartão" : "Pix";
+
+                    System.out.printf("\n\n--- Processando Cliente %d: %s ---\n", i + 1, cliente.getNome());
+
+                    // 1. CADASTRO DO CLIENTE
+                    gc.addCliente(cliente);
+                    System.out.println("1. Cliente Cadastrado (ID: " + cliente.getIdCliente() + ").");
+
+                    // Define serviços e produtos específicos para este cliente
+                    List<Servico> servicosOS = new ArrayList<>();
+                    List<Produto> produtosOS = new ArrayList<>();
+
+                    if (i % 3 == 0) { // Cliente a cada 3 faz Corte + Barba + Gel
+                        servicosOS.add(corte);
+                        servicosOS.add(barba);
+                        produtosOS.add(gel); // Baixa de 1 unidade de Gel
+                        System.out.println("Serviços/Produtos: Corte + Barba + Gel.");
+                    } else { // Outros fazem apenas Corte
+                        servicosOS.add(corte);
+                        System.out.println("Serviços/Produtos: Corte.");
+                    }
+
+
+                    OrdemDeServico os = new OrdemDeServico(cliente, barbeiro, produtosOS, servicosOS, LocalDateTime.now());
+                    os.setIdOS(gos.geradorIdOS());
+
+                    double valorTotalOS = servicosOS.stream().mapToDouble(Servico::getValor).sum() + produtosOS.stream().mapToDouble(Produto::getPreco).sum();
+                    os.setValorTotal(valorTotalOS);
+                    gos.addOrdemServico(os);
+                    System.out.printf("2. OS Aberta (ID: %d) - Status: %s | Valor Total: R$ %.2f\n", os.getIdOS(), os.getStatusOs(), os.getValorTotal());
+
+
+                    gos.alterarStatusEmAndamento(os);
+                    System.out.println("3. OS Atualizada - Status: " + os.getStatusOs());
+
+                    GerenciadorDeEstacoes.ocuparEstacao(corte.getEstacaoUsada().getId());
+                    System.out.println("Estação " + corte.getEstacaoUsada().getId() + " ocupada.");
+
+
+                    String observacao = "Atendimento concluído. Cliente satisfeito com a " + formaPagamento;
+                    gos.alterarStatusConcluido(os, observacao);
+                    System.out.println("4. OS Concluída - Status: " + os.getStatusOs() + " | Estação(ões) liberada(s).");
+                    GerenciadorDeEstacoes.liberarEstacao(corte.getEstacaoUsada().getId());
+
+
+
+
+                    gv.registrarVendaOS(os, formaPagamento);
+                    Venda venda = gv.buscarVendaPorId(gv.geradorIdVenda() - 1);
+                    System.out.println("5. Venda Registrada (ID Venda: " + venda.getIdVenda() + ").");
+
+                    // b) Atualiza Estoque (baixa de produtos)
+                    if (!produtosOS.isEmpty()) {
+                        int estoqueAntes = gp.buscarProdutoPorId(gel.getIdProduto()).getQuantidadeEstoque();
+                        gp.atualizarEstoquePorVenda(venda); // Remove 1 unidade de Gel
+                        int estoqueDepois = gp.buscarProdutoPorId(gel.getIdProduto()).getQuantidadeEstoque();
+                        System.out.printf("6. Baixa de Estoque para Produto: %s. Antes: %d | Depois: %d.\n", gel.getNome(), estoqueAntes, estoqueDepois);
+                    } else {
+                        System.out.println("6. Nenhuma baixa de estoque necessária.");
+                    }
+
+                    NotaFiscal nf = new NotaFiscal(venda);
+                    gnf.addNotaFiscal(nf);
+                    System.out.println("7. Nota Fiscal Emitida (ID NF: " + nf.getIdNotaFiscal() + ").");
+                    System.out.println(nf.gerarComprovanteDetalhado().trim());
+                }
+
+                // --- PERSISTÊNCIA DOS DADOS FINAIS ---
+                gos.atualizarLista();
+                gc.atualizarLista();
+                gp.salvarEstoque();
+                gv.salvarVendas();
+                gnf.salvarNotasFiscais();
+            }
+        }
+        // }
+
+        //}
 
 
     }

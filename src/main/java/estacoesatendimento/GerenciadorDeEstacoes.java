@@ -57,11 +57,9 @@ public class GerenciadorDeEstacoes {
         for (EstacaoAtendimento e : estacoes) {
             if (e.getId() == id) {
                 e.ocupar();
-                System.out.println("Estação " + id + " ocupada.");
-                return;
             }
         }
-        System.out.println("Estação não encontrada.");
+
     }
 
     /**
@@ -74,11 +72,9 @@ public class GerenciadorDeEstacoes {
         for (EstacaoAtendimento e : estacoes) {
             if (e.getId() == id) {
                 e.liberar();
-                System.out.println("Estação " + id + " liberada.");
-                return;
+
             }
         }
-        System.out.println("Estação não encontrada.");
     }
 
     /**
@@ -93,7 +89,7 @@ public class GerenciadorDeEstacoes {
                 return e;
             }
         }
-        System.out.println("Estação com ID " + id + " não encontrada.");
+
         return null;
     }
 

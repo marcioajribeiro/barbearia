@@ -5,6 +5,8 @@
 package ordemdeservico;
 
 
+import barbearia.Barbearia;
+import barbearia.QuestoesRespondidas;
 import entidades.Cliente;
 import entidades.Funcionario;
 import entidades.Produto;
@@ -23,15 +25,33 @@ import java.util.List;
  */
 public class OrdemDeServico {
 
+    /**Identificador único da ordem de serviço.*/
     private int idOS;
+
+    /**Cliente associado a esta ordem de serviço*/
     private Cliente cliente;
+
+    /**Funcionário responsável pela execução da ordem de serviço.*/
     private Funcionario funcionario;
+
+    /**Lista de produtos utilizados nesta ordem de serviço.*/
     private List<Produto> produto;
+
+    /**Lista de serviços realizados nesta ordem de serviço.*/
     private List<Servico> servicos;
+
+    /**Data e hora em que a ordem de serviço foi criada.*/
     private LocalDateTime dataHora;
+
+    /**Observações adicionais relacionadas à ordem de serviço.*/
     private String observacoes;
+
+    /**Status atual da ordem de serviços*/
     private TipoStatusOs statusOs;
+
+    /**Valor total calculado da ordem de serviço (produtos + serviços).*/
     private double valorTotal;
+
 
     /**
      * Constrói uma nova Ordem de Serviço com cliente, funcionário,
@@ -55,6 +75,7 @@ public class OrdemDeServico {
         this.dataHora = dataHora;
         this.statusOs = TipoStatusOs.ESTADO_AGUARDANDO;
         this.valorTotal = 0;
+        QuestoesRespondidas.registrarNovaOs();
     }
 
     /**

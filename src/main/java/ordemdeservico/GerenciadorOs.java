@@ -1,13 +1,10 @@
 package ordemdeservico;
 
 import agendamento.Agendamento;
-import agendamento.GerenciadorAgendamento;
 import agendamento.StatusAgendamento;
-import controller.GerenciadorClientes;
-import controller.GerenciadorFuncionarios;
-import controller.GerenciadorServicos;
 import controller.GerenciadorGenerico;
-import controller.GerenciadorProdutos;
+import entidades.Cliente;
+import entidades.Funcionario;
 import entidades.Produto;
 import entidades.Servico;
 import java.util.ArrayList;
@@ -27,19 +24,23 @@ import java.util.stream.Collectors;
  */
 public class GerenciadorOs extends GerenciadorGenerico {
 
+    /**Lista que armazena todas as ordens de serviço registradas no sistema.*/
     private List<OrdemDeServico> listaOs;
+
+    /**Caminho do arquivo JSON utilizado para salvar e carregaros dados das ordens de serviço.*/
     private final String caminho = "Json/JsonOs.json";
 
-    /**
-     * Construtor que inicializa o gerenciador e suas dependências.
-     * * @param gs Gerenciador de Serviços
-     * @param ga Gerenciador de Agendamentos (para integração OS/Agendamento)
-     */
-    public GerenciadorOs(GerenciadorServicos gs, GerenciadorClientes gc, GerenciadorFuncionarios gf, GerenciadorProdutos gp, GerenciadorAgendamento ga) {
+    /**Construtor que inicializa o gerenciador e suas dependências.*/
+    public GerenciadorOs() {
         this.listaOs = super.carregarListas(caminho, OrdemDeServico.class);
     }
 
 
+    /**
+     * Adiciona uma nova ordem de serviço à lista de ordens registradas.
+     *
+     * @param o a ordem de serviço que será adicionada à lista
+     */
     public void addOrdemServico(OrdemDeServico o) {
         this.listaOs.add(o);
     }
@@ -54,6 +55,9 @@ public class GerenciadorOs extends GerenciadorGenerico {
         calcularValorTotal(os);
     }
 
+
+
+
     /**
      * Adiciona um Serviço a uma OS existente e recalcula o valor total.
      * * @param Serviço a ser adicionado.
@@ -65,11 +69,32 @@ public class GerenciadorOs extends GerenciadorGenerico {
     }
 
     /**
+     * Cria e abre uma nova Ordem de Serviço (OS) para o cliente e funcionário informados.
+     *
+     * @param cliente     o cliente para o qual a ordem de serviço será aberta
+     * @param funcionario o funcionário responsável pela execução da ordem de serviço
+     * @return a nova  OrdemDeServico criada; ou null se cliente ou funcionário forem inválidos
+     */
+    public OrdemDeServico abrirOs(Cliente cliente, Funcionario funcionario) {
+        if(cliente == null || funcionario == null){
+            return null;
+        }
+
+        OrdemDeServico os = new OrdemDeServico(cliente, funcionario,
+                new ArrayList<>(),new ArrayList<>(),
+                LocalDateTime.now());
+
+        addOrdemServico(os);
+        return os;
+
+    }
+
+    /**
      * Cria uma nova Ordem de Serviço a partir de um Agendamento,
      * copiando os dados e serviços e alterando o status do Agendamento.
      * @param agendamento que vamos criar a partir.
      */
-    public void criarOSaPartirDeAgendamento(Agendamento agendamento, String observacao) {
+    public void criarOSaPartirDeAgendamento(Agendamento agendamento) {
 
 
         if (agendamento == null) {
@@ -109,6 +134,29 @@ public class GerenciadorOs extends GerenciadorGenerico {
         }
         return null;
     }
+
+    /**
+     * Imprime todas as Ordens de Serviço (OS) associadas a um determinado cliente.
+     *
+     * @param c o cliente cujas ordens de serviço devem ser impressas
+     */
+    public void imprimirOsDeCliente(Cliente c) {
+        boolean encontrou = false;
+
+        for (OrdemDeServico os : listaOs) {
+            if (os.getCliente() == c) {
+                System.out.println(os);
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            System.out.println("Nenhuma OS encontrada");
+        }
+    }
+
+
+
 
 
     /**
@@ -183,6 +231,8 @@ public class GerenciadorOs extends GerenciadorGenerico {
         super.salvarLista(caminho, listaOs);
     }
 
+
+
     /**
      * Remove uma Ordem de Serviço pelo seu ID.
      * * @param id ID da OS a ser removida.
@@ -209,6 +259,10 @@ public class GerenciadorOs extends GerenciadorGenerico {
         double totalServicos = os.getServicos().stream().mapToDouble(Servico::getValor).sum();
         os.setValorTotal(totalProdutos + totalServicos);
         return os.getValorTotal();
+    }
+
+    public List<OrdemDeServico> getListaOs() {
+        return listaOs;
     }
 
     /**

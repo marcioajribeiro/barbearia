@@ -1,0 +1,1260 @@
+[
+  {
+    "idOS": 0,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-16T16:07",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 0,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-16T16:07",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 1,
+    "cliente": {
+      "idCliente": 1,
+      "email": "a@test.com",
+      "nome": "Cliente A",
+      "endereco": "Rua 1",
+      "telefone": "99991111",
+      "cpf": "11111111111"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 96,
+        "idProduto": 1,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 2,
+    "cliente": {
+      "idCliente": 2,
+      "email": "b@test.com",
+      "nome": "Cliente B",
+      "endereco": "Rua 2",
+      "telefone": "99992222",
+      "cpf": "22222222222"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 3,
+    "cliente": {
+      "idCliente": 3,
+      "email": "c@test.com",
+      "nome": "Cliente C",
+      "endereco": "Rua 3",
+      "telefone": "99993333",
+      "cpf": "33333333333"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 4,
+    "cliente": {
+      "idCliente": 4,
+      "email": "d@test.com",
+      "nome": "Cliente D",
+      "endereco": "Rua 4",
+      "telefone": "99994444",
+      "cpf": "44444444444"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 96,
+        "idProduto": 1,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 5,
+    "cliente": {
+      "idCliente": 5,
+      "email": "e@test.com",
+      "nome": "Cliente E",
+      "endereco": "Rua 5",
+      "telefone": "99995555",
+      "cpf": "55555555555"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 6,
+    "cliente": {
+      "idCliente": 6,
+      "email": "f@test.com",
+      "nome": "Cliente F",
+      "endereco": "Rua 6",
+      "telefone": "99996666",
+      "cpf": "66666666666"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 7,
+    "cliente": {
+      "idCliente": 7,
+      "email": "g@test.com",
+      "nome": "Cliente G",
+      "endereco": "Rua 7",
+      "telefone": "99997777",
+      "cpf": "77777777777"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 96,
+        "idProduto": 1,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 8,
+    "cliente": {
+      "idCliente": 8,
+      "email": "h@test.com",
+      "nome": "Cliente H",
+      "endereco": "Rua 8",
+      "telefone": "99998888",
+      "cpf": "88888888888"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 9,
+    "cliente": {
+      "idCliente": 9,
+      "email": "i@test.com",
+      "nome": "Cliente I",
+      "endereco": "Rua 9",
+      "telefone": "99999999",
+      "cpf": "99999999999"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 10,
+    "cliente": {
+      "idCliente": 10,
+      "email": "j@test.com",
+      "nome": "Cliente J",
+      "endereco": "Rua 10",
+      "telefone": "99990000",
+      "cpf": "10101010101"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 96,
+        "idProduto": 1,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:07",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 0,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-16T16:08",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 0,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-16T16:08",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 11,
+    "cliente": {
+      "idCliente": 11,
+      "email": "a@test.com",
+      "nome": "Cliente A",
+      "endereco": "Rua 1",
+      "telefone": "99991111",
+      "cpf": "11111111111"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 96,
+        "idProduto": 2,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 12,
+    "cliente": {
+      "idCliente": 12,
+      "email": "b@test.com",
+      "nome": "Cliente B",
+      "endereco": "Rua 2",
+      "telefone": "99992222",
+      "cpf": "22222222222"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 13,
+    "cliente": {
+      "idCliente": 13,
+      "email": "c@test.com",
+      "nome": "Cliente C",
+      "endereco": "Rua 3",
+      "telefone": "99993333",
+      "cpf": "33333333333"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 14,
+    "cliente": {
+      "idCliente": 14,
+      "email": "d@test.com",
+      "nome": "Cliente D",
+      "endereco": "Rua 4",
+      "telefone": "99994444",
+      "cpf": "44444444444"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 96,
+        "idProduto": 2,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 15,
+    "cliente": {
+      "idCliente": 15,
+      "email": "e@test.com",
+      "nome": "Cliente E",
+      "endereco": "Rua 5",
+      "telefone": "99995555",
+      "cpf": "55555555555"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 16,
+    "cliente": {
+      "idCliente": 16,
+      "email": "f@test.com",
+      "nome": "Cliente F",
+      "endereco": "Rua 6",
+      "telefone": "99996666",
+      "cpf": "66666666666"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 17,
+    "cliente": {
+      "idCliente": 17,
+      "email": "g@test.com",
+      "nome": "Cliente G",
+      "endereco": "Rua 7",
+      "telefone": "99997777",
+      "cpf": "77777777777"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 96,
+        "idProduto": 2,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 18,
+    "cliente": {
+      "idCliente": 18,
+      "email": "h@test.com",
+      "nome": "Cliente H",
+      "endereco": "Rua 8",
+      "telefone": "99998888",
+      "cpf": "88888888888"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 19,
+    "cliente": {
+      "idCliente": 19,
+      "email": "i@test.com",
+      "nome": "Cliente I",
+      "endereco": "Rua 9",
+      "telefone": "99999999",
+      "cpf": "99999999999"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 35.0
+  },
+  {
+    "idOS": 20,
+    "cliente": {
+      "idCliente": 20,
+      "email": "j@test.com",
+      "nome": "Cliente J",
+      "endereco": "Rua 10",
+      "telefone": "99990000",
+      "cpf": "10101010101"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 96,
+        "idProduto": 2,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:08",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Pix",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 0,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-16T16:10",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 0,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-16T16:10",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 21,
+    "cliente": {
+      "idCliente": 21,
+      "email": "a@test.com",
+      "nome": "Cliente A",
+      "endereco": "Rua 1",
+      "telefone": "99991111",
+      "cpf": "11111111111"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 99,
+        "idProduto": 3,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:10",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  },
+  {
+    "idOS": 0,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-16T16:12",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 0,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-16T16:12",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 22,
+    "cliente": {
+      "idCliente": 22,
+      "email": "a@test.com",
+      "nome": "Cliente A",
+      "endereco": "Rua 1",
+      "telefone": "99991111",
+      "cpf": "11111111111"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 99,
+        "idProduto": 4,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-16T16:12",
+    "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
+  }
+]

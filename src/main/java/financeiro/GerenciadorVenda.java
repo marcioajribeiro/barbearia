@@ -86,7 +86,6 @@ public class GerenciadorVenda extends GerenciadorGenerico {
     public void registrarVenda(Venda venda) {
         venda.setIdVenda(geradorIdVenda());
         vendas.add(venda);
-        System.out.println("Venda registrada com sucesso!");
     }
 
     /**
@@ -124,7 +123,6 @@ public class GerenciadorVenda extends GerenciadorGenerico {
      */
     public void removerVenda(Venda venda) {
         vendas.remove(venda);
-        System.out.println("Venda removida");
     }
 
 
@@ -154,7 +152,6 @@ public class GerenciadorVenda extends GerenciadorGenerico {
 
         registrarVenda(venda);
 
-        System.out.println("Venda registrada com sucesso a partir da OS ID: " + os.getIdOS());
     }
 
     /**
