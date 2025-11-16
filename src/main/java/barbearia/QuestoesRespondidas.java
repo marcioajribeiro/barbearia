@@ -33,6 +33,16 @@ import java.util.*;
  */
 public class QuestoesRespondidas {
 
+    private static int contadorOS=0;
+
+    public static void registrarNovaOs(){
+        contadorOS++;
+    }
+
+    public static int getQuantidadeInstanciasOS() {
+        return contadorOS;
+    }
+
     public static int getTotalOrdensDeServico() {
         GerenciadorOs gos = new GerenciadorOs();
 
@@ -120,9 +130,9 @@ public class QuestoesRespondidas {
         System.out.println("====Questão 09====");
         System.out.println("Mostrar Gerenciador Genérico");
         System.out.println("Listas dinamicas carregadas: ");
-        System.out.println("Ordem de serviço: " + gos.getListaOs().size() + "Itens");
-        System.out.println("Clientes: " + gc.getClientes().size() + "Itens");
-        System.out.println("Estoque: " + gp.getProduto().size() + "Itens");
+        System.out.println("Ordem de serviço: " + gos.getListaOs().size() + " Itens");
+        System.out.println("Clientes: " + gc.getClientes().size() + " Itens");
+        System.out.println("Estoque: " + gp.getProduto().size() + " Itens");
 
         // }
         //Questão 10: {
@@ -135,7 +145,6 @@ public class QuestoesRespondidas {
         //Questão 11: {
         System.out.println("====Questão 11====");
         System.out.println("Variáveis implementadas na classe servico");
-        System.out.println("Explicação:");
         /*
        Usar um atributo private static com getter e setter é melhor para o encapsulamento, porque só a própria
        classe controla o valor e qualquer acesso por métodos específicos, garantindo mais segurança e
@@ -157,21 +166,6 @@ public class QuestoesRespondidas {
         System.out.println("====Questão 13 e 18====");
         System.out.println("====Questão 13====");
         System.out.println("Mostrar pasta comparator");
-        System.out.println("====Questão 18====");
-        System.out.println("=================Implementação do comparator por nome=====================");
-        List<Cliente> listaParaOrdenar = new ArrayList<>(gc.getClientes());
-        System.out.println("Antes da ordenação: ");
-        listaParaOrdenar.forEach(c -> System.out.println(" -> " + c.getNome()));
-        listaParaOrdenar.sort(new ClienteNomeComparator());
-        System.out.println("Depois da ordenação: ");
-        listaParaOrdenar.forEach(c -> System.out.println(" -> " + c.getNome()));
-
-        System.out.println("================Implementação do comparator por cpf==================");
-        System.out.println("Antes da ordenação: ");
-        listaParaOrdenar.forEach(c -> System.out.println(" -> " + c.getCpf()));
-        listaParaOrdenar.sort(new ClienteCpfComparator());
-        System.out.println("Depois da ordenação: ");
-        listaParaOrdenar.forEach(c -> System.out.println(" -> " + c.getCpf()));
 
         // }
         //Questão 14: {
@@ -192,7 +186,10 @@ public class QuestoesRespondidas {
         //}
         //
         //Explicar como isso está acontecendo.
-        //Qual relação do código acima com o foreach em java?//
+        //Qual relação do código acima com o foreach em java?
+
+
+
         System.out.println("====Questão 16====");
         System.out.println("tem q ver com os cara");
         // }
@@ -239,7 +236,6 @@ public class QuestoesRespondidas {
         clientesPraOrdenar.add(new Cliente("Elaine", "66644411100", "elaine@gmail.com", "Rua Itamarandiba", "987112233"));
 
 
-        System.out.println("====Questão 18====");
         System.out.println("=================Implementação do comparator por nome=====================");
         System.out.println("Antes da ordenação: ");
         clientesPraOrdenar.forEach(c -> System.out.println(" -> " + c.getNome()));
@@ -261,13 +257,13 @@ public class QuestoesRespondidas {
         System.out.println("====Questão 19====");
         Cliente clienteBuscaFind = clientesPraOrdenar.get(0);
         System.out.println("Nome: " + clienteBuscaFind.getNome());
-        Cliente resultadoFind = findCliente(listaParaOrdenar, clienteBuscaFind, new ClienteNomeComparator());
+        Cliente resultadoFind = findCliente(clientesPraOrdenar, clienteBuscaFind, new ClienteNomeComparator());
         System.out.println("Resultado do nosso find(): " + (resultadoFind != null ? resultadoFind.getNome() : "Não encontrado"));
 
 
-        Collections.sort(listaParaOrdenar, new ClienteCpfComparator());
-        int indice = Collections.binarySearch(listaParaOrdenar, clienteBuscaFind, new ClienteCpfComparator());
-        System.out.println("Resultado do binarySearch(): " + (indice >= 0 ? listaParaOrdenar.get(indice).getNome() + " encontrado no índice " + indice : "Não encontrado"));
+        Collections.sort(clientesPraOrdenar, new ClienteCpfComparator());
+        int indice = Collections.binarySearch(clientesPraOrdenar, clienteBuscaFind, new ClienteCpfComparator());
+        System.out.println("Resultado do binarySearch(): " + (indice >= 0 ? clientesPraOrdenar.get(indice).getNome() + " encontrado no índice " + indice : "Não encontrado"));
         System.out.println();
 
         //
@@ -289,6 +285,8 @@ public class QuestoesRespondidas {
         //
 
         // }
+
+
 
 
 

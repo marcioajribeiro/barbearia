@@ -5,6 +5,8 @@
 package ordemdeservico;
 
 
+import barbearia.Barbearia;
+import barbearia.QuestoesRespondidas;
 import entidades.Cliente;
 import entidades.Funcionario;
 import entidades.Produto;
@@ -50,8 +52,6 @@ public class OrdemDeServico {
     /**Valor total calculado da ordem de serviço (produtos + serviços).*/
     private double valorTotal;
 
-    /**Contador estático utilizado para rastrear quantas ordens de serviço foram criadas no sistema.(Questão 12)*/
-    private static int contadorOs = 0;
 
     /**
      * Constrói uma nova Ordem de Serviço com cliente, funcionário,
@@ -75,7 +75,7 @@ public class OrdemDeServico {
         this.dataHora = dataHora;
         this.statusOs = TipoStatusOs.ESTADO_AGUARDANDO;
         this.valorTotal = 0;
-        contadorOs++;
+        QuestoesRespondidas.registrarNovaOs();
     }
 
     /**
@@ -138,14 +138,6 @@ public class OrdemDeServico {
 
         extrato.append("===============================================\n");
         return extrato.toString();
-    }
-    /**
-     * Retorna o valor atual do contador de ordens de serviço criadas.
-     *
-     * @return quantidade total de ordens de serviço registradas
-     */
-    public static int getContadorOs() {
-        return contadorOs;
     }
 
     /**

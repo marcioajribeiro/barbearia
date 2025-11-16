@@ -16,7 +16,7 @@ public class GerenciadorAgendamentoSecundario extends GerenciadorGenerico {
     private final Queue<AgendamentoSecundario> filaDeEspera;
 
     /** Caminho do arquivo JSON utilizado para persistir a fila. */
-    private final String caminho = "Json/JsonFilaEspera.json";
+    private final String caminho = "Json/JsonFilaDeEspera.json";
 
     /**
      * Construtor: Carrega os agendamentos secundários armazenados no arquivo JSON

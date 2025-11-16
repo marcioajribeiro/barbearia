@@ -68,6 +68,13 @@ public class GerenciadorOs extends GerenciadorGenerico {
         calcularValorTotal(os);
     }
 
+    /**
+     * Cria e abre uma nova Ordem de Serviço (OS) para o cliente e funcionário informados.
+     *
+     * @param cliente     o cliente para o qual a ordem de serviço será aberta
+     * @param funcionario o funcionário responsável pela execução da ordem de serviço
+     * @return a nova  OrdemDeServico criada; ou null se cliente ou funcionário forem inválidos
+     */
     public OrdemDeServico abrirOs(Cliente cliente, Funcionario funcionario) {
         if(cliente == null || funcionario == null){
             return null;

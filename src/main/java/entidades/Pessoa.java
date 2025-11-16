@@ -138,12 +138,49 @@ public abstract class Pessoa {
      * @return o telefone formatado ou uma mensagem de erro
      */
     public String telefoneFormatado() {
-        if (telefone == null || telefone.length() != 11) {
-            return "Telefone Desconhecido. Formato esperado: (31 9 99999999)";
+        if (this.telefone == null) {
+            return "Telefone Desconhecido (NULO)";
         }
-        return "(" + telefone.substring(0, 2) + ") "
-                + telefone.substring(2, 7) + "-"
-                + telefone.substring(7);
+
+
+        String numeroLimpo = this.telefone.replaceAll("[()\\s-]", "");
+
+        int tamanho = numeroLimpo.length();
+
+
+        if (tamanho == 11) {
+            return String.format("(%s) %s-%s",
+                    numeroLimpo.substring(0, 2),
+                    numeroLimpo.substring(2, 7),
+                    numeroLimpo.substring(7));
+        }
+
+
+        else if (tamanho == 10) {
+            return String.format("(%s) %s-%s",
+                    numeroLimpo.substring(0, 2),
+                    numeroLimpo.substring(2, 6),
+                    numeroLimpo.substring(6));
+        }
+
+
+        else if (tamanho == 9) {
+            return String.format("%s-%s",
+                    numeroLimpo.substring(0, 5),
+                    numeroLimpo.substring(5));
+        }
+
+
+        else if (tamanho == 8) {
+            return String.format("%s-%s",
+                    numeroLimpo.substring(0, 4),
+                    numeroLimpo.substring(4));
+        }
+
+
+        else {
+            return "Telefone Inválido: " + numeroLimpo + " (Esperado 8, 9, 10 ou 11 dígitos)";
+        }
     }
 
 

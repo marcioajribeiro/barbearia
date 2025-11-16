@@ -50,7 +50,6 @@ public class GerenciadorFuncionarios extends GerenciadorGenerico {
     public void addFuncionario(Funcionario f) {
         f.setIdFuncionario(geradorIdFuncionario());
         funcionarios.add(f);
-        System.out.println("Funcionário salvo");
     }
 
     /**
