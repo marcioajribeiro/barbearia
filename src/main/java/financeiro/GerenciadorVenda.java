@@ -46,6 +46,8 @@ public class GerenciadorVenda extends GerenciadorGenerico {
         this.gp = gp;
     }
 
+
+
     /**
      * Registra uma venda de cancelamento com base em um agendamento cancelado.
      * <p>

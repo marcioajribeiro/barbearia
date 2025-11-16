@@ -1,13 +1,8 @@
 package ordemdeservico;
 
 import agendamento.Agendamento;
-import agendamento.GerenciadorAgendamento;
 import agendamento.StatusAgendamento;
-import controller.GerenciadorClientes;
-import controller.GerenciadorFuncionarios;
-import controller.GerenciadorServicos;
 import controller.GerenciadorGenerico;
-import controller.GerenciadorProdutos;
 import entidades.Cliente;
 import entidades.Funcionario;
 import entidades.Produto;
@@ -56,6 +51,9 @@ public class GerenciadorOs extends GerenciadorGenerico {
         os.getProduto().add(produto);
         calcularValorTotal(os);
     }
+
+
+
 
     /**
      * Adiciona um Serviço a uma OS existente e recalcula o valor total.
@@ -222,6 +220,8 @@ public class GerenciadorOs extends GerenciadorGenerico {
     public void atualizarLista() {
         super.salvarLista(caminho, listaOs);
     }
+
+
 
     /**
      * Remove uma Ordem de Serviço pelo seu ID.

@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 /**
  * Expressão Terminal: Busca agendamentos que ocorrem em uma data específica (dia, mês e ano).
+ * @author Márcio Antônio
+ * @author Rafael Martins
  */
 public class BuscaPorData implements ExpressaoBusca {
 

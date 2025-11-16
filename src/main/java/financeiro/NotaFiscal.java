@@ -41,43 +41,92 @@ public class NotaFiscal {
         this.formaPagamento = venda.getFormaPagamento();
     }
 
-
+    /**
+     * Obtém o identificador único da nota fiscal.
+     *
+     * @return o ID da nota fiscal
+     */
     public int getIdNotaFiscal() {
         return idNotaFiscal;
     }
 
+    /**
+     * Define o identificador único da nota fiscal.
+     *
+     * @param idNotaFiscal novo ID da nota fiscal
+     */
     public void setIdNotaFiscal(int idNotaFiscal) {
         this.idNotaFiscal = idNotaFiscal;
     }
 
+    /**
+     * Retorna o identificador da venda à qual esta nota fiscal está vinculada.
+     *
+     * @return ID da venda de referência
+     */
     public int getIdVendaReferencia() {
         return idVendaReferencia;
     }
 
+    /**
+     * Obtém o cliente associado à nota fiscal.
+     *
+     * @return cliente que realizou a compra/serviço
+     */
     public Cliente getCliente() {
         return cliente;
     }
 
+    /**
+     * Obtém o funcionário responsável pela venda ou emissão da nota fiscal.
+     *
+     * @return funcionário responsável
+     */
     public Funcionario getFuncionarioResponsavel() {
         return funcionarioResponsavel;
     }
 
+    /**
+     * Retorna a lista de serviços incluídos na nota fiscal.
+     *
+     * @return lista de serviços cobrados
+     */
     public List<Servico> getServicos() {
         return servicos;
     }
 
+    /**
+     * Retorna a lista de produtos incluídos na nota fiscal.
+     *
+     * @return lista de produtos adquiridos
+     */
     public List<Produto> getProdutos() {
         return produtos;
     }
 
+    /**
+     * Retorna o valor total cobrado na nota fiscal.
+     *
+     * @return valor total da nota
+     */
     public double getValorTotal() {
         return valorTotal;
     }
 
+    /**
+     * Obtém a data e hora de emissão da nota fiscal.
+     *
+     * @return data da emissão
+     */
     public LocalDateTime getDataEmissao() {
         return dataEmissao;
     }
 
+    /**
+     * Obtém a forma de pagamento utilizada na transação.
+     *
+     * @return forma de pagamento (ex: "Dinheiro", "Cartão", "Pix")
+     */
     public String getFormaPagamento() {
         return formaPagamento;
     }

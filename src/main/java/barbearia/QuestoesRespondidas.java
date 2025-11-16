@@ -100,7 +100,9 @@ public class QuestoesRespondidas {
         // }
         //Questão 10: {
         System.out.println("====Questão 10====");
-        System.out.println("Precisa fazer!");
+        String extrato = gos.getListaOs().get(0).gerarExtrato();
+        System.out.println("Extrato da primeira Ordem de Servico gerado e salvo" );
+        System.out.println(extrato);
 
         // }
         //Questão 11: {

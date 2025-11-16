@@ -12,6 +12,7 @@ import entidades.Servico;
 import financeiro.GerenciadorVenda;
 import interpreter.BuscaPorData;
 import interpreter.BuscaPorFuncionario;
+import interpreter.EBusca;
 import interpreter.ExpressaoBusca;
 
 import java.time.LocalDate;
@@ -122,6 +123,28 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
                 System.out.println(a);
             }
         }
+    }
+
+
+    /**
+     * Realiza uma busca composta usando o operador E (AND) por data e nome de barbeiro.
+     * @param dataString A data do agendamento a ser buscado (formato esperado: "dd/MM/yyyy").
+     * @param nomeBarbeiro O nome ou parte do nome do barbeiro.
+     * @return Uma lista de Agendamentos que ocorrem na data E com o barbeiro especificado.
+     */
+    public List<Agendamento> buscarAgendamentoInterpreter(String dataString, String nomeBarbeiro) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataDesejada = LocalDate.parse(dataString, dateFormatter);
+
+
+        ExpressaoBusca buscaData = new BuscaPorData(dataDesejada);
+        ExpressaoBusca buscaFuncionario = new BuscaPorFuncionario(nomeBarbeiro);
+
+
+        ExpressaoBusca buscaComposta = new EBusca(buscaData, buscaFuncionario);
+
+
+        return buscaComposta.interpretar(agendaBarbearia);
     }
 
     /**
