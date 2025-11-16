@@ -17,7 +17,9 @@ import entidades.Cliente;
 import entidades.Funcionario;
 import entidades.Produto;
 import entidades.Servico;
+import estacoesatendimento.EstacaoAtendimento;
 import estacoesatendimento.GerenciadorDeEstacoes;
+import estacoesatendimento.TipoDeEstacao;
 import financeiro.*;
 import ordemdeservico.GerenciadorOs;
 import ordemdeservico.OrdemDeServico;
@@ -75,6 +77,7 @@ public class QuestoesRespondidas {
         GerenciadorDespesas gd = new GerenciadorDespesas();
         GerenciadorOs gos = new GerenciadorOs();
 
+
         //Questão 01: {
         System.out.println("===== Questão 01 =====");
         System.out.println("Diagrama feito");
@@ -124,7 +127,22 @@ public class QuestoesRespondidas {
         System.out.println("====Questão 08====");
         Cliente clienteOs = new Cliente("Rafael", "15322402608", "rafinhamartins@gmail.com", "Rua Barao do Rio Branco", "38999279932");
         Funcionario funcionarioOs = new Funcionario("Rafael", "15322402608", "ADMIN", "admin123", "Rua Barao do Rio Branco", "38999279932");
-        gos.abrirOs(clienteOs, funcionarioOs);
+        List<Servico> servicosOS = Arrays.asList(
+                new Servico("Corte de Cabelo", 35.0, 30, GerenciadorDeEstacoes.buscarEstacao(1) ),
+                new Servico("Barba Terapia", 20.0, 20, GerenciadorDeEstacoes.buscarEstacao(1))
+        );
+        List<Produto> produtosOS = Arrays.asList(
+                new Produto("Pomada Modeladora", 25.0, 10, "Fornecedor X"),
+                new Produto("Óleo de Barba", 15.0, 5, "Fornecedor Y")
+        );
+        OrdemDeServico ordemS = new OrdemDeServico(
+                clienteOs,
+                funcionarioOs,
+                produtosOS,
+                servicosOS,
+                LocalDateTime.of(2025, 11, 20, 10, 0)
+        );
+        gos.addOrdemServico(ordemS);
         gos.imprimirOsDeCliente(clienteOs);
         // }
         //Questão 09: {
@@ -335,8 +353,8 @@ public class QuestoesRespondidas {
                     System.out.println("1. Cliente Cadastrado (ID: " + cliente.getIdCliente() + ").");
 
                     // Define serviços e produtos específicos para este cliente
-                    List<Servico> servicosOS = new ArrayList<>();
-                    List<Produto> produtosOS = new ArrayList<>();
+                    List<Servico> servicosOs = new ArrayList<>();
+                    List<Produto> produtosOs = new ArrayList<>();
 
                     if (i % 3 == 0) { // Cliente a cada 3 faz Corte + Barba + Gel
                         servicosOS.add(corte);

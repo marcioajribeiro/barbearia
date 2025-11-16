@@ -8,6 +8,7 @@ package estacoesatendimento;
  *Classe para representar as estações de atendimento da barbearia onde serão contidos, valores e metodos para o mesmo.
  *
  * @author MARCIO JUNIOR
+ * @author Rafael Martins
  */
 public class EstacaoAtendimento {
     /** Identificador único da estação de atendimento. */

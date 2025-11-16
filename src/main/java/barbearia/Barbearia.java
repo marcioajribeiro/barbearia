@@ -534,7 +534,7 @@ public class Barbearia {
                         GerenciadorDeEstacoes.listarEstacoes();
                         System.out.print("ID da Estação Padrão (1, 2 ou 3): ");
                         int idEstacao = Integer.parseInt(SC.nextLine());
-                        EstacaoAtendimento estacao = GerenciadorDeEstacoes.buscarEstação(idEstacao);
+                        EstacaoAtendimento estacao = GerenciadorDeEstacoes.buscarEstacao(idEstacao);
 
                         if (estacao != null) {
                             gs.addServico(new Servico(tipo, valor, duracao, estacao));

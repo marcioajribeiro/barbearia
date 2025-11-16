@@ -13,7 +13,7 @@ package estacoesatendimento;
 public class GerenciadorDeEstacoes {
 
     /** Conjunto fixo de estações de atendimento disponíveis na barbearia. */
-    private static final EstacaoAtendimento[] estacoes = new EstacaoAtendimento[3];
+    private static EstacaoAtendimento[] estacoes = new EstacaoAtendimento[3];
 
     /* Bloco estático responsável por inicializar as estações.*/
     static {
@@ -83,7 +83,7 @@ public class GerenciadorDeEstacoes {
      * @param id o identificador da estação procurada.
      * @return a estação encontrada, ou null se não existir uma estação com este ID.
      */
-    public static EstacaoAtendimento buscarEstação(int id) {
+    public static EstacaoAtendimento buscarEstacao(int id) {
         for (EstacaoAtendimento e : estacoes) {
             if (e.getId() == id) {
                 return e;
