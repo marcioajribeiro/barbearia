@@ -139,7 +139,7 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
      * @param nomeBarbeiro O nome ou parte do nome do barbeiro.
      * @return Uma lista de Agendamentos que ocorrem na data E com o barbeiro especificado.
      */
-    public List<Agendamento> buscarAgendamentoInterpreter(String dataString, String nomeBarbeiro) {
+    public List<Agendamento> buscarInterpreter(String dataString, String nomeBarbeiro) {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataDesejada = LocalDate.parse(dataString, dateFormatter);
 
