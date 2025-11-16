@@ -60,6 +60,57 @@ public class NotaFiscal {
     }
 
     /**
+     * Gera um comprovante detalhado da Nota Fiscal, incluindo todos os
+     * itens, valores unitários e totais.
+     *
+     * @return Uma String contendo a Nota Fiscal detalhada.
+     */
+    public String gerarComprovanteDetalhado() {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dataFormatada = fmt.format(dataEmissao);
+        StringBuilder nf = new StringBuilder();
+
+        nf.append("================ NOTA FISCAL DE SERVIÇOS E PRODUTOS ================\n");
+        nf.append(String.format("ID NF: %d | Ref. Venda: %d\n", idNotaFiscal, idVendaReferencia));
+        nf.append(String.format("Data Emissão: %s\n", dataFormatada));
+        nf.append("---------------- DADOS DA VENDA ----------------\n");
+        nf.append(String.format("Cliente: %s (CPF: %s)\n", cliente.getNome(), cliente.getCpf()));
+        nf.append(String.format("Funcionário: %s\n", funcionarioResponsavel.getNome()));
+        nf.append(String.format("Forma de Pagamento: %s\n", formaPagamento));
+        nf.append("---------------- ITENS COBRADOS ----------------\n");
+
+        if (servicos != null && !servicos.isEmpty()) {
+            nf.append("SERVIÇOS:\n");
+            for (Servico s : servicos) {
+                nf.append(String.format("- %s (Duração: %d min) - R$ %.2f\n",
+                        s.getTipoServico(), s.getDuracaoMin(), s.getValor()));
+            }
+            nf.append("\n");
+        }
+
+        if (produtos != null && !produtos.isEmpty()) {
+            nf.append("PRODUTOS:\n");
+            for (Produto p : produtos) {
+
+                nf.append(String.format("- %s (Fornecedor: %s) - R$ %.2f\n",
+                        p.getNome(), p.getFornecedor(), p.getPreco()));
+            }
+            nf.append("\n");
+        }
+
+        if ((servicos == null || servicos.isEmpty()) && (produtos == null || produtos.isEmpty())) {
+            nf.append("Nenhum item registrado nesta Nota Fiscal.\n\n");
+        }
+
+
+        nf.append("---------------- TOTAL ----------------\n");
+        nf.append(String.format("VALOR TOTAL: R$ %.2f\n", valorTotal));
+        nf.append("====================================================================\n");
+
+        return nf.toString();
+    }
+
+    /**
      * Retorna o identificador da venda à qual esta nota fiscal está vinculada.
      *
      * @return ID da venda de referência
@@ -137,15 +188,7 @@ public class NotaFiscal {
      */
     @Override
     public String toString() {
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        String dataFormatada = fmt.format(dataEmissao);
+            return gerarComprovanteDetalhado();
+        }
 
-        return "--- NOTA FISCAL ID: " + idNotaFiscal + " ---\n" +
-                "  Venda Ref: " + idVendaReferencia + "\n" +
-                "  Data Emissão: " + dataFormatada + "\n" +
-                "  Cliente: " + cliente.getNome() + "\n" +
-                "  Funcionário: " + funcionarioResponsavel.getNome() + "\n" +
-                "  Valor Total: R$ " + String.format("%.2f", valorTotal) + "\n" +
-                "  Forma Pgto: " + formaPagamento;
-    }
 }

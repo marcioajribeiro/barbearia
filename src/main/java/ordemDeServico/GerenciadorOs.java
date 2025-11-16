@@ -24,20 +24,23 @@ import java.util.stream.Collectors;
  */
 public class GerenciadorOs extends GerenciadorGenerico {
 
+    /**Lista que armazena todas as ordens de serviço registradas no sistema.*/
     private List<OrdemDeServico> listaOs;
+
+    /**Caminho do arquivo JSON utilizado para salvar e carregaros dados das ordens de serviço.*/
     private final String caminho = "Json/JsonOs.json";
 
-    /**
-     * Construtor que inicializa o gerenciador e suas dependências.
-     *
-     */
+    /**Construtor que inicializa o gerenciador e suas dependências.*/
     public GerenciadorOs() {
         this.listaOs = super.carregarListas(caminho, OrdemDeServico.class);
     }
 
 
-
-
+    /**
+     * Adiciona uma nova ordem de serviço à lista de ordens registradas.
+     *
+     * @param o a ordem de serviço que será adicionada à lista
+     */
     public void addOrdemServico(OrdemDeServico o) {
         this.listaOs.add(o);
     }

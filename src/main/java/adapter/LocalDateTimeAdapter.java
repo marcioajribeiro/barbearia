@@ -19,7 +19,7 @@ public class LocalDateTimeAdapter extends TypeAdapter<LocalDateTime> {
             DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 
     /**
-     * Serializa um objeto  LocalDateTime para JSON.
+     * Serializa um objeto LocalDateTime para JSON.
      *  @param out   escritor JSON onde o valor será gravado
      *  @param value objeto LocalDateTime a ser convertido; pode ser {@code null}
      *  @throws IOException caso ocorra erro na escrita do JSO

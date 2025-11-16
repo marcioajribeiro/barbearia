@@ -4,18 +4,14 @@
  */
 package barbearia;
 
-import agendamento.GerenciadorAgendamento;
 import controller.GerenciadorClientes;
-import controller.GerenciadorProdutos;
-import controller.GerenciadorServicos;
 import entidades.Cliente;
-import financeiro.GerenciadorVenda;
 
 /**
  *
  * @author MARCIO JUNIOR
  */
-public class testeComparator {
+public class ComparatorClienteAlfabeto {
     
      public static void main(String[] args) throws Exception  {
         GerenciadorClientes gc = new GerenciadorClientes();
@@ -66,7 +62,7 @@ Cliente c5 = new Cliente(
     gc.addCliente(c3);
     gc.addCliente(c4);
     gc.addCliente(c5);
-    
+
     gc.organizarPorOrdemAlfabetica();
 
         

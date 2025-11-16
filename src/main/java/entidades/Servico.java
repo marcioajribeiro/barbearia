@@ -14,6 +14,14 @@ import estacoesatendimento.EstacaoAtendimento;
  * @author Rafael Martins
  */
 public class Servico {
+    /**Atributo private static pedido na questão 11*/
+    private static int contadorPrivado = 0;
+
+
+
+    /**Atributo protected static pedido na questão 11*/
+    protected static int contadorProtected = 0;
+
     /** Identificador único do serviço no sistema. */
     private int idServico;
 
@@ -42,6 +50,8 @@ public class Servico {
         this.valor = valor;
         this.duracaoMin = duracaoMin;
         this.estacaoUsada = estacaoUsada;
+        contadorPrivado++;
+        contadorProtected++;
     }
 
     /**
@@ -51,6 +61,23 @@ public class Servico {
      */
     public int getIdServico() {
         return idServico;
+    }
+    /**
+     * Retorna valor de contador privado.
+     *
+     * @return contador privado.
+     */
+    public static int getContadorPrivado() {
+        return contadorPrivado;
+    }
+
+    /**
+     * Define o contador privado.
+     *
+     * @param contadorPrivado o novo ID do serviço
+     */
+    public static void setContadorPrivado(int contadorPrivado) {
+        Servico.contadorPrivado = contadorPrivado;
     }
 
     /**

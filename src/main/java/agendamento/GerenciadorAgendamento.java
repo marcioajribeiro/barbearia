@@ -124,7 +124,14 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
             }
         }
     }
-
+    /**
+     * Retorna a lista completa de agendamentos da barbearia.
+     *
+     * @return uma lista contendo todos os agendamentos da barbearia.
+     */
+    public List<Agendamento> getAgendaBarbearia() {
+        return agendaBarbearia;
+    }
 
     /**
      * Realiza uma busca composta usando o operador E (AND) por data e nome de barbeiro.
@@ -254,6 +261,13 @@ public class GerenciadorAgendamento extends GerenciadorGenerico {
      */
     public AgendamentoSecundario chamarProximoDaFila() {
         return gas.chamarProximoDaFila();
+    }
+
+    /**
+     * Salva o estado atual da fila de agendamentos.
+     */
+    public void salvarFila() {
+        gas.salvarFila();
     }
 
 

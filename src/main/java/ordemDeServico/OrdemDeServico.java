@@ -23,15 +23,35 @@ import java.util.List;
  */
 public class OrdemDeServico {
 
+    /**Identificador único da ordem de serviço.*/
     private int idOS;
+
+    /**Cliente associado a esta ordem de serviço*/
     private Cliente cliente;
+
+    /**Funcionário responsável pela execução da ordem de serviço.*/
     private Funcionario funcionario;
+
+    /**Lista de produtos utilizados nesta ordem de serviço.*/
     private List<Produto> produto;
+
+    /**Lista de serviços realizados nesta ordem de serviço.*/
     private List<Servico> servicos;
+
+    /**Data e hora em que a ordem de serviço foi criada.*/
     private LocalDateTime dataHora;
+
+    /**Observações adicionais relacionadas à ordem de serviço.*/
     private String observacoes;
+
+    /**Status atual da ordem de serviços*/
     private TipoStatusOs statusOs;
+
+    /**Valor total calculado da ordem de serviço (produtos + serviços).*/
     private double valorTotal;
+
+    /**Contador estático utilizado para rastrear quantas ordens de serviço foram criadas no sistema.(Questão 12)*/
+    private static int contadorOs = 0;
 
     /**
      * Constrói uma nova Ordem de Serviço com cliente, funcionário,
@@ -55,6 +75,7 @@ public class OrdemDeServico {
         this.dataHora = dataHora;
         this.statusOs = TipoStatusOs.ESTADO_AGUARDANDO;
         this.valorTotal = 0;
+        contadorOs++;
     }
 
     /**
@@ -117,6 +138,14 @@ public class OrdemDeServico {
 
         extrato.append("===============================================\n");
         return extrato.toString();
+    }
+    /**
+     * Retorna o valor atual do contador de ordens de serviço criadas.
+     *
+     * @return quantidade total de ordens de serviço registradas
+     */
+    public static int getContadorOs() {
+        return contadorOs;
     }
 
     /**
