@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 /**
  * Classe responsável por gerenciar o ciclo de vida das Ordens de Serviço (OS),
  * incluindo cálculo de valor, persistência, alteração de status e integração com Agendamentos.
- * * @author Márcio Antônio
+ * @author Márcio Antônio
  * @author Rafael Martins
  */
 public class GerenciadorOs extends GerenciadorGenerico {
@@ -42,7 +42,8 @@ public class GerenciadorOs extends GerenciadorGenerico {
      * @param o a ordem de serviço que será adicionada à lista
      */
     public void addOrdemServico(OrdemDeServico o) {
-        this.listaOs.add(o);
+        o.setIdOS(geradorIdOS());
+        listaOs.add(o);
     }
 
     /**
@@ -106,15 +107,10 @@ public class GerenciadorOs extends GerenciadorGenerico {
             System.out.println("O Agendamento ID " + agendamento.getId() + " está cancelado e não pode ser convertido em OS.");
         }
 
-        OrdemDeServico novaOs = new OrdemDeServico(
-                agendamento.getCliente(),
-                agendamento.getFuncionario(),
-                new ArrayList<>(),
-                agendamento.getServicos(),
+        OrdemDeServico novaOs = new OrdemDeServico(agendamento.getCliente(),agendamento.getFuncionario(),new ArrayList<>(),agendamento.getServicos(),
                 LocalDateTime.now()
-
         );
-        novaOs.setIdOS(geradorIdOS());
+    
         addOrdemServico(novaOs);
 
         System.out.println("Ordem de Serviço ID " + novaOs.getIdOS() + " criada com sucesso e Agendamento ID " + agendamento.getId() + " está em andamento.");
@@ -207,7 +203,7 @@ public class GerenciadorOs extends GerenciadorGenerico {
     /**
      * Lista Ordens de Serviço que estão com status PENDENTE ou EM_ANDAMENTO.
      */
-    public void listarOSemAberto() {
+    public void listarOSEmAberto() {
         List<OrdemDeServico> osEmAberto = listaOs.stream()
                 .filter(os -> os.getStatusOs() == TipoStatusOs.ESTADO_AGUARDANDO ||
                         os.getStatusOs() == TipoStatusOs.ESTADO_ANDAMENTO)

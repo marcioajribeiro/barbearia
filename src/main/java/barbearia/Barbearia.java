@@ -22,7 +22,7 @@ import interpreter.EBusca;
  */
 public class Barbearia {
 
-    // Gerenciadores
+
     private static GerenciadorFuncionarios gf;
     private static GerenciadorClientes gc;
     private static GerenciadorServicos gs;
@@ -36,7 +36,7 @@ public class Barbearia {
     private static GerenciadorPonto gPonto;
     private static Relatorio relatorio;
 
-    // Serviços de Sistema
+  
     private static LoginService loginService;
     private static VerificacaoLogin verificacaoLogin;
 
@@ -47,7 +47,7 @@ public class Barbearia {
     public static void main(String[] args) {
         System.out.println("Iniciando o sistema da Barbearia...");
 
-        // 1. Inicializa Gerenciadores
+       
         gf = new GerenciadorFuncionarios();
         gc = new GerenciadorClientes();
         gs = new GerenciadorServicos();
@@ -60,24 +60,24 @@ public class Barbearia {
         gd = new GerenciadorDespesas();
         gPonto = new GerenciadorPonto();
 
-        // Inicializa serviços
+       
         loginService = new LoginService(gf);
         verificacaoLogin = VerificacaoLogin.getInstance();
         relatorio = new Relatorio(gv, gd);
 
-        // 2. Processo de Login e Loop principal
+        
         inicializarGerenteAutomatico();
 
         boolean sair = false;
         while (!sair) {
             System.out.println("\nBem-vindo ao Login da Barbearia.");
             if (telaLogin()) {
-                // Se o login foi bem-sucedido, entra no menu principal
-                if (menuPrincipal()) { // Verifica se menuPrincipal sinalizou para sair do sistema
+                
+                if (menuPrincipal()) { 
                     sair = true;
                 }
             } else {
-                // Login falhou (após 3 tentativas) OU usuário digitou 0 para sair no CPF
+               
                 sair = true;
             }
         }
@@ -131,7 +131,7 @@ public class Barbearia {
             System.out.print("CPF: ");
             String cpf = SC.nextLine();
 
-            // Verifica se o usuário escolheu sair
+           
             if (cpf.equals("0")) {
                 return false;
             }
@@ -159,7 +159,7 @@ public class Barbearia {
      */
     private static boolean menuPrincipal() {
         int opcao;
-        // Loop continua enquanto o usuário estiver logado
+
         do {
             Funcionario f = verificacaoLogin.getUsuarioLogado();
             System.out.println("\n==============================================");
@@ -183,10 +183,10 @@ public class Barbearia {
                     case 4: menuPonto(); break;
                     case 5: menuFinanceiro(); break;
                     case 0:
-                        // Ação de logout imediata
+                   
                         verificacaoLogin.logout();
                         System.out.println("Logout realizado. Encerrando o sistema.");
-                        return true; // Sinaliza para o main loop sair
+                        return true; 
                     default:
                         System.out.println("Opção inválida. Tente novamente.");
                 }
@@ -200,8 +200,7 @@ public class Barbearia {
             }
         } while (verificacaoLogin.IsLogado());
 
-        // Se o usuário saiu do menu sem apertar 0 (ex: logout implícito, que não está no código)
-        // ou por algum outro motivo, retorna false para o loop principal continuar (voltar ao login)
+        
         return false;
     }
 
@@ -222,7 +221,7 @@ public class Barbearia {
                 switch (opcao) {
                     case 1: menuClientes(); break;
                     case 2:
-                        // Verificação de acesso para Gerenciamento de Funcionários
+                      
                         if (verificacaoLogin.getCargoUsuarioLogado().equals("GERENTE")) {
                             menuFuncionarios();
                         } else {
@@ -600,7 +599,7 @@ public class Barbearia {
             System.out.println("\n========= MENU AGENDAMENTOS =========");
             System.out.println("1. Listar Todos Agendamentos");
             System.out.println("2. Listar Agendamentos de Hoje");
-            System.out.println("3. Agendar Novo Serviço");
+            System.out.println("3. Fazer Agendamento");
             System.out.println("4. Buscar Agendamento por ID");
             System.out.println("5. Alterar Status para Confirmado");
             System.out.println("6. Cancelar Agendamento");
@@ -664,13 +663,13 @@ public class Barbearia {
         Cliente cliente = gc.buscarClientePorId(Integer.parseInt(SC.nextLine()));
         if (cliente == null) return;
 
-        // Seleção de Barbeiro
+      
         gf.listarFuncionarios();
         System.out.print("Digite o ID do Funcionário (Barbeiro): ");
         Funcionario barbeiro = gf.buscarFuncionarioId(Integer.parseInt(SC.nextLine()));
         if (barbeiro == null) return;
 
-        // Seleção de Serviços
+   
         List<Servico> servicosSelecionados = new ArrayList<>();
         int idServico;
         do {
@@ -693,7 +692,7 @@ public class Barbearia {
             return;
         }
 
-        // Seleção de Data/Hora
+       
         LocalDateTime dataHora = null;
         while (dataHora == null) {
             System.out.printf("Data e Hora (Formato %s, ex: 15/11/2025 10:30): ", DATE_TIME_FORMAT.toString());
@@ -809,7 +808,7 @@ public class Barbearia {
                 opcao = Integer.parseInt(SC.nextLine());
                 switch (opcao) {
                     case 1: gos.listarOS(); break;
-                    case 2: gos.listarOSemAberto(); break;
+                    case 2: gos.listarOSEmAberto(); break;
                     case 3: menuAbrirOSManual(); break;
                     case 4: menuCriarOSDeAgendamento(); break;
                     case 5:

@@ -1256,5 +1256,152 @@
     "observacoes": "Atendimento concluído. Cliente satisfeito com a Cartão",
     "statusOs": "ESTADO_CONCLUIDO",
     "valorTotal": 60.0
+  },
+  {
+    "idOS": 23,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [
+      {
+        "nome": "Pomada Modeladora",
+        "preco": 25.0,
+        "quantidadeEstoque": 10,
+        "idProduto": 0,
+        "Fornecedor": "Fornecedor X"
+      },
+      {
+        "nome": "Óleo de Barba",
+        "preco": 15.0,
+        "quantidadeEstoque": 5,
+        "idProduto": 0,
+        "Fornecedor": "Fornecedor Y"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 0,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      },
+      {
+        "idServico": 0,
+        "tipoServico": "Barba Terapia",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false,
+          "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+        }
+      }
+    ],
+    "dataHora": "2025-11-20T10:00",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 95.0
+  },
+  {
+    "idOS": 24,
+    "cliente": {
+      "idCliente": 0,
+      "email": "rafinhamartins@gmail.com",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "funcionario": {
+      "idFuncionario": 0,
+      "cargo": "ADMIN",
+      "senha": "admin123",
+      "nome": "Rafael",
+      "endereco": "Rua Barao do Rio Branco",
+      "telefone": "38999279932",
+      "cpf": "15322402608"
+    },
+    "produto": [],
+    "servicos": [],
+    "dataHora": "2025-11-20T00:37",
+    "statusOs": "ESTADO_AGUARDANDO",
+    "valorTotal": 0.0
+  },
+  {
+    "idOS": 25,
+    "cliente": {
+      "idCliente": 1,
+      "email": "a@test.com",
+      "nome": "Cliente A",
+      "endereco": "Rua 1",
+      "telefone": "99991111",
+      "cpf": "11111111111"
+    },
+    "funcionario": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "produto": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 95,
+        "idProduto": 1,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false
+        }
+      }
+    ],
+    "dataHora": "2025-11-20T00:37",
+    "observacoes": "Atendimento concluído. Cliente satisfeito.",
+    "statusOs": "ESTADO_CONCLUIDO",
+    "valorTotal": 60.0
   }
 ]

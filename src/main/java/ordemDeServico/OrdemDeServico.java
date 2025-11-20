@@ -74,22 +74,12 @@ public class OrdemDeServico {
         this.servicos = servicos;
         this.dataHora = dataHora;
         this.statusOs = TipoStatusOs.ESTADO_AGUARDANDO;
-        this.valorTotal = 0;
+        this.valorTotal = servicos.stream().mapToDouble(Servico::getValor).sum() + produto.stream().mapToDouble(Produto::getPreco).sum();;
         QuestoesRespondidas.registrarNovaOs();
     }
 
     /**
      * Gera um extrato detalhado da Ordem de Serviço formatado para impressão.
-     * O extrato inclui:
-     * <ul>
-     *     <li>Informações essenciais da OS (ID, status e data/hora)</li>
-     *     <li>Dados do cliente e funcionário</li>
-     *     <li>Serviços realizados com valores e duração</li>
-     *     <li>Produtos utilizados e seus preços</li>
-     *     <li>Valor total acumulado</li>
-     *     <li>Observações adicionais (se houver)</li>
-     * </ul>
-     *
      * @return Uma String contendo o extrato completo e formatado.
      */
     public String gerarExtrato() {

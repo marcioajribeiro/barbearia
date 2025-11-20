@@ -8,7 +8,7 @@
       "id": 1,
       "descricao": "Cadeira 1",
       "ocupado": false,
-      "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+      "tipoDaEstacao": "ATIVIDADES_CORRIQUEIRAS;"
     }
   },
   {
@@ -20,31 +20,7 @@
       "id": 1,
       "descricao": "Cadeira 1",
       "ocupado": false,
-      "tipoDaEstacao": "LAVAGEM_E_SECADOR"
+      "tipoDaEstacao": "ATIVIDADES_CORRIQUEIRAS;"
     }
   },
-  {
-    "idServico": 3,
-    "tipoServico": "Sobrancelha",
-    "valor": 15.0,
-    "duracaoMin": 10,
-    "estacaoUsada": {
-      "id": 1,
-      "descricao": "Cadeira 1",
-      "ocupado": false,
-      "tipoDaEstacao": "LAVAGEM_E_SECADOR"
-    }
-  },
-  {
-    "idServico": 4,
-    "tipoServico": "Corte + Barba",
-    "valor": 50.0,
-    "duracaoMin": 50,
-    "estacaoUsada": {
-      "id": 1,
-      "descricao": "Cadeira 1",
-      "ocupado": false,
-      "tipoDaEstacao": "LAVAGEM_E_SECADOR"
-    }
-  }
 ]

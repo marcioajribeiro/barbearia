@@ -1056,5 +1056,62 @@
     "valorTotal": 60.0,
     "dataEmissao": "2025-11-16T16:12",
     "formaPagamento": "Cartão"
+  },
+  {
+    "idNotaFiscal": 23,
+    "idVendaReferencia": 23,
+    "cliente": {
+      "idCliente": 1,
+      "email": "a@test.com",
+      "nome": "Cliente A",
+      "endereco": "Rua 1",
+      "telefone": "99991111",
+      "cpf": "11111111111"
+    },
+    "funcionarioResponsavel": {
+      "idFuncionario": 1,
+      "cargo": "GERENTE",
+      "senha": "admin123",
+      "nome": "GERENTE MASTER",
+      "endereco": "Rua Gerente",
+      "telefone": "99999999999",
+      "cpf": "00000000000"
+    },
+    "servicos": [
+      {
+        "idServico": 1,
+        "tipoServico": "Corte de Cabelo",
+        "valor": 35.0,
+        "duracaoMin": 30,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false
+        }
+      },
+      {
+        "idServico": 2,
+        "tipoServico": "Barba",
+        "valor": 20.0,
+        "duracaoMin": 20,
+        "estacaoUsada": {
+          "id": 1,
+          "descricao": "Cadeira 1",
+          "ocupado": false
+        }
+      }
+    ],
+    "produtos": [
+      {
+        "nome": "Gel Fixador",
+        "preco": 5.0,
+        "quantidadeEstoque": 95,
+        "idProduto": 1,
+        "Fornecedor": "Fornecedor Teste"
+      }
+    ],
+    "valorTotal": 60.0,
+    "dataEmissao": "2025-11-20T00:37",
+    "formaPagamento": "Cartão"
   }
 ]

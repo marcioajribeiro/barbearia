@@ -74,7 +74,7 @@ public class GerenciadorVenda extends GerenciadorGenerico {
 
         venda.setValorTotal(a.getValor());
         venda.setCancelamento(true);
-        vendas.add(venda);
+        
     }
 
 

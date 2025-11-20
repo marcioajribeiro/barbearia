@@ -73,9 +73,9 @@ public class GerenciadorServicos extends GerenciadorGenerico {
      */
     public void listarServicos() {
         if (servicos.isEmpty()) {
-            System.out.println("Não há produto cadastrado");
+            System.out.println("Não há serviços cadastrado");
         } else {
-            System.out.println("-----Lista de Produtos-----");
+            System.out.println("-----Lista de Serviços-----");
             for (Servico p : servicos) {
                 System.out.println(p);
             }

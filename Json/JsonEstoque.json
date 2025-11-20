@@ -1,30 +1,10 @@
 [
   {
     "nome": "Gel Fixador",
-    "preco": 5.0,
-    "quantidadeEstoque": 96,
+    "preco": 35.0,
+    "quantidadeEstoque": 50,
     "idProduto": 1,
     "Fornecedor": "Fornecedor Teste"
-  },
-  {
-    "nome": "Gel Fixador",
-    "preco": 5.0,
-    "quantidadeEstoque": 96,
-    "idProduto": 2,
-    "Fornecedor": "Fornecedor Teste"
-  },
-  {
-    "nome": "Gel Fixador",
-    "preco": 5.0,
-    "quantidadeEstoque": 99,
-    "idProduto": 3,
-    "Fornecedor": "Fornecedor Teste"
-  },
-  {
-    "nome": "Gel Fixador",
-    "preco": 5.0,
-    "quantidadeEstoque": 99,
-    "idProduto": 4,
-    "Fornecedor": "Fornecedor Teste"
   }
+
 ]

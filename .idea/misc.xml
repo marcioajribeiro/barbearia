@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../../javadoc" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../../../Área de Trabalho/javadoc-POO" />
   </component>
   <component name="KubernetesApiProvider"><![CDATA[{}]]></component>
   <component name="MavenProjectsManager">
